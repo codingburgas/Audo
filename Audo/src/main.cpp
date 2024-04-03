@@ -1,8 +1,18 @@
-﻿#include "raylib.h"
+﻿#include <iostream>
+#include "PerlinNoise.hpp"
+#include "world.hpp"
 
-int main()
-{
-    InitWindow(1280, 720, "Fortnite");
+#define HEIGHT 1024
+#define WIDTH 1024
 
-    while (true);
+int main() {
+
+	std::vector<World::TileType> v;
+	World::GenerateWorld(v);
+	int counter = 0;
+	for (auto c : v) {
+		if (c == World::TileType::WATER)
+			counter++;
+	}
+	std::cout << counter;
 }

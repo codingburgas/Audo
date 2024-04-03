@@ -20,7 +20,7 @@ project "Audo"
 
     files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/src/**.h" }
 
-    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./vendor/perlinNoise" }
+    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./vendor/perlinNoise", "./vendor/rng"  }
 
     libdirs { "./vendor/raylib/lib" }
 
