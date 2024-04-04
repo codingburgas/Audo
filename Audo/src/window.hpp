@@ -5,7 +5,7 @@
 namespace Window {
 
 	int monitor = GetCurrentMonitor();
-	int height = GetMonitorHeight(monitor);
-	int width = GetMonitorWidth(monitor);
+	int height = 720;
+	int width = 1280;
 
 }

@@ -20,7 +20,7 @@ def choose_platform():
         print(f"{option}: {i}")
         option += 1
 
-    print("Enter number:", end=" ")
+    print("Enter number:", end=" \u001b[0m")
 
     try:
         option = input()
