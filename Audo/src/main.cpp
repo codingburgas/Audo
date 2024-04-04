@@ -72,6 +72,9 @@ int main() {
                 if (v[i][j] == World::TileType::WATER) {
                     DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
                 }
+                else if (v[i][j] == World::TileType::DEEP_WATER) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, { 0, 100, 200, 255 });
+                }
                 else if (v[i][j] == World::TileType::GROUND) {
                     DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, DARKGREEN);
                 }
@@ -89,6 +92,12 @@ int main() {
                 }
                 else if (v[i][j] == World::TileType::COPPER) {
                     DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 184, 115, 51, 255 });
+                }
+                else if (v[i][j] == World::TileType::DARK_STONE) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 64, 64, 64, 255 });
+                }
+                else if (v[i][j] == World::TileType::SNOW) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 255, 255, 255, 255 });
                 }
             }
         }

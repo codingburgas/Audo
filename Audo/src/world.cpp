@@ -21,8 +21,10 @@ void World::GenerateWorld(std::vector<std::vector<World::TileType>>& map) {
 		for (std::int32_t x = 0; x < MAP_WIDTH; ++x) {
 			noise = perlin.octave2D_01((x * fx), (y * fy), octaves);
 
-			if (noise >= 0.71)
+			if (noise >= 0.71 && noise < 0.82)
 				v.push_back(TileType::WATER);
+			else if (noise >= 0.82)
+				v.push_back(TileType::DEEP_WATER);
 			else if (noise < 0.71)
 				v.push_back(TileType::GROUND);
 		}
@@ -39,10 +41,14 @@ void World::GenerateWorld(std::vector<std::vector<World::TileType>>& map) {
 	for (std::int32_t y = 0; y < MAP_HEIGHT; ++y) {
 		for (std::int32_t x = 0; x < MAP_WIDTH; ++x) {
 			noise = perlin.normalizedOctave2D((x * fx), (y * fy), octaves);
-			if (noise >= -0.5 && noise < -0.30 && map[y][x] == TileType::GROUND)
+			if (noise < -0.30 && map[y][x] == TileType::GROUND)
 				map[y][x] = TileType::IRON;
-			else if (noise < 0.5 && noise >= 0.24 && map[y][x] == TileType::GROUND)
+			else if (noise < 0.36 && noise >= 0.22 && map[y][x] == TileType::GROUND)
 				map[y][x] = TileType::STONE;
+			else if (noise >= 0.36 && noise < 0.45 && map[y][x] == TileType::GROUND)
+				map[y][x] = TileType::DARK_STONE;
+			else if (noise >= 0.45 && map[y][x] == TileType::GROUND)
+				map[y][x] = TileType::SNOW;
 		}
 	}
 

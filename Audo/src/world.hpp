@@ -15,6 +15,7 @@ namespace World {
 
 	enum class TileType {
 		WATER,
+		DEEP_WATER,
 		GROUND,
 		LITHIUM,
 		GOLD,
@@ -27,7 +28,9 @@ namespace World {
 		PLATINUM,
 		COPPER,
 		IRON,
-		STONE
+		STONE,
+		DARK_STONE,
+		SNOW
 	};
 
 	static GRand gen = GRand();
