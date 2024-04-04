@@ -18,9 +18,9 @@ project "Audo"
     targetdir ("./bin/".. outputdir.. "/%{prj.name}")
     objdir ("./bin-int/".. outputdir.. "/%{prj.name}") 
 
-    files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/src/**.h" }
+    files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/src/**.h", "./%{prj.name}/src/**.hpp", "./%{prj.name}/src/**.cppm" }
 
-    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./vendor/perlinNoise", "./vendor/rng"  }
+    includedirs { "./vendor/raylib/include", "./%{prj.name}/src", "./vendor/perlinNoise", "./vendor/rng"}
 
     libdirs { "./vendor/raylib/lib" }
 

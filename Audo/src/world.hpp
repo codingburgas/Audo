@@ -1,18 +1,17 @@
 #pragma once
-module;
+
 #include "grand.h"
 #include "PerlinNoise.hpp"
 #include <string>
 #include <utility>
 #include <vector>
 
-export module world;
 
 #define MAP_HEIGHT 1024
 #define MAP_WIDTH 1024
 
 
-export namespace World {
+namespace World {
 
 	enum class TileType {
 		WATER,
@@ -28,7 +27,7 @@ export namespace World {
 		PLATINUM
 	};
 
-	GRand gen;
+	static GRand gen = GRand();
 
 	void GenerateWorld(std::vector<TileType>& map);
 }

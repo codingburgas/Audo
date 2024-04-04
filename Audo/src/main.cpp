@@ -1,9 +1,5 @@
 ﻿#include <iostream>
-#include "PerlinNoise.hpp"
 #include "world.hpp"
-
-#define HEIGHT 1024
-#define WIDTH 1024
 
 int main() {
 

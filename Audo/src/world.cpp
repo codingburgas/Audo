@@ -1,13 +1,13 @@
-#pragma once
 #include "world.hpp"
+
 void World::GenerateWorld(std::vector<TileType>& map) {
 
-	siv::PerlinNoise::seed_type seed = gen.i(999999);
+	siv::PerlinNoise::seed_type seed = World::gen.i(999999);
 
 
 	int32_t octaves = (seed / 10000) % 100;
 
-	double frequency = gen.d(10.0);
+	double frequency = World::gen.d(10.0);
 
 	frequency = std::clamp(frequency, 8.0, 8.0);
 
@@ -24,7 +24,7 @@ void World::GenerateWorld(std::vector<TileType>& map) {
 			if (noise <= 0.2)
 				map.push_back(TileType::WATER);
 			else {
-				int ore = gen.i(8) + 2;
+				int ore = World::gen.i(8) + 2;
 				map.push_back(static_cast<TileType>(ore));
 			}
 
