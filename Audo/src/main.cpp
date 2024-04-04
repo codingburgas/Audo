@@ -5,12 +5,17 @@
 #include "rlgl.h"
 #include "raymath.h"
 #include <print>
+
+#undef GOLD
+#define GOLD_COLOR { 255, 203, 0, 255 }
+#define TILE_SIZE 24
+
 int main() {
 
     InitWindow(Window::width, Window::height, "fortnite");
 
     Camera2D camera = { 0 };
-    camera.zoom = 1.0f;
+    camera.zoom = 0.25f;
 
     int counter = 0;
 
@@ -58,17 +63,32 @@ int main() {
         Vector2 startPosition = GetScreenToWorld2D({ 0,0 }, camera);
         Vector2 endPosition = GetScreenToWorld2D({ (float)GetScreenWidth(), (float)GetScreenHeight() }, camera);
 
-        startPosition = Vector2Clamp(startPosition, { 0,0 }, { MAP_WIDTH * 8, MAP_HEIGHT * 8 });
-        endPosition = Vector2Clamp(endPosition, { 0,0 }, { MAP_WIDTH * 8, MAP_HEIGHT * 8 });
+        startPosition = Vector2Clamp(startPosition, { 0,0 }, { MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE });
+        endPosition = Vector2Clamp(endPosition, { 0,0 }, { MAP_WIDTH * TILE_SIZE, MAP_HEIGHT * TILE_SIZE });
 
-        for (size_t i = startPosition.y / 8; i < endPosition.y / 8; ++i) {
-            for (size_t j = startPosition.x / 8; j < endPosition.x / 8; ++j) {
+        for (size_t i = startPosition.y / TILE_SIZE; i < endPosition.y / TILE_SIZE; ++i) {
+            for (size_t j = startPosition.x / TILE_SIZE; j < endPosition.x / TILE_SIZE; ++j) {
                 counter++;
                 if (v[i][j] == World::TileType::WATER) {
-                    DrawRectangle(j * 8, i * 8, 8, 8, BLUE);
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
                 }
-                else {
-                    DrawRectangle(j * 8, i * 8, 8, 8, DARKGREEN);
+                else if (v[i][j] == World::TileType::GROUND) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, DARKGREEN);
+                }
+                else if (v[i][j] == World::TileType::GOLD) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, GOLD_COLOR);
+                }
+                else if (v[i][j] == World::TileType::LITHIUM) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 143, 110, 145, 255 });
+                }
+                else if (v[i][j] == World::TileType::IRON) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 189, 141, 91, 255 });
+                }
+                else if (v[i][j] == World::TileType::STONE) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 128, 128, 128, 255 });
+                }
+                else if (v[i][j] == World::TileType::COPPER) {
+                    DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 184, 115, 51, 255 });
                 }
             }
         }
@@ -77,8 +97,8 @@ int main() {
 
         DrawText((std::to_string(1 / GetFrameTime()) + " fps").data(), 10, 10, 20, WHITE);
         DrawText(std::to_string(counter).data(), 10, 30, 20, WHITE);
-        DrawText((std::to_string(startPosition.x / 8) + ", " + std::to_string(startPosition.y / 8)).data(), 10, 50, 20, WHITE);
-        DrawText((std::to_string(endPosition.x / 8) + ", " + std::to_string(endPosition.y / 8)).data(), 10, 70, 20, WHITE);
+        DrawText((std::to_string(startPosition.x / TILE_SIZE) + ", " + std::to_string(startPosition.y / TILE_SIZE)).data(), 10, 50, 20, WHITE);
+        DrawText((std::to_string(endPosition.x / TILE_SIZE) + ", " + std::to_string(endPosition.y / TILE_SIZE)).data(), 10, 70, 20, WHITE);
 
 
         EndDrawing();

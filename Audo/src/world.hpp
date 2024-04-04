@@ -24,7 +24,10 @@ namespace World {
 		CADMIUM,
 		PALADIUM,
 		URANIUM,
-		PLATINUM
+		PLATINUM,
+		COPPER,
+		IRON,
+		STONE
 	};
 
 	static GRand gen = GRand();
