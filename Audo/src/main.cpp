@@ -4,7 +4,7 @@
 #include "window.hpp"
 #include "rlgl.h"
 #include "raymath.h"
-#include <print>
+#include "utils.hpp"
 
 #undef GOLD
 #define GOLD_COLOR { 255, 203, 0, 255 }
@@ -31,25 +31,30 @@ int main() {
             delta = Vector2Scale(delta, -1.0f / camera.zoom);
 
             camera.target = Vector2Add(camera.target, delta);
+
+            if (camera.target.x - (Window::width / 2) * camera.zoom < 0) camera.target.x = (Window::width / 2) * camera.zoom;
+            if (camera.target.x - (Window::width / 2) * camera.zoom > TILE_SIZE * 1024) camera.target.x = (TILE_SIZE * 1024) - camera.target.x - (Window::width / 2) * camera.zoom;
         }
+        const float zoomIncrement = 0.01f;
 
         float wheel = GetMouseWheelMove();
         if (wheel != 0) {
-            // Get the world point that is under the mouse
-            Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
 
-            // Set the offset to where the mouse is
-            camera.offset = GetMousePosition();
+            if (!((camera.zoom < 0.1 && wheel < 0) || (camera.zoom > 0.5 && wheel > 0)))
+            {
+                // Get the world point that is under the mouse
+                Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
 
-            // Set the target to match, so that the camera maps the world space point 
-            // under the cursor to the screen space point under the cursor at any zoom
-            camera.target = mouseWorldPos;
+                // Set the offset to where the mouse is
+                if (wheel > 0)
+                    camera.target = Vector2Add(camera.target, utils::abs(camera.target - mouseWorldPos) / (camera.zoom * 100));
+                else
+                    camera.target = Vector2Subtract(camera.target, utils::abs(camera.target - mouseWorldPos) / ((camera.zoom - zoomIncrement) * 100));
+                
+                // Zoom increment
+                camera.zoom += (wheel * zoomIncrement);
 
-            // Zoom increment
-            const float zoomIncrement = 0.01f;
-
-            camera.zoom += (wheel * zoomIncrement);
-            if (camera.zoom < zoomIncrement) camera.zoom = zoomIncrement;
+            }
         }
 
 
