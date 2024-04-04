@@ -1,6 +1,7 @@
 #include "world.hpp"
+#include "raylib.h"
 
-void World::GenerateWorld(std::vector<TileType>& map) {
+void World::GenerateWorld(std::vector<std::vector<World::TileType>>& map) {
 
 	siv::PerlinNoise::seed_type seed = World::gen.i(999999);
 
@@ -19,16 +20,15 @@ void World::GenerateWorld(std::vector<TileType>& map) {
 	const double fy = (frequency / MAP_HEIGHT);
 	double noise;
 	for (std::int32_t y = 0; y < MAP_HEIGHT; ++y) {
+		std::vector<World::TileType> v;
 		for (std::int32_t x = 0; x < MAP_WIDTH; ++x) {
 			noise = perlin.octave2D_01((x * fx), (y * fy), octaves);
-			if (noise <= 0.2)
-				map.push_back(TileType::WATER);
-			else {
-				int ore = World::gen.i(8) + 2;
-				map.push_back(static_cast<TileType>(ore));
-			}
-
+			if (noise >= 0.3)
+				v.push_back(TileType::GROUND);
+			else
+				v.push_back(TileType::WATER);
 		}
+		map.push_back(v);
 	}
 
 }

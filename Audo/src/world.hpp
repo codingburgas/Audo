@@ -29,5 +29,5 @@ namespace World {
 
 	static GRand gen = GRand();
 
-	void GenerateWorld(std::vector<TileType>& map);
+	void GenerateWorld(std::vector<std::vector<World::TileType>>& map);
 }
