@@ -1,6 +1,6 @@
-#include "world.hpp"
+#include "../include/world.hpp"
 
-void World::GenerateWorld(std::vector<std::vector<World::TileType>>& map) {
+void Audo::World::GenerateWorld(std::vector<std::vector<World::TileType>>& map) {
 
 	siv::PerlinNoise::seed_type seed = World::gen.i(999999);
 
