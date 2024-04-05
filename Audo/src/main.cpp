@@ -5,13 +5,13 @@
 #include "rlgl.h"
 #include "raymath.h"
 #include "utils.hpp"
+#include <print>
 
 #undef GOLD
 #define GOLD_COLOR { 255, 203, 0, 255 }
 #define TILE_SIZE 24
 
 int main() {
-
     InitWindow(Window::width, Window::height, "fortnite");
 
     Camera2D camera = { 0 };
@@ -32,29 +32,26 @@ int main() {
 
             camera.target = Vector2Add(camera.target, delta);
 
-            if (camera.target.x - (Window::width / 2) * camera.zoom < 0) camera.target.x = (Window::width / 2) * camera.zoom;
-            if (camera.target.x - (Window::width / 2) * camera.zoom > TILE_SIZE * 1024) camera.target.x = (TILE_SIZE * 1024) - camera.target.x - (Window::width / 2) * camera.zoom;
+            //if (camera.target.x - (Window::width / 2) * camera.zoom < 0) camera.target.x = (Window::width / 2) * camera.zoom;
+            //if (camera.target.x - (Window::width / 2) * camera.zoom > TILE_SIZE * 1024) camera.target.x = (TILE_SIZE * 1024) - camera.target.x - (Window::width / 2) * camera.zoom;
         }
-        const float zoomIncrement = 0.01f;
+        const float zoomIncrement = 0.1;
 
         float wheel = GetMouseWheelMove();
+
+        // zoom in/out towards mouse position
         if (wheel != 0) {
+            Vector2 mouse = GetMousePosition();
+			Vector2 before = GetScreenToWorld2D(mouse, camera);
 
-            if (!((camera.zoom < 0.1 && wheel < 0) || (camera.zoom > 0.5 && wheel > 0)))
-            {
-                // Get the world point that is under the mouse
-                Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
+			camera.zoom += wheel * zoomIncrement;
 
-                // Set the offset to where the mouse is
-                if (wheel > 0)
-                    camera.target = Vector2Add(camera.target, utils::abs(camera.target - mouseWorldPos) / (camera.zoom * 100));
-                else
-                    camera.target = Vector2Subtract(camera.target, utils::abs(camera.target - mouseWorldPos) / ((camera.zoom - zoomIncrement) * 100));
-                
-                // Zoom increment
-                camera.zoom += (wheel * zoomIncrement);
+            if (camera.zoom < 0.25) camera.zoom = 0.25;
+            else if (camera.zoom > 0.75) camera.zoom = 0.75;
 
-            }
+			Vector2 after = GetScreenToWorld2D(mouse, camera);
+
+			camera.target = Vector2Subtract(camera.target, Vector2Subtract(after, before));
         }
 
 
