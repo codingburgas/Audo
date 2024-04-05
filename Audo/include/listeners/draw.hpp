@@ -51,7 +51,8 @@ void draw(Audo::Game* instance) {
 
     EndMode2D();
 
-    DrawText((std::to_string(1 / GetFrameTime()) + " fps").data(), 10, 10, 20, WHITE);
+    DrawText((std::to_string(1 / GetFrameTime()) + " fps").data(), 10, 30, 20, WHITE);
+    DrawText((std::to_string(instance->camera.target.y)).data(), 10, 50, 20, WHITE);
 
     EndDrawing();
 }

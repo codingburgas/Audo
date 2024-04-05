@@ -23,6 +23,10 @@ void update(Audo::Game* instance) {
          7165.808594f, 5383.988770f
         };
 
+        std::vector<float> cameraBoundsY = {
+        22011.033203f, 21189.292969f, 19582.746094f, 15041.219727f
+        };
+
         //iterate over the vector
         for (uint8_t i = 0; i < cameraBounds.size(); i++) {
 
@@ -30,20 +34,32 @@ void update(Audo::Game* instance) {
             float zoomUpperBound = 0.36f - i * 0.01f + 0.001f;
 
             if (instance->camera.zoom > zoomLowerBound && instance->camera.zoom < zoomUpperBound) {
-
                 if (instance->camera.target.x > cameraBounds[i]) {
                     instance->camera.target.x = cameraBounds[i];
                     break;
                 }
-
-                if (instance->camera.target.y > cameraBounds[i]) {
-                    instance->camera.target.y = cameraBounds[i];
-                    break;
-                }
-
             }
         }
+
+        for (uint8_t i = 0; i < cameraBoundsY.size(); i++) {
+
+            float zoomLowerBound = 0.41f - i * 0.1f - 0.001f;
+            float zoomUpperBound = 0.41f - i * 0.1f + 0.001f;
+            std::cout << "Camera Bounds: " << std::endl;
+            std::cout << zoomLowerBound << " " << zoomUpperBound << std::endl;
+
+            if (instance->camera.zoom > zoomLowerBound && instance->camera.zoom < zoomUpperBound) {
+                if (instance->camera.target.y > cameraBoundsY[i]) {
+                    instance->camera.target.y = cameraBoundsY[i];
+                    break;
+                }
+            }
+        }
+
+
     }
+
+
     const float zoomIncrement = 0.1;
 
     float wheel = GetMouseWheelMove();
@@ -55,8 +71,8 @@ void update(Audo::Game* instance) {
 
         instance->camera.zoom += wheel * zoomIncrement;
 
-        if (instance->camera.zoom < 0.12) instance->camera.zoom = 0.12;
-        else if (instance->camera.zoom > 0.75) instance->camera.zoom = 0.75;
+        if (instance->camera.zoom < 0.11) instance->camera.zoom = 0.11;
+        else if (instance->camera.zoom > 0.41) instance->camera.zoom = 0.41;
 
         Vector2 after = GetScreenToWorld2D(mouse, instance->camera);
 
