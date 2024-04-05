@@ -35,7 +35,7 @@ int main() {
             if (camera.target.x - (Window::width / 2) * camera.zoom < 0) camera.target.x = (Window::width / 2) * camera.zoom;
             if (camera.target.y - (Window::height / 2) * camera.zoom < 0) camera.target.y = (Window::height / 2) * camera.zoom;
 
-            std::vector<float> targetValues = {
+            std::vector<float> cameraBounds = {
              19253.25f, 19104.75f, 18938.273438f, 18765.167969f, 18591.777344f,
              18396.193359f, 18189.298828f, 17976.751853f, 17764.203878f, 17469.074219f,
              17234.947266f, 16931.408203f, 16607.429688f, 16250.011719f, 15873.304688f,
@@ -46,16 +46,16 @@ int main() {
 
 
 
-            for (unsigned int i = 0; i < targetValues.size(); i++) {
+            for (unsigned int i = 0; i < cameraBounds.size(); i++) {
                 float zoomLowerBound = 0.36f - i * 0.01f - 0.001f;
                 float zoomUpperBound = 0.36f - i * 0.01f + 0.001f;
-                if (camera.zoom > zoomLowerBound && camera.zoom < zoomUpperBound && camera.target.x > targetValues[i]) {
-                    if (camera.target.x > targetValues[i]) {
-                        camera.target.x = targetValues[i];
+                if (camera.zoom > zoomLowerBound && camera.zoom < zoomUpperBound && camera.target.x > cameraBounds[i]) {
+                    if (camera.target.x > cameraBounds[i]) {
+                        camera.target.x = cameraBounds[i];
                         break;
                     }
-                    if (camera.target.y > targetValues[i]) {
-                        camera.target.y = targetValues[i];
+                    if (camera.target.y > cameraBounds[i]) {
+                        camera.target.y = cameraBounds[i];
                         break;
                     }
                 }
