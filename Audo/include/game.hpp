@@ -8,6 +8,7 @@
 #include "utils.hpp"
 #include <print>
 #include "event.hpp"
+#include <expected>
 
 #undef GOLD
 #define GOLD_COLOR { 255, 203, 0, 255 }
@@ -19,22 +20,26 @@
 	namespace Audo {
 		class Game {
 		private:
+
 			Game();
 
 			static Game* instance_;
 			static std::mutex mutex_;
 			static bool running_;
 
+
 		public:
+
 			Game(Game& other) = delete;
 
 			void operator=(const Game&) = delete;
 
-			static Game* GetInstance();
+			[[nodiscard]]
+			static Game* GetInstance() noexcept;
 
-			void Run();
+			void Run() noexcept;
 
-			void Init();
+			void Init() noexcept;
 
 			void Update();
 
@@ -42,12 +47,21 @@
 
 			void Draw();
 
+			void SetBounds() noexcept;
+
+			void GetCurrentClicked(Vector2& mouse);
+
+
 			Camera2D camera;
 			double deltaTime;
 			std::vector<std::vector<Audo::World::TileType>> map;
 			int monitor;
 			int height;
 			int width;
+			World::TileType currentSelected;
+
+			std::vector<float> cameraBounds;
+			std::vector<float> cameraBoundsY;
 
 			Event<void, Game*> updateEvent;
 			Event<void, Game*> drawEvent;

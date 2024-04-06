@@ -33,6 +33,7 @@ namespace Audo {
 			SNOW
 		};
 
+
 		static GRand gen = GRand();
 
 		void GenerateWorld(std::vector<std::vector<World::TileType>>& map);
