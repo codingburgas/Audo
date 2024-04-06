@@ -5,7 +5,7 @@ Audo::Game::Game() {
 }
 
 Audo::Game* Audo::Game::GetInstance() noexcept {
-	std::lock_guard<std::mutex> lock(mutex_);
+	std::lock_guard<std::mutex> lock(mutex);
 	if (instance_ == nullptr) {
 		instance_ = new Game();
 	}
@@ -40,7 +40,7 @@ void Audo::Game::Init() noexcept {
 }
 
 void Audo::Game::Run() noexcept {
-	std::unique_lock<std::mutex> lock(mutex_);
+	std::unique_lock<std::mutex> lock(mutex);
 	if (this->running_) {
 		return;
 	}
@@ -52,13 +52,36 @@ void Audo::Game::Run() noexcept {
 
 	InitWindow(this->width, this->height, "fortnite");
 
-	while (!WindowShouldClose()) {
-		this->updateEvent.Invoke(instance_);
+	std::jthread updateThread([this](std::stop_token sToken) {
+		auto t1 = std::chrono::high_resolution_clock::now();
+		auto t2 = std::chrono::high_resolution_clock::now();
+		float deltaTime = 0.0f;
 
-		this->drawEvent.Invoke(instance_);
+		while (!sToken.stop_requested()) {
+			t2 = std::chrono::high_resolution_clock::now();
+			std::chrono::duration<float> time = t2 - t1;
+
+			// refresh rate of 100hz
+			if (time.count() < 1.f / UPDATE_RATE) {
+				Audo::Utils::preciseSleep(1.f / UPDATE_RATE - time.count());
+			}
+
+			t2 = std::chrono::high_resolution_clock::now();
+			deltaTime = std::chrono::duration<float>(t2 - t1).count();
+			
+			this->updateEvent.Invoke(this->instance_, deltaTime);
+
+			t1 = t2;
+		}
+	});
+
+	while (!WindowShouldClose()) {
+		this->inputEvent.Invoke(this->instance_);
+		this->drawEvent.Invoke(this->instance_);
 	}
+	updateThread.request_stop();
 }
 
 Audo::Game* Audo::Game::instance_{ nullptr };
-std::mutex Audo::Game::mutex_;
+std::mutex Audo::Game::mutex;
 bool Audo::Game::running_{ false };

@@ -9,10 +9,14 @@
 #include <print>
 #include "event.hpp"
 #include <expected>
+#include <thread>
+#include <chrono>
 
 #undef GOLD
 #define GOLD_COLOR { 255, 203, 0, 255 }
 #define TILE_SIZE 24
+#define UPDATE_RATE 20.f
+
 
 #ifndef AUDO_GAME
 	#define AUDO_GAME
@@ -24,7 +28,6 @@
 			Game();
 
 			static Game* instance_;
-			static std::mutex mutex_;
 			static bool running_;
 
 
@@ -52,19 +55,24 @@
 			void GetCurrentClicked(Vector2& mouse);
 
 
-			Camera2D camera;
-			double deltaTime;
-			std::vector<std::vector<Audo::World::TileType>> map;
-			int monitor;
-			int height;
 			int width;
+			int height;
+			int monitor;
+			double deltaTime;
+
+			Camera2D camera;
+			
+			static std::mutex mutex;
+
 			World::TileType currentSelected;
 
 			std::vector<float> cameraBounds;
 			std::vector<float> cameraBoundsY;
+			std::vector<std::vector<Audo::World::TileType>> map;
 
-			Event<void, Game*> updateEvent;
 			Event<void, Game*> drawEvent;
+			Event<void, Game*> inputEvent;
+			Event<void, Game*, float> updateEvent;
 		};
 	}
 

@@ -52,9 +52,6 @@ void draw(Audo::Game* instance) {
     EndMode2D();
 
     DrawText((std::to_string(1 / GetFrameTime()) + " fps").data(), 10, 30, 20, WHITE);
-    DrawText((std::to_string(instance->camera.target.y)).data(), 10, 50, 20, WHITE);
-    DrawText((std::to_string(GetScreenToWorld2D(GetMousePosition(), instance->camera).x) + ", " + std::to_string(GetScreenToWorld2D(GetMousePosition(), instance->camera).y)).data(), 10, 70, 20, WHITE);
-    DrawText((std::to_string(startPosition.x) + ", " + std::to_string(startPosition.y)).data(), 10, 90, 20, WHITE);
 
     EndDrawing();
 }
