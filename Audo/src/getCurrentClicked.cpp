@@ -3,38 +3,20 @@
 
 using TileType = Audo::World::TileType;
 
-void Audo::Game::GetCurrentClicked(Vector2& mouse) {
-    std::println("{0}, {1}", mouse.x, mouse.y);
+std::expected<TileType, AUDO_ERROR> Audo::Game::GetCurrentClicked(Vector2& mouse) const noexcept {
     Vector2 clickedPos = GetScreenToWorld2D(mouse, this->camera) / TILE_SIZE;
 
-    clickedPos.x = std::floor(clickedPos.x);
-    clickedPos.y = std::floor(clickedPos.y) + 2;
+    const std::vector<std::vector<Audo::World::TileType>>::size_type* height = new std::vector<std::vector<Audo::World::TileType>>::size_type(map.size());
+    if (clickedPos.y >= 0 && clickedPos.y < *height) {
+        const std::vector<Audo::World::TileType>& row = this->map[static_cast<size_t>(clickedPos.y)];
+        const std::vector<Audo::World::TileType>::size_type* width = new std::vector<Audo::World::TileType>::size_type(row.size());
 
-    clickedPos = Vector2Clamp(clickedPos, { 0,0 }, { MAP_WIDTH, MAP_HEIGHT });
-
-    std::println("{0}, {1}", clickedPos.x, clickedPos.y);
-    TileType clickedTile = map[clickedPos.y][clickedPos.x];
-    switch (clickedTile) {
-        case TileType::GROUND:
-            std::println("You clicked on a grass!");
-            break;
-        case TileType::IRON:
-            std::println("You clicked on iron!");
-            break;
-        case TileType::BRONZE:
-            std::println("You clicked on bronze!");
-            break;
-        case TileType::GOLD:
-            std::println("You clicked on gold!");
-            break;
-        case TileType::WATER:
-            std::println("You clicked on water!");
-            break;
-        case TileType::DEEP_WATER:
-            std::println("You clicked on deep water!");
-            break;
-        case TileType::SNOW:
-            std::println("You clicked on snow!");
-            break;
+        if (clickedPos.x >= 0 && clickedPos.x < *width) {
+            delete height;
+            delete width;
+            return row[static_cast<size_t>(clickedPos.x)];
+        }
     }
+    delete height;
+    return std::unexpected<AUDO_ERROR>(Audo::Error::OUT_OF_BOUNDS().what());
 }
