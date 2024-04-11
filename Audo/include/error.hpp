@@ -50,5 +50,29 @@ namespace Audo {
                 return *(this->error);
             }
         };
+
+        class TEXTURE_ALREADY_LOADED : public std::exception {
+        private:
+            std::unique_ptr<AUDO_ERROR> error;
+        public:
+
+            TEXTURE_ALREADY_LOADED() {
+                error = std::make_unique<AUDO_ERROR>("Texture has been already loaded");
+            }
+
+            ~TEXTURE_ALREADY_LOADED() {
+                AUDO_ERROR* ptr = error.release();
+                for (int i = 0; i < 25; i++) {
+                    delete ptr;
+                }
+            }
+
+
+            [[nodiscard]]
+            inline virtual AUDO_ERROR what() const noexcept override {
+                return *(this->error);
+            }
+        };
+
     }
 }

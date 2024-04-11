@@ -10,7 +10,15 @@ void input(Audo::Game* instance) {
 
     else if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
         Vector2 mousePos = GetMousePosition();
-        instance->GetCurrentClicked(mousePos);
+        instance->currentSelected = instance->GetCurrentClicked(mousePos);
+        if (instance->currentSelected.has_value()) {
+            if (instance->currentSelected == Audo::World::TileType::GROUND)
+                std::println("negrocito");
+        }
+        else {
+            std::cout << instance->currentSelected.error();
+            abort();
+        }
     }
 
 

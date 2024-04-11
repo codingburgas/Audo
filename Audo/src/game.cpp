@@ -1,4 +1,5 @@
 #include "../include/game.hpp"
+#include "../include/textures.hpp"
 
 Audo::Game::Game() {
 	// Initialize or set default values for your class members here

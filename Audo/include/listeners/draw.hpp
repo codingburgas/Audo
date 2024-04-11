@@ -1,6 +1,6 @@
 #pragma once
 #include "../game.hpp"
-
+#include "../textures.hpp"
 void draw(Audo::Game* instance) {
     BeginDrawing();
 
@@ -17,34 +17,34 @@ void draw(Audo::Game* instance) {
     for (size_t i = startPosition.y / TILE_SIZE; i < endPosition.y / TILE_SIZE; ++i) {
         for (size_t j = startPosition.x / TILE_SIZE; j < endPosition.x / TILE_SIZE; ++j) {
             if (instance->map[i][j] == Audo::World::TileType::WATER) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
+                DrawTexture(*Audo::Textures::Water::LoadWaterTexture(), j * TILE_SIZE, i * TILE_SIZE, BLUE);
             }
             else if (instance->map[i][j] == Audo::World::TileType::DEEP_WATER) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, { 0, 100, 200, 255 });
+                DrawTexture(*Audo::Textures::DeepWater::LoadDeepWaterTexture(), j * TILE_SIZE, i * TILE_SIZE, DARKBLUE);
             }
             else if (instance->map[i][j] == Audo::World::TileType::GROUND) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, DARKGREEN);
+                DrawTexture(*Audo::Textures::Grass::LoadGrassTexture(), j * TILE_SIZE, i * TILE_SIZE, GREEN);
             }
             else if (instance->map[i][j] == Audo::World::TileType::GOLD) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, GOLD_COLOR);
+                DrawTexture(*Audo::Textures::Gold::LoadGoldTexture(), j * TILE_SIZE, i * TILE_SIZE, YELLOW);
             }
             else if (instance->map[i][j] == Audo::World::TileType::LITHIUM) {
                 DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 143, 110, 145, 255 });
             }
             else if (instance->map[i][j] == Audo::World::TileType::IRON) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 189, 141, 91, 255 });
+                DrawTexture(*Audo::Textures::Iron::LoadIronTexture(), j * TILE_SIZE, i * TILE_SIZE, LIGHTGRAY);
             }
             else if (instance->map[i][j] == Audo::World::TileType::STONE) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 128, 128, 128, 255 });
+                DrawTexture(*Audo::Textures::Stone::LoadStoneTexture(), j * TILE_SIZE, i * TILE_SIZE, GRAY);
             }
             else if (instance->map[i][j] == Audo::World::TileType::COPPER) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 184, 115, 51, 255 });
+                DrawTexture(*Audo::Textures::Copper::LoadCopperTexture(), j * TILE_SIZE, i * TILE_SIZE, ORANGE);
             }
             else if (instance->map[i][j] == Audo::World::TileType::DARK_STONE) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 64, 64, 64, 255 });
+                DrawTexture(*Audo::Textures::DarkStone::LoadDarkStoneTexture(), j * TILE_SIZE, i * TILE_SIZE, DARKGRAY);
             }
             else if (instance->map[i][j] == Audo::World::TileType::SNOW) {
-                DrawRectangle(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE, Color{ 255, 255, 255, 255 });
+                DrawTexture(*Audo::Textures::Snow::LoadSnowTexture(), j * TILE_SIZE, i * TILE_SIZE, WHITE);
             }
         }
     }
@@ -52,6 +52,5 @@ void draw(Audo::Game* instance) {
     EndMode2D();
 
     DrawText((std::to_string(1 / GetFrameTime()) + " fps").data(), 10, 30, 20, WHITE);
-
     EndDrawing();
 }
