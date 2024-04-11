@@ -22,24 +22,34 @@ void Audo::Game::Init() noexcept {
 	this->camera.setCenter(14000, 14000);
 	this->camera.setSize(this->width, this->height);
 	this->camera.zoom(3.f);
+	this->zoom = 1.f;
 
 	waterTexture.loadFromFile("./assets/water.png");
+	waterTexture.setSmooth(true);
 
 	deepWaterTexture.loadFromFile("./assets/deep_water.png");
+	deepWaterTexture.setSmooth(true);
 
 	groundTexture.loadFromFile("./assets/grass.png");
+	groundTexture.setSmooth(true);
 
 	goldTexture.loadFromFile("./assets/gold.png");
+	goldTexture.setSmooth(true);
 
 	copperTexture.loadFromFile("./assets/copper.png");
+	copperTexture.setSmooth(true);
 
 	ironTexture.loadFromFile("./assets/iron.png");
+	ironTexture.setSmooth(true);
 
 	stoneTexture.loadFromFile("./assets/stone.png");
+	stoneTexture.setSmooth(true);
 
 	darkStoneTexture.loadFromFile("./assets/dark_stone.png");
+	darkStoneTexture.setSmooth(true);
 
 	snowTexture.loadFromFile("./assets/snow.png");
+	snowTexture.setSmooth(true);
 
 	textureMap[Audo::World::TileType::WATER] = waterTexture;
 	textureMap[Audo::World::TileType::DEEP_WATER] = deepWaterTexture;
@@ -70,7 +80,10 @@ void Audo::Game::Run() noexcept {
 		HandleInput();
 		Render();
 		this->deltaTime = clock.getElapsedTime().asSeconds();
+
+		// uncomment for fps counter
 		//std::cout << 1.f / clock.getElapsedTime().asSeconds() << '\n';
+
 		clock.restart();
 	}
 
@@ -130,25 +143,69 @@ void Audo::Game::Render() {
 void Audo::Game::HandleInput() {
 	sf::Event event;
 	while (this->window.pollEvent(event)) {
-		if (event.type == sf::Event::Closed) {
+		if (event.type == Event::Closed) {
 			this->window.close();
+		}
+		else if (event.type == Event::MouseWheelScrolled) {
+			if (event.mouseWheelScroll.delta > 0 && this->zoom - 0.1 > 0.1) {
+				this->zoom -= 0.1;
+				this->camera.zoom(0.9f);
+			}
+			else if (event.mouseWheelScroll.delta < 0 && this->zoom + 0.1 < 1.9) {
+				this->zoom += 0.1;
+				this->camera.zoom(1.1f);
+			}
+		}
+		else if (event.type == Event::MouseButtonPressed) {
+			Vector2f mousePos = this->window.mapPixelToCoords(Vector2i(event.mouseButton.x, event.mouseButton.y));
+			if (mousePos.x >= 0 && mousePos.x <= MAP_WIDTH * TILE_SIZE && mousePos.y >= 0 && mousePos.y <= MAP_HEIGHT * TILE_SIZE) {
+				selectedTile = this->map[std::floor(mousePos.y / TILE_SIZE)][std::floor(mousePos.x / TILE_SIZE)];
+
+				if (selectedTile->getType() == Audo::World::TileType::SNOW) {
+					std::cout << "Snow\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::GROUND) {
+					std::cout << "Ground\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::WATER) {
+					std::cout << "Water\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::DEEP_WATER) {
+					std::cout << "Deep Water\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::GOLD) {
+					std::cout << "Gold\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::COPPER) {
+					std::cout << "Copper\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::IRON) {
+					std::cout << "Iron\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::STONE) {
+					std::cout << "Stone\n";
+				}
+				else if (selectedTile->getType() == Audo::World::TileType::DARK_STONE) {
+					std::cout << "Dark Stone\n";
+				}
+			}
 		}
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::A)) {
-		camera.move(-900.f * this->deltaTime, 0);
+		camera.move(-900.f * this->deltaTime * (1 + zoom), 0);
 	}
 
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		camera.move(900.f * this->deltaTime, 0);
+		camera.move(900.f * this->deltaTime * (1 + zoom), 0);
 	}
 
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		camera.move(0, -900.f * this->deltaTime);
+		camera.move(0, -900.f * this->deltaTime * (1 + zoom));
 	}
 
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		camera.move(0, 900.f * this->deltaTime);
+		camera.move(0, 900.f * this->deltaTime * (1 + zoom));
 	}
 }
 

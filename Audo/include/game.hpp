@@ -67,6 +67,7 @@ namespace Audo {
         int width;
         int height;
         double deltaTime;
+        double zoom;
 
         View camera;
 
@@ -77,6 +78,7 @@ namespace Audo {
         World::TileType currentSelected;
 
         std::vector<std::vector<Audo::World::Tile*>> map;
+        Audo::World::Tile* selectedTile;
     };
 }
 
