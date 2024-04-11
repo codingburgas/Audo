@@ -6,9 +6,8 @@ namespace Audo {
     namespace Textures {
         class Grass {
         public:
-            static std::shared_ptr<Texture2D> grassTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadGrassTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadGrassTexture() noexcept {
                 static std::shared_ptr<Texture2D> grassTexture;
                 if (!grassTexture) {
                     grassTexture = std::make_shared<Texture2D>(LoadTexture("../assets/grass.png"));
@@ -18,9 +17,8 @@ namespace Audo {
         };
         class Water {
         public:
-            static std::shared_ptr<Texture2D> waterTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadWaterTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadWaterTexture() noexcept {
                 static std::shared_ptr<Texture2D> waterTexture;
                 if (!waterTexture) {
                     waterTexture = std::make_shared<Texture2D>(LoadTexture("../assets/water.png"));
@@ -30,9 +28,8 @@ namespace Audo {
         };
         class Stone {
         public:
-            static std::shared_ptr<Texture2D> stoneTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadStoneTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadStoneTexture() noexcept {
                 static std::shared_ptr<Texture2D> stoneTexture;
                 if (!stoneTexture) {
                     stoneTexture = std::make_shared<Texture2D>(LoadTexture("../assets/stone.png"));
@@ -42,9 +39,8 @@ namespace Audo {
         };
         class Snow {
         public:
-            static std::shared_ptr<Texture2D> snowTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadSnowTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadSnowTexture() noexcept {
                 static std::shared_ptr<Texture2D> snowTexture;
                 if (!snowTexture) {
                     snowTexture = std::make_shared<Texture2D>(LoadTexture("../assets/snow.png"));
@@ -54,9 +50,8 @@ namespace Audo {
         };
         class Copper {
         public:
-            static std::shared_ptr<Texture2D> copperTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadCopperTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadCopperTexture() noexcept {
                 static std::shared_ptr<Texture2D> copperTexture;
                 if (!copperTexture) {
                     copperTexture = std::make_shared<Texture2D>(LoadTexture("../assets/copper.png"));
@@ -66,9 +61,8 @@ namespace Audo {
         };
         class Gold {
         public:
-            static std::shared_ptr<Texture2D> goldTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadGoldTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadGoldTexture() noexcept {
                 static std::shared_ptr<Texture2D> goldTexture;
                 if (!goldTexture) {
                     goldTexture = std::make_shared<Texture2D>(LoadTexture("../assets/gold.png"));
@@ -78,9 +72,8 @@ namespace Audo {
         };
         class DeepWater {
         public:
-            static std::shared_ptr<Texture2D> deepWaterTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadDeepWaterTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadDeepWaterTexture() noexcept {
                 static std::shared_ptr<Texture2D> deepWaterTexture;
                 if (!deepWaterTexture) {
                     deepWaterTexture = std::make_shared<Texture2D>(LoadTexture("../assets/deep_water.png"));
@@ -90,9 +83,8 @@ namespace Audo {
         };
         class DarkStone {
         public:
-            static std::shared_ptr<Texture2D> darkStoneTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadDarkStoneTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadDarkStoneTexture() noexcept {
                 static std::shared_ptr<Texture2D> darkStoneTexture;
                 if (!darkStoneTexture) {
                     darkStoneTexture = std::make_shared<Texture2D>(LoadTexture("../assets/dark_stone.png"));
@@ -102,9 +94,8 @@ namespace Audo {
         };
         class Iron {
         public:
-            static std::shared_ptr<Texture2D> ironTexture;
             [[nodiscard]]
-            static std::shared_ptr<Texture2D> LoadIronTexture() noexcept {
+            static inline std::shared_ptr<Texture2D> LoadIronTexture() noexcept {
                 static std::shared_ptr<Texture2D> ironTexture;
                 if (!ironTexture) {
                     ironTexture = std::make_shared<Texture2D>(LoadTexture("../assets/iron.png"));
