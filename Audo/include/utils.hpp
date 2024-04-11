@@ -1,57 +1,22 @@
 #pragma once
-#include "raylib.h"
 #include "math.h"
 #include <chrono>
 #include <thread>
 
-inline Vector2& operator+=(Vector2 vec1, const Vector2& vec2)
-{
-    vec1.x += vec2.y;
-    vec1.y += vec2.y;
-
-    return vec1;
-}
-
-inline Vector2& operator-=(Vector2 vec1, const Vector2& vec2) {
-    vec1.x -= vec2.x;
-    vec1.y -= vec2.y;
-
-    return vec1;
-}
-
-inline Vector2 operator/(const Vector2& vec, const float& num)
-{
-    return Vector2(vec.x / num, vec.y / num);
-}
-
-inline Vector2 operator*(const Vector2& vec, const float& num)
-{
-    return Vector2(vec.x * num, vec.y * num);
-}
-
-inline Vector2 operator-(const Vector2& vec1, const Vector2& vec2)
-{
-    return Vector2(vec1.x - vec2.x, vec1.y - vec2.y);
-}
-
-inline Vector2 operator+(const Vector2& vec1, const Vector2& vec2) {
-    return Vector2(vec1.x + vec2.x, vec1.y + vec2.y);
-}
-
 namespace Audo::Utils
 {
 
-    inline Vector2 abs(const Vector2& vec)
+    inline Vector2f abs(const Vector2f& vec)
     {
-        return Vector2(std::abs(vec.x), std::abs(vec.y));
+        return Vector2f(std::abs(vec.x), std::abs(vec.y));
     }
 
-    inline double magnitude(const Vector2& vec) {
+    inline double magnitude(const Vector2f& vec) {
         return std::hypotl(vec.x, vec.y);
     }
 
-    inline Vector2 normalize(const Vector2& vec) {
-        return vec / magnitude(vec);
+    inline Vector2f normalize(const Vector2f& vec) {
+        return vec / (float)magnitude(vec);
     }
 
     inline void preciseSleep(double seconds) {
@@ -65,7 +30,7 @@ namespace Audo::Utils
 
         while (seconds > estimate) {
             auto start = high_resolution_clock::now();
-            this_thread::sleep_for(milliseconds(1));
+            this_thread::sleep_for(std::chrono::milliseconds(1));
             auto end = high_resolution_clock::now();
 
             double observed = (end - start).count() / 1e9;

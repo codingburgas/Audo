@@ -2,26 +2,20 @@
 #include <mutex>
 #include <iostream>
 #include "world.hpp"
-#include "raylib.h"
-#include "rlgl.h"
-#include "raymath.h"
+#include "renderobject.hpp"
 #include "utils.hpp"
-#include <print>
-#include "event.hpp"
-#include <expected>
 #include <thread>
 #include <chrono>
-#include "error.hpp"
+#include <stop_token>
+#include <functional>
 
-#undef GOLD
-#define GOLD_COLOR { 255, 203, 0, 255 }
-#define TILE_SIZE 24
+#define TILE_SIZE 100
 #define UPDATE_RATE 20.f
-
-#define AUDO_ERROR const char*
 
 #ifndef AUDO_GAME
 #define AUDO_GAME
+
+using namespace sf;
 
 namespace Audo {
     class Game {
@@ -29,9 +23,22 @@ namespace Audo {
 
         Game();
 
-        static Game* instance_;
-        static bool running_;
+        static Game* instance;
+        static bool running;
+        std::vector<RenderObject*> renderObjects;
+        Clock clock;
 
+        Texture waterTexture;
+        Texture deepWaterTexture;
+        Texture groundTexture;
+        Texture goldTexture;
+        Texture copperTexture;
+        Texture ironTexture;
+        Texture stoneTexture;
+        Texture darkStoneTexture;
+        Texture snowTexture;
+
+        std::unordered_map<World::TileType, Texture> textureMap;
 
     public:
 
@@ -46,34 +53,30 @@ namespace Audo {
 
         void Init() noexcept;
 
-        void Update();
+        void Update(std::stop_token sToken);
+        
+        void Render();
 
-        void DrawUI();
-
-        void Draw();
+        void HandleInput();
 
         void SetBounds() noexcept;
 
-        std::expected<World::TileType, AUDO_ERROR> GetCurrentClicked(Vector2& mouse) const noexcept;
+        [[nodiscard]]
+        World::TileType GetCurrentClicked(Vector2f& mouse) const noexcept;
 
         int width;
         int height;
-        int monitor;
         double deltaTime;
 
-        Camera2D camera;
+        View camera;
+
+        RenderWindow window;
 
         static std::mutex mutex;
 
-        std::expected<World::TileType, AUDO_ERROR> currentSelected;
+        World::TileType currentSelected;
 
-        std::vector<float> cameraBounds;
-        std::vector<float> cameraBoundsY;
-        std::vector<std::vector<Audo::World::TileType>> map;
-
-        Event<void, Game*> drawEvent;
-        Event<void, Game*> inputEvent;
-        Event<void, Game*, float> updateEvent;
+        std::vector<std::vector<Audo::World::Tile*>> map;
     };
 }
 
