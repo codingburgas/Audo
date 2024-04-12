@@ -207,6 +207,20 @@ void Audo::Game::HandleInput() {
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 		camera.move(0, 900.f * this->deltaTime * (1 + zoom));
 	}
+
+	if (camera.getCenter().x - camera.getSize().x / 2 < 0) {
+		camera.setCenter(camera.getSize().x / 2, camera.getCenter().y);
+	}
+	else if (camera.getCenter().x + camera.getSize().x / 2 > MAP_WIDTH * TILE_SIZE) {
+		camera.setCenter(MAP_WIDTH * TILE_SIZE - camera.getSize().x / 2, camera.getCenter().y);
+	}
+	if (camera.getCenter().y - camera.getSize().y / 2 < 0) {
+		camera.setCenter(camera.getCenter().x, camera.getSize().y / 2);
+	}
+	else if (camera.getCenter().y + camera.getSize().y / 2 > MAP_HEIGHT * TILE_SIZE) {
+		camera.setCenter(camera.getCenter().x, MAP_HEIGHT * TILE_SIZE - camera.getSize().y / 2);
+	}
+
 }
 
 Audo::Game* Audo::Game::instance{ nullptr };
