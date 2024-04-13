@@ -68,6 +68,22 @@ void Audo::Game::Init() noexcept {
 	this->fpsText.setPosition(10, 10);
 
 	Audo::World::GenerateWorld(this->map, this->textureMap);
+
+	for (int i = 0; i < MAP_HEIGHT; ++i) {
+		this->machines.push_back(std::vector<Machine*>(MAP_WIDTH, nullptr));
+	}
+
+	Machine* machine = new Machine(1, 1.f, Audo::MachineType::CONVEYOR, Audo::MachineDirection::RIGHT, this->machines, Vector2f(0, 0));
+	machine->SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
+	machine->PushItem(Item(ItemCategory::ORE, ItemType::IRON_ORE));
+	
+	//this->machines[0][0]->Cout();
+
+	Machine* machine2 = new Machine(1, 1.f, Audo::MachineType::FORGE, Audo::MachineDirection::RIGHT, this->machines, Vector2f(100, 0));
+	machine2->SetIO({ Audo::ItemCategory::ORE, Audo::ItemCategory::ORE, Audo::ItemCategory::ORE, Audo::ItemCategory::INGOT }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
+
+	Machine* machine3 = new Machine(1, 1.f, Audo::MachineType::CONVEYOR, Audo::MachineDirection::RIGHT, this->machines, Vector2f(200, 0));
+	machine3->SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
 }
 
 void Audo::Game::Run() noexcept {
@@ -88,7 +104,7 @@ void Audo::Game::Run() noexcept {
 		this->deltaTime = clock.getElapsedTime().asSeconds();
 
 		// uncomment for fps counter
-		std::cout << 1.f / clock.getElapsedTime().asSeconds() << '\n';
+		//std::cout << 1.f / clock.getElapsedTime().asSeconds() << '\n';
 		//this->fpsText.setString(std::to_string(1.f / clock.getElapsedTime().asSeconds()));
 
 		clock.restart();
@@ -111,8 +127,16 @@ void Audo::Game::Update(std::stop_token sToken = {}) {
 
 		deltaTime = updateClock.getElapsedTime().asSeconds();
 
-		// [TODO]
-		// update objects
+		// update machines
+		int counter = 0;
+		for (auto& row : this->machines) {
+			for (auto& machine : row) {
+				if (machine != nullptr && counter == 0) {
+					//std::cout << "Machine " << ++counter << '\n';
+					machine->Update();
+				}
+			}
+		}
 
 		updateClock.restart();
 	}

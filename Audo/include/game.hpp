@@ -8,6 +8,7 @@
 #include <chrono>
 #include <stop_token>
 #include <functional>
+#include "machine.hpp"
 
 #define TILE_SIZE 100
 #define UPDATE_RATE 20.f
@@ -81,6 +82,7 @@ namespace Audo {
         World::TileType currentSelected;
 
         std::vector<std::vector<Audo::World::Tile*>> map;
+        std::vector<std::vector<Audo::Machine*>> machines;
         Audo::World::Tile* selectedTile;
     };
 }

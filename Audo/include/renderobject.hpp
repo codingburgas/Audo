@@ -8,17 +8,30 @@ namespace Audo {
 		Sprite sprite;
 
 	public:
-		virtual void init(Texture& texture, Vector2f position);
-		virtual void setPosition(Vector2f position);
-		virtual void setOrigin(Vector2f origin);
-		virtual void draw(RenderWindow& window);
-		virtual void setScale(Vector2f scale);
-		virtual void move(Vector2f offset);
-		virtual Vector2f getPosition();
-		Vector2f getSize();
-		Sprite getSprite();
+		virtual void Init(Texture& texture, Vector2f position);
 
-		void setTexture(Texture& texture);
+		virtual void Draw(RenderWindow& window);
+
+		virtual void Move(Vector2f offset);
+		
+		// Setters
+		virtual void SetScale(Vector2f scale);
+
+		virtual void SetPosition(Vector2f position);
+
+		virtual void SetOrigin(Vector2f origin);
+
+		// Getters
+		[[nodiscard]]
+		virtual Vector2f GetPosition();
+
+		[[nodiscard]]
+		Vector2f GetSize();
+
+		[[nodiscard]]
+		Sprite GetSprite();
+
+		void SetTexture(Texture& texture);
 
 		bool shouldDraw{ true };
 	};
