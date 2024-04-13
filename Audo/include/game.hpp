@@ -73,6 +73,9 @@ namespace Audo {
 
         RenderWindow window;
 
+        Text fpsText;
+        Font font;
+
         static std::mutex mutex;
 
         World::TileType currentSelected;

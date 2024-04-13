@@ -21,7 +21,7 @@ void Audo::Game::Init() noexcept {
 
 	this->camera.setCenter(14000, 14000);
 	this->camera.setSize(this->width, this->height);
-	this->camera.zoom(3.f);
+	//this->camera.zoom(3.f);
 	this->zoom = 1.f;
 
 	waterTexture.loadFromFile("./assets/water.png");
@@ -61,6 +61,12 @@ void Audo::Game::Init() noexcept {
 	textureMap[Audo::World::TileType::DARK_STONE] = darkStoneTexture;
 	textureMap[Audo::World::TileType::SNOW] = snowTexture;
 
+	this->font.loadFromFile("./assets/fonts/Roboto-Black.ttf");
+	this->fpsText.setFont(this->font);
+	this->fpsText.setCharacterSize(48);
+	this->fpsText.setFillColor(Color::White);
+	this->fpsText.setPosition(10, 10);
+
 	Audo::World::GenerateWorld(this->map, this->textureMap);
 }
 
@@ -82,7 +88,8 @@ void Audo::Game::Run() noexcept {
 		this->deltaTime = clock.getElapsedTime().asSeconds();
 
 		// uncomment for fps counter
-		//std::cout << 1.f / clock.getElapsedTime().asSeconds() << '\n';
+		std::cout << 1.f / clock.getElapsedTime().asSeconds() << '\n';
+		//this->fpsText.setString(std::to_string(1.f / clock.getElapsedTime().asSeconds()));
 
 		clock.restart();
 	}
@@ -114,9 +121,6 @@ void Audo::Game::Update(std::stop_token sToken = {}) {
 void Audo::Game::Render() {
 	this->window.setView(this->camera);
 	this->window.clear(Color(45, 75, 118, 100));
-
-	/*Vector2 startPosition = GetScreenToWorld2D({ 0,0 }, instance->camera);
-	Vector2 endPosition = GetScreenToWorld2D({ (float)GetScreenWidth(), (float)GetScreenHeight() }, instance->camera);*/
 	
 	Vector2f startPosition = this->window.mapPixelToCoords({ 0, 0 });
 	Vector2f endPosition = this->window.mapPixelToCoords(Vector2i(this->width, this->height));
@@ -136,7 +140,8 @@ void Audo::Game::Render() {
 	////	}
 	////}
 
-	//this->window.setView(this->window.getDefaultView());
+	this->window.setView(this->window.getDefaultView());
+	this->window.draw(this->fpsText);
 	this->window.display();
 }
 
@@ -147,13 +152,13 @@ void Audo::Game::HandleInput() {
 			this->window.close();
 		}
 		else if (event.type == Event::MouseWheelScrolled) {
-			if (event.mouseWheelScroll.delta > 0 && this->zoom - 0.1 > 0.1) {
+			if (event.mouseWheelScroll.delta > 0 && this->zoom - 0.1 > 0.6) {
 				this->zoom -= 0.1;
-				this->camera.zoom(0.9f);
+				this->camera.zoom(0.8f);
 			}
-			else if (event.mouseWheelScroll.delta < 0 && this->zoom + 0.1 < 1.9) {
+			else if (event.mouseWheelScroll.delta < 0 && this->zoom + 0.1 < 1.4) {
 				this->zoom += 0.1;
-				this->camera.zoom(1.1f);
+				this->camera.zoom(1.25f);
 			}
 		}
 		else if (event.type == Event::MouseButtonPressed) {
