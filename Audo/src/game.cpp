@@ -73,17 +73,31 @@ void Audo::Game::Init() noexcept {
 		this->machines.push_back(std::vector<Machine*>(MAP_WIDTH, nullptr));
 	}
 
-	Machine* machine = new Machine(1, 1.f, Audo::MachineType::CONVEYOR, Audo::MachineDirection::RIGHT, this->machines, Vector2f(0, 0));
-	machine->SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
-	machine->PushItem(Item(ItemCategory::ORE, ItemType::IRON_ORE));
+	Machine* machine = new Machine();
+	machine->Init(1, 1.f, Audo::MachineDirection::RIGHT)
+		.SetMachineList(&this->machines)
+		.SetPosition(Vector2f(0, 0))
+		.SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::NONE, Audo::MachineIO::OUTPUT })
+		.PushItem(Item(ItemCategory::ORE, ItemType::IRON_ORE));
 	
-	//this->machines[0][0]->Cout();
+	Machine* machine2 = new Machine();
+	machine2->Init(1, 1.f, Audo::MachineDirection::RIGHT)
+		.SetMachineList(&this->machines)
+		.SetPosition(Vector2f(100, 0))
+		.SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::OUTPUT, Audo::MachineIO::INPUT, Audo::MachineIO::NONE });
+	
 
-	Machine* machine2 = new Machine(1, 1.f, Audo::MachineType::FORGE, Audo::MachineDirection::RIGHT, this->machines, Vector2f(100, 0));
-	machine2->SetIO({ Audo::ItemCategory::ORE, Audo::ItemCategory::ORE, Audo::ItemCategory::ORE, Audo::ItemCategory::INGOT }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
-
-	Machine* machine3 = new Machine(1, 1.f, Audo::MachineType::CONVEYOR, Audo::MachineDirection::RIGHT, this->machines, Vector2f(200, 0));
-	machine3->SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT, Audo::MachineIO::OUTPUT });
+	Machine* machine3 = new Machine();
+	machine3->Init(1, 1.f, Audo::MachineDirection::RIGHT)
+		.SetMachineList(&this->machines)
+		.SetPosition(Vector2f(100, 100))
+		.SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::INPUT, Audo::MachineIO::NONE, Audo::MachineIO::OUTPUT, Audo::MachineIO::NONE });
+	
+	Machine* machine4 = new Machine();
+	machine4->Init(1, 1.f, Audo::MachineDirection::RIGHT)
+		.SetMachineList(&this->machines)
+		.SetPosition(Vector2f(0, 100))
+		.SetIO({ Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL, Audo::ItemCategory::ALL }, { Audo::MachineIO::OUTPUT, Audo::MachineIO::NONE, Audo::MachineIO::NONE, Audo::MachineIO::INPUT });
 }
 
 void Audo::Game::Run() noexcept {
@@ -127,17 +141,16 @@ void Audo::Game::Update(std::stop_token sToken = {}) {
 
 		deltaTime = updateClock.getElapsedTime().asSeconds();
 
+		//std::cout << "TPS: " << ((1.f / deltaTime) * 100) / 100 << '\n';
+
 		// update machines
-		int counter = 0;
 		for (auto& row : this->machines) {
 			for (auto& machine : row) {
-				if (machine != nullptr && counter == 0) {
-					//std::cout << "Machine " << ++counter << '\n';
+				if (machine != nullptr) {
 					machine->Update();
 				}
 			}
 		}
-
 		updateClock.restart();
 	}
 }

@@ -27,15 +27,13 @@ namespace Audo {
 		NONE
 	};
 
-	class Machine : public RenderObject {
-	private:
+	class Machine {
+	protected:
 		MachineType type;
 		float speed;
-		std::vector<std::vector<Machine*>>& machines;
-
-		void UpdateIO(Machine* machine, MachineDirection dir);
-
-	protected:
+		std::vector<std::vector<Machine*>>* machines;
+		Sprite sprite;
+		Texture texture;
 		Clock clock;
 		int storageSize;
 		std::queue<Item*> storage;
@@ -45,28 +43,32 @@ namespace Audo {
 		// order of IO is UP, DOWN, LEFT, RIGHT
 		Machine* IO[4] = { nullptr, nullptr, nullptr, nullptr };
 		
-		void SetPosition(Vector2f position) override;
+		virtual Machine& UpdateIO(Machine* machine, MachineDirection dir);
+		virtual Machine& OutputItem();
 		
 	public:
-		Machine(int storageSize, float speed, MachineType type, MachineDirection dir, std::vector<std::vector<Audo::Machine*>>& machines, Vector2f position);
+		virtual Machine& Init(const int storageSize, const float speed, const MachineDirection dir);
 
+		virtual Machine& SetTexture(const std::string texturePath);
+
+		virtual Machine& UpdateSprite();
+
+		virtual Machine& SetPosition(const Vector2f position);
 		
 		// indexes correspond to UP, DOWN, LEFT, RIGHT
-		void SetIO(Machine* machine, MachineDirection dir, std::array<ItemCategory, 4> categories, std::array<MachineIO, 4> types);
+		virtual Machine& SetIO(Machine* machine, const MachineDirection dir, const std::array<ItemCategory, 4> categories, const std::array<MachineIO, 4> types);
 
 		// indexes correspond to UP, DOWN, LEFT, RIGHT
-		void SetIO(std::array<ItemCategory, 4> categories, std::array<MachineIO, 4> types);
+		virtual Machine& SetIO(const std::array<ItemCategory, 4> categories, const std::array<MachineIO, 4> types);
 
-		void SetIO(Machine* machine, MachineDirection dir);
+		virtual Machine& SetIO(Machine* machine, const MachineDirection dir);
 
-		void Update();
+		virtual Machine& SetMachineList(std::vector<std::vector<Audo::Machine*>>* machines);
 
-		void PushItem(Item item);
+		virtual Machine& Update();
 
-		void PopItem();
-
-		void Cout() {
-			std::cout << "Machine " << speed << '\n';
-		}
+		virtual Machine& PushItem(const Item item);
+		
+		virtual Machine& PopItem();
 	};
 }
