@@ -6,66 +6,51 @@ workspace "Audo"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-project "Audo"
+project "Backend"
 
     kind "ConsoleApp"
     
     language "C++"
     cppdialect "C++latest"
 
-    location "./%{prj.name}"
+    location "./Audo/%{prj.name}"
 
     targetdir ("./bin/".. outputdir.. "/%{prj.name}")
     objdir ("./bin-int/".. outputdir.. "/%{prj.name}")
 
-    files { "./%{prj.name}/src/**.cpp", "./%{prj.name}/src/**.h", "./%{prj.name}/src/**.hpp", "./%{prj.name}/src/**.cppm" }
+    files { "./Audo/%{prj.name}/src/**.cpp", "./Audo/%{prj.name}/include/**.h", "./Audo/%{prj.name}/include/**.hpp" }
 
-    includedirs { "./vendor/sfml/include", "./%{prj.name}/src", "./vendor/perlinNoise", "./vendor/rng"}
+    includedirs { "./vendor/cpphttp/include", "./vendor/jwt-cpp/include", "./vendor/libpq/include", "./vendor/openssl/include", "./vendor/soci/include", "./Audo/%{prj.name}/include"}
 
     filter "configurations:*"
-      defines { "SFML_STATIC" }
-      libdirs { "./vendor/sfml/lib" }
+      libdirs { "./vendor/libpq/lib", "./vendor/openssl/lib" }
       links
       {
-        "opengl32",
-        "freetype",
-        "winmm",
-        "gdi32",
-        "flac",
-        "vorbisenc",
-        "vorbisfile",
-        "vorbis",
-        "ogg",
-        "ws2_32"
+        "libpq",
+        "libssl"
       }
-      
-    -- postbuildcommands { "{COPY} ../vendor/sfml/lib/**.dll ../bin/".. outputdir.."/%{prj.name}" }
-
-    -- staticruntime "On"
 
     systemversion "latest"
 
     filter "configurations:Debug"
       defines "AD_DEBUG"
       symbols "On"
+      libdirs { "./vendor/soci/lib/debug" }
       links
       {	
-        "sfml-graphics-s-d",
-        "sfml-window-s-d",
-        "sfml-system-s-d",
-        "sfml-audio-s-d",
-        "sfml-network-s-d"
+        "libsoci_core_4_0",
+        "libsoci_empty_4_0",
+        "libsoci_postgresql_4_0"
       }
     
     
     filter "configurations:Release"
       defines "AD_RELEASE"
       optimize "On"
+      libdirs { "./vendor/soci/lib/debug" }
       links
       {	
-        "sfml-graphics-s",
-        "sfml-window-s",
-        "sfml-system-s",
-        "sfml-audio-s",
-        "sfml-network-s"
+        "libsoci_core_4_0",
+        "libsoci_empty_4_0",
+        "libsoci_postgresql_4_0"
       }
