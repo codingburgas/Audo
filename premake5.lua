@@ -11,7 +11,7 @@ project "Backend"
     kind "ConsoleApp"
     
     language "C++"
-    cppdialect "C++latest"
+    cppdialect "C++20"
 
     location "./Audo/%{prj.name}"
 
@@ -24,10 +24,10 @@ project "Backend"
 
     filter "configurations:*"
       libdirs { "./vendor/libpq/lib", "./vendor/openssl/lib" }
-      links
-      {
+      links {
         "libpq",
-        "libssl"
+        "libssl",
+        "libcrypto"
       }
 
     systemversion "latest"
@@ -36,8 +36,7 @@ project "Backend"
       defines "AD_DEBUG"
       symbols "On"
       libdirs { "./vendor/soci/lib/debug" }
-      links
-      {	
+      links {	
         "libsoci_core_4_0",
         "libsoci_empty_4_0",
         "libsoci_postgresql_4_0"
@@ -47,9 +46,8 @@ project "Backend"
     filter "configurations:Release"
       defines "AD_RELEASE"
       optimize "On"
-      libdirs { "./vendor/soci/lib/debug" }
-      links
-      {	
+      libdirs { "./vendor/soci/lib" }
+      links {	
         "libsoci_core_4_0",
         "libsoci_empty_4_0",
         "libsoci_postgresql_4_0"

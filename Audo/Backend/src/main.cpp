@@ -3,6 +3,7 @@
 int main() {
 	CppHttp::Net::Router router;
 	CppHttp::Net::TcpListener server;
+	server.CreateSocket();
 
 	server.SetOnReceive([&router](CppHttp::Net::Request& req) {
 		router.Handle(req);
@@ -11,5 +12,5 @@ int main() {
 	router.AddRoute("POST", "/api/register", Register);
 	router.AddRoute("POST", "/api/login", Login);
 
-	server.Listen("127.0.0.1", 8080, 255);
+	server.Listen("127.0.0.1", 45098, 255);
 }
