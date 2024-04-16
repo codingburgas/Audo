@@ -1,0 +1,10 @@
+# ninja log v5
+4	55	0	C:/Users/pomelo/Desktop/Audo/Audo/Frontend/Audo/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	7f250d7675f7891d
+1	333	7350022170567448	Audo_autogen/timestamp	ff534279175eabe0
+1	333	7350022170567448	Audo_autogen/mocs_compilation.cpp	ff534279175eabe0
+1	333	7350022170567448	C:/Users/pomelo/Desktop/Audo/Audo/Frontend/Audo/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Audo_autogen/timestamp	ff534279175eabe0
+1	333	7350022170567448	C:/Users/pomelo/Desktop/Audo/Audo/Frontend/Audo/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/Audo_autogen/mocs_compilation.cpp	ff534279175eabe0
+333	1516	7350022182732813	CMakeFiles/Audo.dir/Audo_autogen/mocs_compilation.cpp.obj	3352e40cd8aa1a46
+337	1582	7350022183390296	CMakeFiles/Audo.dir/main.cpp.obj	d81f1cd68f0d3cea
+335	1597	7350022183541911	CMakeFiles/Audo.dir/audo.cpp.obj	3ddc82f143bca12b
+1598	1712	7350022184655099	Audo.exe	10b4fa0b3f7ae2b8
