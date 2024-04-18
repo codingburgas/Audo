@@ -10,3 +10,22 @@ std::string Hash(const std::string& message) {
 
 	return ss.str();
 }
+
+std::string RandomCode(const int length) {
+	srand(time(NULL));
+	std::string code;
+	for (int i = 0; i < length; i++) {
+		// have random assortment of characters including numbers and letters
+		// 0-9: 48-57
+		// A-Z: 65-90
+
+		int random = rand() % 2;
+		if (random == 0) {
+			code += (rand() % 10) + 48;
+		}
+		else {
+			code += (rand() % 26) + 65;
+		}
+	}
+	return code;
+}

@@ -1,5 +1,5 @@
 #pragma once
-#include "cpphttp.hpp"
+#include "return_type.hpp"
 #include "database.hpp"
 #include "secret.hpp"
 #include "hash.hpp"
@@ -49,8 +49,10 @@ namespace soci
     };
 }
 
-using returnType = std::tuple<CppHttp::Net::ResponseType, std::string, std::optional<std::vector<std::string>>>;
-
 returnType Register(CppHttp::Net::Request& req);
 
 returnType Login(CppHttp::Net::Request& req);
+
+returnType GetUser(CppHttp::Net::Request& req);
+
+returnType DeleteUser(CppHttp::Net::Request& req);

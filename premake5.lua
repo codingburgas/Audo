@@ -35,7 +35,7 @@ project "Backend"
     filter "configurations:Debug"
       defines "AD_DEBUG"
       symbols "On"
-      libdirs { "./vendor/soci/lib/debug" }
+      libdirs { "./vendor/soci/lib/debug_libs" }
       links {	
         "libsoci_core_4_0",
         "libsoci_empty_4_0",

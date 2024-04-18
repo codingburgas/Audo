@@ -9,6 +9,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\classrooms.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="include\database.hpp">
       <Filter>include</Filter>
     </ClInclude>
@@ -16,6 +19,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\main.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\return_type.hpp">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\secret.hpp">
@@ -26,6 +32,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\classrooms.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\database.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\hash.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -35,6 +47,5 @@
     <ClCompile Include="src\users.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\database.cpp" />
   </ItemGroup>
 </Project>

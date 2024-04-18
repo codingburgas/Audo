@@ -66,11 +66,14 @@ returnType Register(CppHttp::Net::Request& req) {
 
 	std::cout << "User: " << user.email << std::endl;
 
-	if (ind == indicator::i_ok) {
+	if (db->got_data()) {
+
 		return std::make_tuple(CppHttp::Net::ResponseType::ALREADY_EXISTS, "User with email " + email + " already exists", std::nullopt);
 	}
 
 	*db << "SELECT last_value FROM users_id_seq", into(user.id);
+
+	std::cout << "\033[1;34m[*] User id: " << user.id << "\033[0m\n";
 
 	long long int id = (user.id + 1) * 52834;
 
@@ -119,7 +122,7 @@ returnType Login(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "User with email " + email + " not found", std::nullopt);
 	}
 
-	std::string hashedSalted = Hash(email + password + std::to_string((user.id + 1) * 52834) + secret);
+	std::string hashedSalted = Hash(email + password + std::to_string((user.id) * 52834) + secret);
 
 	if (hashedSalted != user.password) {
 		return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "Incorrect password", std::nullopt);
@@ -139,4 +142,98 @@ returnType Login(CppHttp::Net::Request& req) {
 	token["token"] = signedToken;
 
 	return std::make_tuple(CppHttp::Net::ResponseType::JSON, token.dump(4), std::nullopt);
+}
+
+returnType GetUser(CppHttp::Net::Request& req) {
+	soci::session* db = Database::GetInstance()->GetSession();
+	std::string token = CppHttp::Utils::GetHeader(req.m_info.original, "Authorization");
+
+	// Remove Bearer
+	token.erase(0, 7);
+
+	if (token == "") {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Missing token", std::nullopt);
+	}
+
+	jwt::verifier<jwt::default_clock, jwt::traits::nlohmann_json> verifier = jwt::verify<jwt::traits::nlohmann_json>().allow_algorithm(jwt::algorithm::rs512{ "", rsaSecret, "", "" }).with_issuer("auth0");
+	auto decodedToken = jwt::decode<jwt::traits::nlohmann_json>(token);
+
+	std::error_code ec;
+	verifier.verify(decodedToken, ec);
+
+	if (ec) {
+		std::cout << "\033[1;31m[-] Error: " << ec.message() << "\033[0m\n";
+		return std::make_tuple(CppHttp::Net::ResponseType::INTERNAL_ERROR, ec.message(), std::nullopt);
+	}
+
+	json tokenJson = decodedToken.get_payload_json();
+	std::string id = tokenJson["id"];
+
+	User user;
+	indicator ind;
+
+	*db << "SELECT * FROM users WHERE id = :id", into(user, ind), use(id);
+
+	if (ind == indicator::i_null) {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "User with id " + id + " not found", std::nullopt);
+	}
+
+	json userOutput;
+	userOutput["fname"] = user.fname;
+	userOutput["lname"] = user.lname;
+	userOutput["email"] = user.email;
+	userOutput["status"] = user.status;
+	userOutput["school"] = user.school;
+
+	return std::make_tuple(CppHttp::Net::ResponseType::JSON, userOutput.dump(4), std::nullopt);
+}
+
+returnType DeleteUser(CppHttp::Net::Request& req) {
+	soci::session* db = Database::GetInstance()->GetSession();
+	std::string token = CppHttp::Utils::GetHeader(req.m_info.original, "Authorization");
+
+	// Remove Bearer
+	token.erase(0, 7);
+
+	if (token == "") {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Missing token", std::nullopt);
+	}
+
+	jwt::verifier<jwt::default_clock, jwt::traits::nlohmann_json> verifier = jwt::verify<jwt::traits::nlohmann_json>().allow_algorithm(jwt::algorithm::rs512{ "", rsaSecret, "", "" }).with_issuer("auth0");
+	auto decodedToken = jwt::decode<jwt::traits::nlohmann_json>(token);
+
+	std::error_code ec;
+	verifier.verify(decodedToken, ec);
+
+	if (ec) {
+		std::cout << "\033[1;31m[-] Error: " << ec.message() << "\033[0m\n";
+		return std::make_tuple(CppHttp::Net::ResponseType::INTERNAL_ERROR, ec.message(), std::nullopt);
+	}
+
+	json tokenJson = decodedToken.get_payload_json();
+	std::string id = tokenJson["id"];
+
+	User user;
+	indicator ind;
+
+	*db << "SELECT * FROM users WHERE id = :id", into(user, ind), use(id);
+
+	if (ind == indicator::i_null) {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "User with id " + id + " not found", std::nullopt);
+	}
+
+	*db << "DELETE FROM users WHERE id = :id", use(id);
+
+	if (ind == indicator::i_null) {
+		return std::make_tuple(CppHttp::Net::ResponseType::INTERNAL_ERROR, "Failed to delete user. Please try again", std::nullopt);
+	}
+
+	json userOutput;
+	userOutput["fname"] = user.fname;
+	userOutput["lname"] = user.lname;
+	userOutput["email"] = user.email;
+	userOutput["status"] = user.status;
+	userOutput["school"] = user.school;
+
+	return std::make_tuple(CppHttp::Net::ResponseType::JSON, userOutput.dump(4), std::nullopt);
 }
