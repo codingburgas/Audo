@@ -3,6 +3,7 @@
 #include "database.hpp"
 #include "secret.hpp"
 #include "hash.hpp"
+#include <chrono>
 #undef min
 #undef max
 #include "jwt-cpp/traits/nlohmann-json/traits.h"

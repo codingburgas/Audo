@@ -49,7 +49,7 @@ returnType CreateClassroom(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "Name is too long", std::nullopt);
 	}
 
-	if (name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_ ") != std::string::npos) {
+	if (name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_ '") != std::string::npos) {
 		return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "Name contains invalid characters", std::nullopt);
 	}
 
@@ -230,12 +230,7 @@ returnType GetClassrooms(CppHttp::Net::Request& req) {
 
 	std::vector<Classroom> classrooms;
 
-	soci::rowset<Classroom> rsClassrooms = (db->prepare << "SELECT * FROM classrooms WHERE owner_id = :id", use(std::stoi(userId)));
-	for (rowset<Classroom>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
-		classrooms.push_back(*it);
-	}
-
-	rsClassrooms = (db->prepare << "SELECT * FROM classrooms WHERE id = (SELECT classroom_id FROM uc_bridge WHERE user_id = :id)", use(std::stoi(userId)));
+	soci::rowset<Classroom> rsClassrooms = (db->prepare << "SELECT * FROM classrooms WHERE owner_id = :id OR id = (SELECT classroom_id FROM uc_bridge WHERE user_id = :id);", use(std::stoi(userId)), use(std::stoi(userId)));
 	for (rowset<Classroom>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
 		classrooms.push_back(*it);
 	}

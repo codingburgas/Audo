@@ -109,6 +109,7 @@ returnType Login(CppHttp::Net::Request& req) {
 	std::string email = body["email"];
 	std::string password = body["password"];
 
+
 	if (email == "" || password == "") {
 		return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "Missing required fields", std::nullopt);
 	}
@@ -118,7 +119,7 @@ returnType Login(CppHttp::Net::Request& req) {
 
 	*db << "SELECT * FROM users WHERE email = :email", into(user, ind), use(email);
 
-	if (ind == indicator::i_null) {
+	if (!db->got_data()) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "User with email " + email + " not found", std::nullopt);
 	}
 
