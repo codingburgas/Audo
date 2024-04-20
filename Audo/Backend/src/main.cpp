@@ -14,8 +14,9 @@ int main() {
 	router.AddRoute("POST",   "/api/login",                Login);
 	router.AddRoute("GET",    "/api/get/user",             GetUser);
 	router.AddRoute("DELETE", "/api/delete/user",          DeleteUser);
+	router.AddRoute("PUT",    "/api/update/user",          UpdateUser);
 	router.AddRoute("POST",   "/api/create/room",          CreateClassroom);
-	router.AddRoute("PUT",    "/api/get/room",             GetClassroom);
+	router.AddRoute("POST",   "/api/get/room",             GetClassroom);
 	router.AddRoute("DELETE", "/api/delete/room",          DeleteClassroom);
 	router.AddRoute("GET",    "/api/get/user/rooms",       GetClassrooms);
 	router.AddRoute("POST",   "/api/join/room",            JoinClassroom);
@@ -25,6 +26,10 @@ int main() {
 	router.AddRoute("DELETE", "/api/delete/grade",         DeleteGrade);
 	router.AddRoute("POST",   "/api/get/student/grades",   GetStudentGrades);
 	router.AddRoute("POST",   "/api/create/note",          AddNote);
+	router.AddRoute("POST",   "/api/get/notes",            GetNotes);
+	router.AddRoute("POST",   "/api/get/note",             GetNote);
+	router.AddRoute("DELETE", "/api/delete/note",          DeleteNote);
+	router.AddRoute("PUT",    "/api/update/note",          UpdateNote);
 
 	server.Listen("127.0.0.1", 45098, 255);
 }

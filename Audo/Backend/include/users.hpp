@@ -57,3 +57,5 @@ returnType Login(CppHttp::Net::Request& req);
 returnType GetUser(CppHttp::Net::Request& req);
 
 returnType DeleteUser(CppHttp::Net::Request& req);
+
+returnType UpdateUser(CppHttp::Net::Request& req);
