@@ -61,18 +61,18 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInLabel">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>350</x>
      <y>180</y>
-     <width>121</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>24</pointsize>
+     <pointsize>20</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -81,7 +81,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: rgb(68, 81, 120);
-font: 500 24pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Sign in</string>
@@ -198,15 +198,27 @@ font: 500 16pt &quot;Roboto Serif Medium&quot;;</string>
      <height>51</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: none;
+    <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: rgb(152, 205, 254);
-color: rgb(255, 255, 255);
-border-radius: 12px;</string>
+background-color: #0085FF;
+border-radius: 10px;
+color:#ffffff;
+}
+QPushButton:hover {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #006FD6;
+border-radius: 10px;
+color:#ffffff;
+ }
+
+</string>
    </property>
    <property name="text">
     <string>Continue</string>
@@ -247,7 +259,7 @@ color: #C4CAE1;</string>
     <rect>
      <x>700</x>
      <y>620</y>
-     <width>61</width>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -257,6 +269,9 @@ color: #C4CAE1;</string>
      <pointsize>12</pointsize>
      <bold>true</bold>
     </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);

@@ -2,6 +2,7 @@
 #define SIGNUP_H
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Ui {
 class SignUp;
@@ -14,6 +15,10 @@ class SignUp : public QWidget
 public:
     explicit SignUp(QWidget *parent = nullptr);
     ~SignUp();
+
+    QPushButton* GetSignInButton();
+private slots:
+
 
 private:
     Ui::SignUp *ui;

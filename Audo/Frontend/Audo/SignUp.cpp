@@ -12,3 +12,11 @@ SignUp::~SignUp()
 {
     delete ui;
 }
+
+QPushButton* SignUp::GetSignInButton()
+{
+    return ui->SignInButton;
+}
+
+
+

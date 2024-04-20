@@ -27,6 +27,10 @@ int main(int argc, char *argv[])
        signUp.show();
     });
 
+    QObject::connect(signUp.GetSignInButton(), &QPushButton::clicked, [&]() {
+        signUp.hide();
+        signIn.show();
+    });
     mainPage.show();
     return app.exec();
 }
