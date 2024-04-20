@@ -3,6 +3,9 @@
         <file>assets/backgrounds/login-background.png</file>
     </qresource>
     <qresource prefix="/fonts">
-        <file>assets/fonts/RobotoSerif.ttf</file>
+        <file>assets/fonts/RobotoSerif-Regular.ttf</file>
+        <file>assets/fonts/Inter-SemiBold.ttf</file>
+        <file>assets/fonts/RobotoSerif-Medium.ttf</file>
+        <file>assets/fonts/RobotoSerif-SemiBold.ttf</file>
     </qresource>
 </RCC>

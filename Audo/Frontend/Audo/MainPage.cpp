@@ -25,9 +25,3 @@ QPushButton* MainPage::GetSignUpButton()
 {
     return ui->SignUp;
 }
-
-void MainPage::on_pushButton_clicked()
-{
-    delete this;
-}
-
