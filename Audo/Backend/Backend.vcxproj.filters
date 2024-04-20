@@ -15,6 +15,9 @@
     <ClInclude Include="include\database.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\grades.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="include\hash.hpp">
       <Filter>include</Filter>
     </ClInclude>
@@ -30,15 +33,15 @@
     <ClInclude Include="include\users.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\grades.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\classrooms.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\database.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\grades.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\hash.cpp">
@@ -48,9 +51,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\users.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\grades.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
