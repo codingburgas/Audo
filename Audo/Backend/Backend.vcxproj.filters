@@ -33,6 +33,15 @@
     <ClInclude Include="include\users.hpp">
       <Filter>include</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="include\grades.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\notes.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\classrooms.cpp">
@@ -53,5 +62,14 @@
     <ClCompile Include="src\users.cpp">
       <Filter>src</Filter>
     </ClCompile>
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="src\grades.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\notes.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+>>>>>>> Stashed changes
   </ItemGroup>
 </Project>

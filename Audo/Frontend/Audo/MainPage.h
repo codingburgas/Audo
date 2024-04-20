@@ -21,11 +21,6 @@ public:
     QPushButton* GetSignInButton();
     QPushButton* GetSignUpButton();
 
-private slots:
-    void on_pushButton_clicked();
-
-    void on_SignUp_clicked();
-
 private:
     Ui::MainPage *ui;
 };

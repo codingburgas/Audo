@@ -6,6 +6,7 @@ int main() {
 	server.CreateSocket();
 
 	server.SetOnReceive([&router](CppHttp::Net::Request& req) {
+		//std::cout << "received request\n";
 		router.Handle(req);
 	});
 
@@ -23,6 +24,7 @@ int main() {
 	router.AddRoute("POST",   "/api/get/grade",            GetGrade);
 	router.AddRoute("DELETE", "/api/delete/grade",         DeleteGrade);
 	router.AddRoute("POST",   "/api/get/student/grades",   GetStudentGrades);
+	router.AddRoute("POST",   "/api/create/note",          AddNote);
 
 	server.Listen("127.0.0.1", 45098, 255);
 }

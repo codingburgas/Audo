@@ -24,27 +24,29 @@ SignIn::~SignIn()
 
 void SignIn::on_Continue_clicked()
 {
-    QUrl loginUrl;
-    loginUrl.setUrl("127.0.0.1:45098/api/login");
+    QString str = "http://localhost:45098/api/login";
+    const QUrl loginUrl = QUrl(str);
 
     QNetworkRequest loginRequest;
     loginRequest.setUrl(loginUrl);
+    loginRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     QJsonObject body;
-
     body.insert("email", ui->Email->toPlainText());
     body.insert("password", ui->Password->toPlainText());
 
-    qInfo("%s", loginUrl.toString().toStdString().c_str());
+    qDebug() << loginRequest.url().toString();
 
     QNetworkReply* reply = net::manager->post(loginRequest, QJsonDocument(body).toJson());
-    while (!reply->isFinished())
-    {
-        // wait for the request to complete
-    }
-    QByteArray response_data = reply->readAll();
-    reply->deleteLater();
 
-    std::cout << response_data.toStdString() << std::endl;
+    QObject::connect(reply, &QNetworkReply::finished, [=]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            QByteArray response_data = reply->readAll();
+            qDebug() << "Response:" << response_data;
+        } else {
+            qDebug() << "Error:" << reply->errorString();
+        }
+        reply->deleteLater();
+    });
 }
 
