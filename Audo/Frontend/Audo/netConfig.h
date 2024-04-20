@@ -7,7 +7,7 @@
 
 namespace net
 {
-    std::string authToken;
+    QString authToken;
 
     QString baseUrl{"127.0.0.1:45098"};
 

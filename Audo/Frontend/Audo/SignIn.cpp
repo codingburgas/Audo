@@ -1,5 +1,5 @@
 #include "SignIn.h"
-#include "ui_SignIn.h"
+#include "ui_signin.h"
 #include "netConfig.h"
 
 #include <iostream>
@@ -41,10 +41,20 @@ void SignIn::on_Continue_clicked()
 
     QObject::connect(reply, &QNetworkReply::finished, [=]() {
         if (reply->error() == QNetworkReply::NoError) {
-            QByteArray response_data = reply->readAll();
-            qDebug() << "Response:" << response_data;
-        } else {
-            qDebug() << "Error:" << reply->errorString();
+            QString strReply = (QString)reply->readAll();
+            QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+            QJsonObject jsonObj = jsonResponse.object();
+
+            net::authToken = jsonObj["token"].toString();
+
+        }
+        else {
+            QString strReply = (QString)reply->readAll();
+            QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+            QJsonObject jsonObj = jsonResponse.object();
+
+            ui->Warning->setText(jsonObj["data"].toString());
+
         }
         reply->deleteLater();
     });

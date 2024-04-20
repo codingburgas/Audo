@@ -5,6 +5,7 @@
 
 # Custom defined
 *.vcxproj
+*.vcxproj.filters
 *.sln
 bin/
 bin-int/

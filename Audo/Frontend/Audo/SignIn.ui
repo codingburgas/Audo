@@ -266,6 +266,33 @@ color: #A6B2D4;</string>
     <string>Sign Up</string>
    </property>
   </widget>
+  <widget class="QLabel" name="Warning">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>240</y>
+     <width>341</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(170, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Frame</zorder>
   <zorder>EmailFrame</zorder>
@@ -276,6 +303,7 @@ color: #A6B2D4;</string>
   <zorder>Continue</zorder>
   <zorder>SignUpLabel</zorder>
   <zorder>SignUpButton</zorder>
+  <zorder>Warning</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>
