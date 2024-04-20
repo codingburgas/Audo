@@ -2,12 +2,12 @@ import subprocess
 import platform
 
 class Colors:
-    CHOOSE_PLATFORM = "\u001b[34m"
-    VS2022 = "\u001b[35m"
-    VS2017 = "\u001b[33m"
-    MAKEFILE = "\u001b[32m"
-    OPTION = "\u001b[36m"
-    ERROR = "\u001b[31m"
+    CHOOSE_PLATFORM = "\u001b"
+    VS2022 = "\u001b"
+    VS2017 = "\u001b"
+    MAKEFILE = "\u001b"
+    OPTION = "\u001b"
+    ERROR = "\u001b"
 
 options = [f"Visual Studio 2022{Colors.VS2017}", f"Visual Studio 2017{Colors.MAKEFILE}", f"Makefile {Colors.OPTION}"]
 
@@ -20,7 +20,7 @@ def choose_platform():
         print(f"{option}: {i}")
         option += 1
 
-    print("Enter number:", end=" \u001b[0m")
+    print("Enter number:", end=" \u001b")
 
     try:
         option = input()
@@ -53,7 +53,7 @@ def choose_platform():
 selected_option = choose_platform()
 
 if platform.system() == "Windows":
-    subprocess.run(f"start vendor/premake/premake5.exe {selected_option}", shell=True)
+    subprocess.run(f"start ./vendor/premake/premake5.exe {selected_option}", shell=True)
 elif platform.system() == "Linux":
     subprocess.run(f"sudo chmod +x ./vendor/premake/premake5", shell=True)
     subprocess.run(f"./vendor/premake/premake5 {selected_option}", shell=True)

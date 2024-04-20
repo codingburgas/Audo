@@ -1,23 +1,27 @@
-#include "audo.h"
+#include "MainPage.h"
+#include "SignIn.h"
+#include "SignUp.h"
 
 #include <QApplication>
-#include <QLocale>
-#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
 
-    QTranslator translator;
-    const QStringList uiLanguages = QLocale::system().uiLanguages();
-    for (const QString &locale : uiLanguages) {
-        const QString baseName = "Audo_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + baseName)) {
-            a.installTranslator(&translator);
-            break;
-        }
-    }
-    Audo w;
-    w.show();
-    return a.exec();
+    MainPage mainPage;
+    SignIn signIn;
+    SignUp signUp;
+
+    QObject::connect(mainPage.GetSignInButton(), &QPushButton::clicked, [&]() {
+        mainPage.hide();
+        signIn.show();
+    });
+
+    QObject::connect(mainPage.GetSignUpButton(), &QPushButton::clicked, [&]() {
+        mainPage.hide();
+        signUp.show();
+    });
+
+    mainPage.show();
+    return app.exec();
 }

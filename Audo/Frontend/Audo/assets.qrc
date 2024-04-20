@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/backgrounds">
+        <file>assets/backgrounds/login-background.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>assets/fonts/RobotoSerif.ttf</file>
+    </qresource>
+</RCC>

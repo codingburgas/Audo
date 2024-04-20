@@ -8,6 +8,7 @@
 *.sln
 bin/
 bin-int/
+build/
 
 # User-specific files
 *.rsuser
