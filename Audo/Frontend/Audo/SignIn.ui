@@ -10,6 +10,9 @@
     <height>832</height>
    </rect>
   </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
   <property name="windowTitle">
    <string>Sign In</string>
   </property>

@@ -151,6 +151,9 @@ color: rgb(255, 255, 255);</string>
       <fontweight>DemiBold</fontweight>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="mouseTracking">
      <bool>false</bool>
     </property>
@@ -187,6 +190,9 @@ font: 600 32pt &quot;Roboto Serif SemiBold&quot;;</string>
       <italic>false</italic>
       <fontweight>DemiBold</fontweight>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="mouseTracking">
      <bool>false</bool>
