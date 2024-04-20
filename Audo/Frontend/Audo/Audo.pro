@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     SignUp.cpp \
+    audo.cpp \
     main.cpp \
     MainPage.cpp \
     signin.cpp
@@ -17,11 +18,15 @@ SOURCES += \
 HEADERS += \
     MainPage.h \
     SignUp.h \
-    signin.h
+    audo.h \
+    class.h \
+    signin.h \
+    user.h
 
 FORMS += \
     MainPage.ui \
     SignUp.ui \
+    audo.ui \
     signin.ui
 
 # Default rules for deployment.
