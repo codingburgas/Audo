@@ -33,8 +33,9 @@ public:
     QFrame *hero;
     QFrame *classes;
     QLabel *head;
-    QPushButton *pushButton;
-    QTextEdit *textEdit_2;
+    QPushButton *join;
+    QTextEdit *room_code;
+    QLabel *error;
     QPushButton *notes;
     QPushButton *grades;
     QTextEdit *textEdit;
@@ -74,12 +75,16 @@ public:
         username = new QLabel(nav);
         username->setObjectName("username");
         username->setGeometry(QRect(1640, 0, 181, 71));
+        sizePolicy.setHeightForWidth(username->sizePolicy().hasHeightForWidth());
+        username->setSizePolicy(sizePolicy);
         QFont font;
         font.setPointSize(18);
         username->setFont(font);
+        username->setLayoutDirection(Qt::RightToLeft);
         username->setStyleSheet(QString::fromUtf8("color: rgb(68, 81, 120);\n"
 "border: none;\n"
 "background: transparent;"));
+        username->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         status = new QLabel(nav);
         status->setObjectName("status");
         status->setGeometry(QRect(1720, 50, 71, 16));
@@ -123,36 +128,42 @@ public:
 "border: none;"));
         head->setTextFormat(Qt::RichText);
         head->setAlignment(Qt::AlignCenter);
-        pushButton = new QPushButton(classes);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(180, 780, 111, 35));
+        join = new QPushButton(classes);
+        join->setObjectName("join");
+        join->setGeometry(QRect(180, 780, 111, 35));
         QFont font3;
         font3.setFamilies({QString::fromUtf8("Segoe UI Semibold")});
         font3.setPointSize(11);
         font3.setBold(true);
-        pushButton->setFont(font3);
-        pushButton->setCursor(QCursor(Qt::PointingHandCursor));
-        pushButton->setStyleSheet(QString::fromUtf8("border: none;\n"
+        join->setFont(font3);
+        join->setCursor(QCursor(Qt::PointingHandCursor));
+        join->setStyleSheet(QString::fromUtf8("border: none;\n"
 "border-radius: 5px;\n"
 "background: #9899FE;\n"
 "color: #fefefe;"));
-        textEdit_2 = new QTextEdit(classes);
-        textEdit_2->setObjectName("textEdit_2");
-        textEdit_2->setGeometry(QRect(10, 780, 151, 35));
+        room_code = new QTextEdit(classes);
+        room_code->setObjectName("room_code");
+        room_code->setGeometry(QRect(10, 780, 151, 35));
         QFont font4;
         font4.setPointSize(11);
         font4.setBold(true);
-        textEdit_2->setFont(font4);
-        textEdit_2->setStyleSheet(QString::fromUtf8("border: none;\n"
+        room_code->setFont(font4);
+        room_code->setStyleSheet(QString::fromUtf8("border: none;\n"
 "border-radius: 5px;\n"
 "background: #F3F3FF;\n"
 "color: #AEB7D8;\n"
 "padding-left:5px;\n"
 "padding-top: 2px;"));
-        textEdit_2->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhLatinOnly|Qt::ImhLowercaseOnly|Qt::ImhMultiLine|Qt::ImhUppercaseOnly);
-        textEdit_2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
-        textEdit_2->setLineWrapMode(QTextEdit::NoWrap);
-        textEdit_2->setCursorWidth(1);
+        room_code->setInputMethodHints(Qt::ImhDigitsOnly|Qt::ImhLatinOnly|Qt::ImhLowercaseOnly|Qt::ImhMultiLine|Qt::ImhUppercaseOnly);
+        room_code->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
+        room_code->setLineWrapMode(QTextEdit::NoWrap);
+        room_code->setCursorWidth(1);
+        error = new QLabel(classes);
+        error->setObjectName("error");
+        error->setGeometry(QRect(20, 750, 151, 21));
+        error->setStyleSheet(QString::fromUtf8("border: none;\n"
+"color: #121212;\n"
+""));
         notes = new QPushButton(hero);
         notes->setObjectName("notes");
         notes->setGeometry(QRect(1000, 50, 80, 24));
@@ -193,11 +204,12 @@ public:
     void retranslateUi(QMainWindow *Audo)
     {
         Audo->setWindowTitle(QCoreApplication::translate("Audo", "Audo", nullptr));
-        username->setText(QCoreApplication::translate("Audo", "Denis Yusein", nullptr));
+        username->setText(QString());
         status->setText(QCoreApplication::translate("Audo", "Student", nullptr));
         head->setText(QCoreApplication::translate("Audo", "Classes", nullptr));
-        pushButton->setText(QCoreApplication::translate("Audo", "Join Class", nullptr));
-        textEdit_2->setPlaceholderText(QCoreApplication::translate("Audo", "Class code", nullptr));
+        join->setText(QCoreApplication::translate("Audo", "Join Class", nullptr));
+        room_code->setPlaceholderText(QCoreApplication::translate("Audo", "Class code", nullptr));
+        error->setText(QString());
         notes->setText(QCoreApplication::translate("Audo", "Notes", nullptr));
         grades->setText(QCoreApplication::translate("Audo", "Grades", nullptr));
     } // retranslateUi

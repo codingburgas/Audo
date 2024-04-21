@@ -75,7 +75,7 @@ public:
         SignInTitle->setAlignment(Qt::AlignCenter);
         SignInType = new QLabel(StudentSignUp);
         SignInType->setObjectName("SignInType");
-        SignInType->setGeometry(QRect(320, 230, 151, 61));
+        SignInType->setGeometry(QRect(330, 230, 151, 61));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font1.setPointSize(15);
