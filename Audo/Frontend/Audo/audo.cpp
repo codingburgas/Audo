@@ -4,18 +4,15 @@
 #include <QScrollBar>
 #include "./ui_audo.h"
 #include "user.h"
-Audo::Audo(QWidget *parent)
+#include "netConfig.h"
+Audo::Audo(QAction* switcher, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Audo)
+    , switchAction(switcher)
 {
     ui->setupUi(this);
-
-    User denis;
     QFont font("Segoe UI", 11);
     QPixmap closePng(":/public/close.svg");
-    denis.joinedClasses.insert({"Geography", "Andreyana Stoyanova"});
-    denis.joinedClasses.insert({"matenatuakj", "Adreyana Stoyanova"});
-
     this->scrollArea = new QScrollArea;
     auto scroll = this->ui->textEdit->verticalScrollBar();
 
@@ -49,13 +46,13 @@ Audo::Audo(QWidget *parent)
     heroShadowEffect->setBlurRadius(20);
     heroShadowEffect->setColor(QColor(0, 0, 0, 63)); // 0.25 opacity
     heroShadowEffect->setOffset(0, 0);
-
     this->ui->nav->setGraphicsEffect(navShadowEffect);
     this->ui->hero->setGraphicsEffect(heroShadowEffect);
+
     connect(this->ui->notes, &QPushButton::clicked, this, &Audo::notesHeadClick);
     connect(this->ui->grades, &QPushButton::clicked, this, &Audo::gradesHeadClick);
 
-    for (const auto &subject : denis.joinedClasses) {
+    for (const auto &subject : User::joinedClasses) {
         QString text = QString::fromStdString(subject.first + " - " + subject.second);
         QLabel *label = new QLabel(text, this);
         QLabel *close = new QLabel(this);
@@ -73,6 +70,14 @@ Audo::Audo(QWidget *parent)
         label->show();
         this->yClass += 70;
     }
+
+
+    // connect(this->ui->join, &QPushButton::clicked, this, &Audo::joinRoom);
+}
+
+void Audo::setUserName(QVector<std::string>& v){
+    auto username = QString::fromStdString(v.at(0) + " " + v.at(1));
+    this->ui->username->setText(username);
 }
 
 void Audo::notesHeadClick()
@@ -86,6 +91,42 @@ void Audo::gradesHeadClick()
     if (!this->gradesPage)
         this->gradesPage = true;
 }
+
+void Audo::joinRoom() const {
+        QString str = "http://localhost:45098/join/room";
+        QJsonObject body;
+        QNetworkRequest joinRequest;
+        const QUrl loginUrl = QUrl(str);
+
+        joinRequest.setUrl(loginUrl);
+        joinRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+        body.insert("room_code", ui->room_code->toPlainText());
+        QNetworkReply* reply = net::manager->post(joinRequest, QJsonDocument(body).toJson());
+
+
+        QObject::connect(reply, &QNetworkReply::finished, [=]() {
+            if (reply->error() == QNetworkReply::NoError) {
+                QString strReply = (QString)reply->readAll();
+                QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+                QJsonObject jsonObj = jsonResponse.object();
+
+                delete net::authToken;
+                net::authToken = new QString(jsonObj["token"].toString());
+
+            }
+            else {
+                QString strReply = (QString)reply->readAll();
+                QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+                QJsonObject jsonObj = jsonResponse.object();
+
+                this->ui->error->setText(jsonObj["data"].toString());
+
+            }
+            reply->deleteLater();
+        });
+}
+
 
 Audo::~Audo()
 {

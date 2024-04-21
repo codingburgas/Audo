@@ -28,8 +28,7 @@ void SignUp::on_SignInButton_clicked()
 }
 
 
-void SignUp::on_Teacher_clicked()
-{
+void SignUp::on_Teacher_clicked(){
     switchAction->setText("TeacherSignUp");
     switchAction->trigger();
 }

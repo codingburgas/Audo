@@ -25,7 +25,7 @@ private slots:
 
     void on_Teacher_clicked();
 
-private:
+public:
     Ui::SignUp *ui;
     QAction* switchAction;
 };

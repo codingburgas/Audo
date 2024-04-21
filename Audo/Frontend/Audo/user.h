@@ -5,13 +5,13 @@
 
 #include <unordered_map>
 #include <string>
-
+#include <QString>
 //info for currently logged in user, such as name, status, school, classes;
-class User {
-public:
-    std::unordered_map<std::string, std::string> joinedClasses;
-    std::string fname;
-    std::string lname;
-    std::string school;
-    std::string status;
+namespace User{
+    static std::unordered_map<std::string, std::string> joinedClasses;
+    static std::string fname;
+    static std::string lname;
+    static std::string school;
+    static std::string status;
+    static QString username;
 };

@@ -20,7 +20,7 @@ private slots:
 
     void on_Continue_clicked();
 
-private:
+public:
     Ui::StudentSignUp *ui;
     QAction* switchAction;
 };

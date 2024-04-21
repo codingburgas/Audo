@@ -8,7 +8,6 @@ namespace net
     static QString* authToken;
 
     static QString* baseUrl = new QString("127.0.0.1:45098");
-
     static QNetworkAccessManager* manager = new QNetworkAccessManager;
 }
 

@@ -17,7 +17,6 @@ SOURCES += \
     audo.cpp \
     main.cpp \
     MainPage.cpp \
-    requests.cpp \
     signin.cpp
 
 HEADERS += \
@@ -28,9 +27,9 @@ HEADERS += \
     account.h \
     audo.h \
     class.h \
+    handler.h \
     netConfig.h \
-    requests.h \
-    signin.h \
+    signin.h
     user.h
 
 FORMS += \
@@ -40,7 +39,6 @@ FORMS += \
     TeacherSignUp.ui \
     account.ui \
     audo.ui \
-    requests.ui \
     signin.ui
 
 # Default rules for deployment.

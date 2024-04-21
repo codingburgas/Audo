@@ -23,7 +23,7 @@ private slots:
 
     void on_SignUp_clicked();
 
-private:
+public:
     Ui::MainPage *ui;
     QAction* switchAction;
 };

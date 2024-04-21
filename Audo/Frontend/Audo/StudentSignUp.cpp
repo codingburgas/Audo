@@ -48,7 +48,7 @@ void StudentSignUp::on_Continue_clicked()
             delete net::authToken;
             net::authToken = new QString(jsonObj["token"].toString());
 
-            switchAction->setText(QString("Landing"));
+            switchAction->setText(QString("Audo"));
             switchAction->trigger();
         }
         else {
@@ -61,5 +61,7 @@ void StudentSignUp::on_Continue_clicked()
         }
         reply->deleteLater();
     });
+    switchAction->setText(QString("Audo"));
+    switchAction->trigger();
 }
 

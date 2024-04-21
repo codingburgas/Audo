@@ -6,6 +6,8 @@
 #include <QMainWindow>
 #include <QScrollArea>
 #include <QtNetwork/QNetworkRequest>
+#include "netConfig.h"
+#include <QVector>
 
 constexpr int widthClass = 331;
 constexpr int heightClass = 41;
@@ -21,7 +23,7 @@ class Audo : public QMainWindow
     Q_OBJECT
 
 public:
-    Audo(QWidget *parent = nullptr);
+    Audo(QAction* switcher, QWidget *parent = nullptr);
     QGraphicsDropShadowEffect *shadowEffect;
     QScrollArea *scrollArea = nullptr;
     ~Audo();
@@ -31,13 +33,17 @@ public:
     bool notesPage = true;
     bool gradesPage = false;
 
-    void retrieveUserInfo();
+    // void retrieveUserInfo();
+    void setUserName(QVector<std::string>& v);
 
 public slots:
     void notesHeadClick();
     void gradesHeadClick();
+    void joinRoom() const;
 
-private:
+
+public:
     Ui::Audo *ui;
+    QAction* switchAction;
 };
 #endif // AUDO_H

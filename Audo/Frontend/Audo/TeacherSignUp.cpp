@@ -62,5 +62,7 @@ void TeacherSignUp::on_Continue_clicked()
         }
         reply->deleteLater();
     });
+    switchAction->setText("Audo");
+    switchAction->trigger();
 }
 
