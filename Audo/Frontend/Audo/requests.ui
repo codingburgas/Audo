@@ -37,7 +37,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="Continue">
+   <widget class="QPushButton" name="GoBack">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -201,13 +201,41 @@ color: #C4CAE1;</string>
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <widget class="QLabel" name="Warning">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>200</y>
+      <width>511</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Inter</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(170, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>Background</zorder>
    <zorder>Frame</zorder>
-   <zorder>Continue</zorder>
+   <zorder>GoBack</zorder>
    <zorder>SignInLabel</zorder>
    <zorder>SignInLabel_2</zorder>
    <zorder>SignInLabel_3</zorder>
    <zorder>line</zorder>
+   <zorder>Warning</zorder>
   </widget>
  </widget>
  <resources>

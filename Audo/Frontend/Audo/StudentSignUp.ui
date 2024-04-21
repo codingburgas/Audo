@@ -133,7 +133,7 @@ color: rgb(144, 158, 198);
 font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
-    <string>Students</string>
+    <string>Student</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>

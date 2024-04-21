@@ -3,3 +3,4 @@
 #include "classrooms.hpp"
 #include "grades.hpp"
 #include "notes.hpp"
+#include "requests.hpp"

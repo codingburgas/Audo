@@ -30,6 +30,11 @@ int main() {
 	router.AddRoute("POST",   "/api/get/note",             GetNote);
 	router.AddRoute("DELETE", "/api/delete/note",          DeleteNote);
 	router.AddRoute("PUT",    "/api/update/note",          UpdateNote);
+	router.AddRoute("POST",   "/api/create/request",	   AddRequest);
+	router.AddRoute("POST",   "/api/get/requests",         GetRequests);
+	router.AddRoute("DELETE", "/api/delete/request",       DeleteRequest);
+	router.AddRoute("POST",   "/api/accept/request",	   AcceptRequest);
+	router.AddRoute("POST",   "/api/decline/request",      DeclineRequest);
 
 	server.Listen("127.0.0.1", 45098, 255);
 }
