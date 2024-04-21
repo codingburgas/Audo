@@ -375,9 +375,9 @@ color:#ffffff;
   <widget class="QPushButton" name="SignInButton">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>690</x>
      <y>670</y>
-     <width>101</width>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -393,16 +393,16 @@ color:#ffffff;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-background-color: rgba(255, 255, 255, 0);
+background:transparent;
 color: #A6B2D4;
 }
 QPushButton:hover {
 
-background-color: rgba(255, 255, 255, 0);
+background:transparent;
 color: #737B95;
  }
 QPushButton:pressed {
-background-color: rgba(255, 255, 255, 0);
+background:transparent;
 color:#444A5F;
  }
 </string>
@@ -420,7 +420,7 @@ color:#444A5F;
   <widget class="QLabel" name="SignInLabel">
    <property name="geometry">
     <rect>
-     <x>490</x>
+     <x>480</x>
      <y>670</y>
      <width>201</width>
      <height>31</height>

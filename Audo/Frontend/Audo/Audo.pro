@@ -13,6 +13,7 @@ SOURCES += \
     SignUp.cpp \
     StudentSignUp.cpp \
     TeacherSignUp.cpp \
+    account.cpp \
     audo.cpp \
     main.cpp \
     MainPage.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     SignUp.h \
     StudentSignUp.h \
     TeacherSignUp.h \
+    account.h \
     audo.h \
     class.h \
     netConfig.h \
@@ -34,6 +36,7 @@ FORMS += \
     SignUp.ui \
     StudentSignUp.ui \
     TeacherSignUp.ui \
+    account.ui \
     audo.ui \
     signin.ui
 
