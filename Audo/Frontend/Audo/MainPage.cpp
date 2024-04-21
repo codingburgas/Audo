@@ -4,9 +4,8 @@
 
 #include <QFontDatabase>
 
-MainPage::MainPage(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainPage)
+MainPage::MainPage(QAction* switcher, QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainPage), switchAction(switcher)
 {
     ui->setupUi(this);
 }
@@ -16,12 +15,16 @@ MainPage::~MainPage()
     delete ui;
 }
 
-QPushButton* MainPage::GetSignInButton()
+void MainPage::on_SignIn_clicked()
 {
-    return ui->SignIn;
+    switchAction->setText("SignIn");
+    switchAction->trigger();
 }
 
-QPushButton* MainPage::GetSignUpButton()
+
+void MainPage::on_SignUp_clicked()
 {
-    return ui->SignUp;
+    switchAction->setText("SignUp");
+    switchAction->trigger();
 }
+

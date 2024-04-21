@@ -1,6 +1,8 @@
 #include "MainPage.h"
 #include "SignIn.h"
 #include "SignUp.h"
+#include "StudentSignUp.h"
+#include "TeacherSignUp.h"
 
 #include <QApplication>
 
@@ -8,29 +10,38 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    MainPage mainPage;
-    SignIn signIn;
-    SignUp signUp;
+    QAction switchWindows;
 
-    QObject::connect(mainPage.GetSignInButton(), &QPushButton::clicked, [&]() {
-        mainPage.hide();
-        signIn.show();
+    MainPage mainPage(&switchWindows);
+
+    SignIn signIn(&switchWindows);
+
+    SignUp signUp(&switchWindows);
+    StudentSignUp studentSignUp(&switchWindows);
+    TeacherSignUp teacherSignUp(&switchWindows);
+
+    QWidget* currentWindow = &mainPage;
+
+    QObject::connect(&switchWindows, &QAction::triggered, [&]() {
+
+        std::string windowToSwitch = switchWindows.text().toStdString();
+        currentWindow->hide();
+
+        if (windowToSwitch == "SignIn")
+            currentWindow = &signIn;
+        if (windowToSwitch == "Landing")
+            currentWindow = &mainPage;
+        if (windowToSwitch == "SignUp")
+            currentWindow = &signUp;
+        if (windowToSwitch == "StudentSignUp")
+            currentWindow = &studentSignUp;
+        if (windowToSwitch == "TeacherSignUp")
+            currentWindow = &studentSignUp;
+
+        currentWindow->show();
+
     });
 
-    QObject::connect(mainPage.GetSignUpButton(), &QPushButton::clicked, [&]() {
-        mainPage.hide();
-        signUp.show();
-    });
-
-    QObject::connect(signIn.GetSignUpButton(), &QPushButton::clicked, [&]() {
-       signIn.hide();
-       signUp.show();
-    });
-
-    QObject::connect(signUp.GetSignInButton(), &QPushButton::clicked, [&]() {
-        signUp.hide();
-        signIn.show();
-    });
     mainPage.show();
     return app.exec();
 }

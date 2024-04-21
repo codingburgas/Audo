@@ -13,16 +13,17 @@ class SignIn : public QWidget
     Q_OBJECT
 
 public:
-    explicit SignIn(QWidget *parent = nullptr);
+    explicit SignIn(QAction* switchAction, QWidget *parent = nullptr);
     ~SignIn();
-
-    QPushButton* GetSignUpButton();
 
 private slots:
     void on_Continue_clicked();
 
+    void on_SignUpButton_clicked();
+
 private:
     Ui::SignIn *ui;
+    QAction* switchAction;
 };
 
 #endif // SIGNIN_H

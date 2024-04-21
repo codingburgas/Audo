@@ -11,6 +11,8 @@ CONFIG += c++17
 
 SOURCES += \
     SignUp.cpp \
+    StudentSignUp.cpp \
+    TeacherSignUp.cpp \
     audo.cpp \
     main.cpp \
     MainPage.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 HEADERS += \
     MainPage.h \
     SignUp.h \
+    StudentSignUp.h \
+    TeacherSignUp.h \
     audo.h \
     class.h \
     netConfig.h \
@@ -28,6 +32,8 @@ HEADERS += \
 FORMS += \
     MainPage.ui \
     SignUp.ui \
+    StudentSignUp.ui \
+    TeacherSignUp.ui \
     audo.ui \
     signin.ui
 

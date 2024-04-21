@@ -15,13 +15,16 @@ class MainPage : public QMainWindow
     Q_OBJECT
 
 public:
-    MainPage(QWidget *parent = nullptr);
+    MainPage(QAction* switchAction, QWidget *parent = nullptr);
     ~MainPage();
 
-    QPushButton* GetSignInButton();
-    QPushButton* GetSignUpButton();
+private slots:
+    void on_SignIn_clicked();
+
+    void on_SignUp_clicked();
 
 private:
     Ui::MainPage *ui;
+    QAction* switchAction;
 };
 #endif // MAINPAGE_H

@@ -3,15 +3,13 @@
 
 #include <QtNetwork/QtNetwork>
 
-#include <string>
-
 namespace net
 {
-    QString authToken;
+    static QString* authToken;
 
-    QString baseUrl{"127.0.0.1:45098"};
+    static QString* baseUrl = new QString("127.0.0.1:45098");
 
-    QNetworkAccessManager* manager = new QNetworkAccessManager;
+    static QNetworkAccessManager* manager = new QNetworkAccessManager;
 }
 
 #endif // NETCONFIG_H

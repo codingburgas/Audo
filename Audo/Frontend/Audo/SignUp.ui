@@ -10,15 +10,39 @@
     <height>832</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>832</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>832</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>1280</width>
+    <height>832</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #4B4CAD;</string>
   </property>
   <widget class="QLabel" name="SignInLabel">
    <property name="geometry">
     <rect>
      <x>500</x>
      <y>520</y>
-     <width>281</width>
+     <width>201</width>
      <height>31</height>
     </rect>
    </property>
@@ -88,10 +112,10 @@ color:#444A5F;
   <widget class="QLabel" name="Background">
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>-90</y>
-     <width>1391</width>
-     <height>1031</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>832</height>
     </rect>
    </property>
    <property name="text">
@@ -203,8 +227,12 @@ color:#ffffff;
      <bold>true</bold>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: #C4CAE1;</string>
+    <string notr="true">color: #C4CAE1;
+background-color: rgba(0, 0, 0, 0);</string>
    </property>
    <property name="text">
     <string>or</string>

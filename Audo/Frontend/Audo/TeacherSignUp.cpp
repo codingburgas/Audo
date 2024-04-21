@@ -1,23 +1,29 @@
-#include "SignIn.h"
-#include "ui_SignIn.h"
+#include "TeacherSignUp.h"
+#include "ui_TeacherSignUp.h"
+
 #include "netConfig.h"
 
-#include <QtLogging>
-
-SignIn::SignIn(QAction* switcher, QWidget *parent)
-    : QWidget(parent), ui(new Ui::SignIn), switchAction(switcher)
+TeacherSignUp::TeacherSignUp(QAction* switcher, QWidget *parent)
+    : QWidget(parent), ui(new Ui::TeacherSignUp), switchAction(switcher)
 {
     ui->setupUi(this);
 }
 
-SignIn::~SignIn()
+TeacherSignUp::~TeacherSignUp()
 {
     delete ui;
 }
 
-void SignIn::on_Continue_clicked()
-{   
-    QString str = "http://localhost:45098/api/login";
+void TeacherSignUp::on_SignInButton_clicked()
+{
+    switchAction->setText("SignIn");
+    switchAction->trigger();
+}
+
+
+void TeacherSignUp::on_Continue_clicked()
+{
+    QString str = "http://localhost:45098/api/register";
     const QUrl loginUrl = QUrl(str);
 
     QNetworkRequest loginRequest;
@@ -25,10 +31,12 @@ void SignIn::on_Continue_clicked()
     loginRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     QJsonObject body;
+    body.insert("first_name", ui->FName->toPlainText());
+    body.insert("last_name", ui->LName->toPlainText());
     body.insert("email", ui->Email->toPlainText());
     body.insert("password", ui->Password->toPlainText());
-
-    qDebug() << loginRequest.url().toString();
+    body.insert("status", "teacher");
+    body.insert("school", ui->ClassCode->toPlainText());
 
     QNetworkReply* reply = net::manager->post(loginRequest, QJsonDocument(body).toJson());
 
@@ -54,12 +62,5 @@ void SignIn::on_Continue_clicked()
         }
         reply->deleteLater();
     });
-}
-
-
-void SignIn::on_SignUpButton_clicked()
-{
-    switchAction->setText("SignUp");
-    switchAction->trigger();
 }
 

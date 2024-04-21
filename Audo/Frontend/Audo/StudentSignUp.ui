@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SignIn</class>
- <widget class="QWidget" name="SignIn">
+ <class>StudentSignUp</class>
+ <widget class="QWidget" name="StudentSignUp">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,17 +25,11 @@
   <property name="baseSize">
    <size>
     <width>1280</width>
-    <height>832</height>
+    <height>830</height>
    </size>
   </property>
-  <property name="cursor">
-   <cursorShape>ArrowCursor</cursorShape>
-  </property>
   <property name="windowTitle">
-   <string>Sign In</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
+   <string>Form</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(75, 76, 173);</string>
@@ -62,10 +56,10 @@
   <widget class="QLabel" name="Frame">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>140</y>
-     <width>668</width>
-     <height>525</height>
+     <x>300</x>
+     <y>180</y>
+     <width>670</width>
+     <height>531</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -76,13 +70,13 @@ border-radius: 16px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="SignInLabel">
+  <widget class="QLabel" name="SignInTitle">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>180</y>
-     <width>111</width>
-     <height>41</height>
+     <x>330</x>
+     <y>200</y>
+     <width>151</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="font">
@@ -90,6 +84,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>20</pointsize>
      <italic>false</italic>
+     <kerning>false</kerning>
      <fontweight>DemiBold</fontweight>
     </font>
    </property>
@@ -102,7 +97,7 @@ color: rgb(68, 81, 120);
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
-    <string>Sign in</string>
+    <string>Sign up</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
@@ -111,12 +106,161 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="SignInType">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>230</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif Medium</family>
+     <pointsize>15</pointsize>
+     <italic>false</italic>
+     <kerning>false</kerning>
+     <fontweight>DemiBold</fontweight>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(144, 158, 198);
+font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Student</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="FNameFrame">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>300</y>
+     <width>281</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F3F3FF;
+border-radius: 16px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="FName">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>320</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif Medium</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <fontweight>Medium</fontweight>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+font: 500 16pt &quot;Roboto Serif Medium&quot;;
+background-color: rgba(255, 255, 255, 0);
+border: none;
+color: rgba(107, 125, 179, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>First Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="LNameFrame">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>300</y>
+     <width>281</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F3F3FF;
+border-radius: 16px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="LName">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>320</y>
+     <width>271</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif Medium</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <fontweight>Medium</fontweight>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+font: 500 16pt &quot;Roboto Serif Medium&quot;;
+background-color: rgba(255, 255, 255, 0);
+border: none;
+color: rgba(107, 125, 179, 255);</string>
+   </property>
+   <property name="placeholderText">
+    <string>Last Name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="EmailFrame">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>390</y>
+     <width>581</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #F3F3FF;
+border-radius: 16px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <widget class="QTextEdit" name="Email">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>290</y>
-     <width>551</width>
+     <x>350</x>
+     <y>410</y>
+     <width>571</width>
      <height>41</height>
     </rect>
    </property>
@@ -142,29 +286,12 @@ color: rgba(107, 125, 179, 255);</string>
     <string>Email</string>
    </property>
   </widget>
-  <widget class="QLabel" name="EmailFrame">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>270</y>
-     <width>561</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
-border-radius: 16px;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="PasswordFrame">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>370</y>
-     <width>561</width>
+     <x>340</x>
+     <y>480</y>
+     <width>581</width>
      <height>71</height>
     </rect>
    </property>
@@ -179,9 +306,9 @@ border-radius: 16px;</string>
   <widget class="QTextEdit" name="Password">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>390</y>
-     <width>551</width>
+     <x>350</x>
+     <y>500</y>
+     <width>571</width>
      <height>41</height>
     </rect>
    </property>
@@ -198,74 +325,20 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
+font: 500 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);
-font: 500 16pt &quot;Roboto Serif Medium&quot;;</string>
+color: rgba(107, 125, 179, 255);</string>
    </property>
    <property name="placeholderText">
     <string>Password</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="SignUpLabel">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>628</y>
-     <width>231</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Inter SemiBold</family>
-     <pointsize>12</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #C4CAE1;</string>
-   </property>
-   <property name="text">
-    <string>Don’t have an account?</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="SignUpButton">
-   <property name="geometry">
-    <rect>
-     <x>700</x>
-     <y>620</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Inter</family>
-     <pointsize>12</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #A6B2D4;</string>
-   </property>
-   <property name="text">
-    <string>Sign Up</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Continue">
    <property name="geometry">
     <rect>
      <x>550</x>
-     <y>480</y>
+     <y>590</y>
      <width>161</width>
      <height>51</height>
     </rect>
@@ -299,12 +372,84 @@ color:#ffffff;
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="SignInButton">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>670</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+background-color: rgba(255, 255, 255, 0);
+color: #A6B2D4;
+}
+QPushButton:hover {
+
+background-color: rgba(255, 255, 255, 0);
+color: #737B95;
+ }
+QPushButton:pressed {
+background-color: rgba(255, 255, 255, 0);
+color:#444A5F;
+ }
+</string>
+   </property>
+   <property name="text">
+    <string>Sign In</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SignInLabel">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>670</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter SemiBold</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: #C4CAE1;</string>
+   </property>
+   <property name="text">
+    <string>Already have an account?</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
   <widget class="QLabel" name="Warning">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>240</y>
-     <width>511</width>
+     <x>350</x>
+     <y>270</y>
+     <width>541</width>
      <height>31</height>
     </rect>
    </property>
@@ -326,17 +471,6 @@ color: rgb(170, 0, 0);</string>
     <string/>
    </property>
   </widget>
-  <zorder>Background</zorder>
-  <zorder>Frame</zorder>
-  <zorder>EmailFrame</zorder>
-  <zorder>SignInLabel</zorder>
-  <zorder>Email</zorder>
-  <zorder>PasswordFrame</zorder>
-  <zorder>Password</zorder>
-  <zorder>SignUpLabel</zorder>
-  <zorder>SignUpButton</zorder>
-  <zorder>Continue</zorder>
-  <zorder>Warning</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

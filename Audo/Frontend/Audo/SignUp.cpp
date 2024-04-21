@@ -1,9 +1,8 @@
 #include "SignUp.h"
 #include "ui_SignUp.h"
 
-SignUp::SignUp(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::SignUp)
+SignUp::SignUp(QAction* switcher, QWidget *parent)
+    : QWidget(parent), ui(new Ui::SignUp), switchAction(switcher)
 {
     ui->setupUi(this);
 }
@@ -13,10 +12,25 @@ SignUp::~SignUp()
     delete ui;
 }
 
-QPushButton* SignUp::GetSignInButton()
+
+
+void SignUp::on_pushButton_clicked()
 {
-    return ui->SignInButton;
+    switchAction->setText("StudentSignUp");
+    switchAction->trigger();
 }
 
 
+void SignUp::on_SignInButton_clicked()
+{
+    switchAction->setText("SignIn");
+    switchAction->trigger();
+}
+
+
+void SignUp::on_Teacher_clicked()
+{
+    switchAction->setText("TeacherSignUp");
+    switchAction->trigger();
+}
 
