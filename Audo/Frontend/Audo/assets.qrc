@@ -8,4 +8,8 @@
         <file>assets/fonts/RobotoSerif-Medium.ttf</file>
         <file>assets/fonts/RobotoSerif-SemiBold.ttf</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>assets/icons/back-arrow.png</file>
+        <file>assets/icons/user.png</file>
+    </qresource>
 </RCC>
