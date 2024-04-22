@@ -78,7 +78,7 @@ public:
         Background = new QLabel(SignUp);
         Background->setObjectName("Background");
         Background->setGeometry(QRect(0, 0, 1280, 832));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/main-background.png")));
         Background->setAlignment(Qt::AlignCenter);
         SignInTitle = new QLabel(SignUp);
         SignInTitle->setObjectName("SignInTitle");

@@ -10,7 +10,6 @@
 #define UI_STUDENTGRADES_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
@@ -25,9 +24,6 @@ QT_BEGIN_NAMESPACE
 class Ui_StudentGrades
 {
 public:
-    QLabel *Background;
-    QLabel *Status;
-    QPushButton *pushButton;
     QFrame *GradeTable;
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout_6;
@@ -42,45 +38,28 @@ public:
     QSpacerItem *horizontalSpacer;
     QLabel *label_4;
     QSpacerItem *verticalSpacer;
+    QLabel *Frame_2;
+    QPushButton *SignOut_2;
+    QLabel *Background_2;
+    QPushButton *SignOut_3;
+    QLabel *Background_3;
+    QLabel *SignInLabel_2;
     QLabel *Name;
-    QLabel *UserIcon;
-    QLabel *AccountFrame;
-    QLabel *GradeFrame;
-    QPushButton *grades;
-    QPushButton *notes;
+    QPushButton *SignOut_4;
+    QLabel *Background;
+    QLabel *Status;
+    QLabel *Frame_3;
+    QLabel *Frame_4;
 
     void setupUi(QWidget *StudentGrades)
     {
         if (StudentGrades->objectName().isEmpty())
             StudentGrades->setObjectName("StudentGrades");
         StudentGrades->resize(1280, 832);
-        Background = new QLabel(StudentGrades);
-        Background->setObjectName("Background");
-        Background->setGeometry(QRect(0, 0, 1280, 832));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
-        Background->setAlignment(Qt::AlignCenter);
-        Status = new QLabel(StudentGrades);
-        Status->setObjectName("Status");
-        Status->setGeometry(QRect(940, 50, 221, 41));
-        QFont font;
-        font.setFamilies({QString::fromUtf8("Roboto Serif")});
-        font.setPointSize(11);
-        Status->setFont(font);
-        Status->setStyleSheet(QString::fromUtf8("background: none;\n"
-"background-color: rgba(255, 255, 255, 0);\n"
-"color: #445178;"));
-        Status->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        pushButton = new QPushButton(StudentGrades);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(40, 150, 51, 61));
-        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icons/assets/icons/back-arrow.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton->setIcon(icon);
-        pushButton->setIconSize(QSize(48, 48));
+        StudentGrades->setStyleSheet(QString::fromUtf8("background-color: rgb(249, 249, 249);"));
         GradeTable = new QFrame(StudentGrades);
         GradeTable->setObjectName("GradeTable");
-        GradeTable->setGeometry(QRect(200, 240, 851, 501));
+        GradeTable->setGeometry(QRect(370, 160, 851, 501));
         GradeTable->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
 "border-style: inset;\n"
 "border-width: 2px;\n"
@@ -101,14 +80,14 @@ public:
         label_2->setObjectName("label_2");
         label_2->setMinimumSize(QSize(300, 0));
         label_2->setMaximumSize(QSize(300, 16777215));
-        QFont font1;
-        font1.setFamilies({QString::fromUtf8("Inter")});
-        font1.setPointSize(16);
-        font1.setWeight(QFont::DemiBold);
-        font1.setItalic(false);
-        label_2->setFont(font1);
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Inter")});
+        font.setPointSize(16);
+        font.setBold(true);
+        font.setItalic(false);
+        label_2->setFont(font);
         label_2->setStyleSheet(QString::fromUtf8("color: #445178;\n"
-"font: 600 16pt \"Inter\";\n"
+"font: bold 16pt \"Inter\";\n"
 "border-width: 2px;\n"
 "border-color: rgba(68, 81, 120, 123);"));
         label_2->setAlignment(Qt::AlignCenter);
@@ -118,7 +97,7 @@ public:
         label_3 = new QLabel(gridLayoutWidget);
         label_3->setObjectName("label_3");
         label_3->setStyleSheet(QString::fromUtf8("color: #445178;\n"
-"font: 600 16pt \"Inter\";\n"
+"font: bold 16pt \"Inter\";\n"
 "border-width: 2px;\n"
 "border-color: rgba(68, 81, 120, 123);"));
         label_3->setAlignment(Qt::AlignCenter);
@@ -129,9 +108,9 @@ public:
         label->setObjectName("label");
         label->setMinimumSize(QSize(100, 75));
         label->setMaximumSize(QSize(200, 16777215));
-        label->setFont(font1);
+        label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("color: #445178;\n"
-"font: 600 16pt \"Inter\";\n"
+"font: bold 16pt \"Inter\";\n"
 "border-width: 2px;\n"
 "border-color: rgba(68, 81, 120, 123);"));
         label->setAlignment(Qt::AlignCenter);
@@ -198,9 +177,82 @@ public:
 
         gridLayout_6->addItem(verticalSpacer, 2, 0, 1, 1);
 
+        Frame_2 = new QLabel(StudentGrades);
+        Frame_2->setObjectName("Frame_2");
+        Frame_2->setGeometry(QRect(329, 10, 931, 71));
+        Frame_2->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"    background-color: #ffffff; \n"
+"}"));
+        SignOut_2 = new QPushButton(StudentGrades);
+        SignOut_2->setObjectName("SignOut_2");
+        SignOut_2->setGeometry(QRect(60, 130, 111, 51));
+        SignOut_2->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_2->setAutoFillBackground(false);
+        SignOut_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 16pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: bold 16pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+" }\n"
+"\n"
+""));
+        SignOut_2->setFlat(true);
+        Background_2 = new QLabel(StudentGrades);
+        Background_2->setObjectName("Background_2");
+        Background_2->setGeometry(QRect(20, 190, 31, 31));
+        Background_2->setAutoFillBackground(false);
+        Background_2->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/grades-icon.png")));
+        Background_2->setAlignment(Qt::AlignCenter);
+        SignOut_3 = new QPushButton(StudentGrades);
+        SignOut_3->setObjectName("SignOut_3");
+        SignOut_3->setGeometry(QRect(60, 180, 91, 51));
+        SignOut_3->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_3->setAutoFillBackground(false);
+        SignOut_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 16pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: bold 16pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+" }\n"
+"\n"
+""));
+        SignOut_3->setFlat(true);
+        Background_3 = new QLabel(StudentGrades);
+        Background_3->setObjectName("Background_3");
+        Background_3->setGeometry(QRect(20, 240, 31, 31));
+        Background_3->setAutoFillBackground(false);
+        Background_3->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_3->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/classes-icon.png")));
+        Background_3->setAlignment(Qt::AlignCenter);
+        SignInLabel_2 = new QLabel(StudentGrades);
+        SignInLabel_2->setObjectName("SignInLabel_2");
+        SignInLabel_2->setGeometry(QRect(20, 20, 81, 41));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
+        font1.setPointSize(20);
+        font1.setWeight(QFont::DemiBold);
+        font1.setItalic(false);
+        SignInLabel_2->setFont(font1);
+        SignInLabel_2->setAutoFillBackground(false);
+        SignInLabel_2->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
+"color: rgb(68, 81, 120);\n"
+"font: 600 20pt \"Roboto Serif Medium\";"));
+        SignInLabel_2->setScaledContents(false);
+        SignInLabel_2->setAlignment(Qt::AlignCenter);
         Name = new QLabel(StudentGrades);
         Name->setObjectName("Name");
-        Name->setGeometry(QRect(940, 30, 221, 41));
+        Name->setGeometry(QRect(1060, 10, 171, 41));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Roboto Serif")});
         font2.setPointSize(14);
@@ -209,54 +261,68 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "color: #445178;"));
         Name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        UserIcon = new QLabel(StudentGrades);
-        UserIcon->setObjectName("UserIcon");
-        UserIcon->setGeometry(QRect(1180, 26, 61, 71));
-        UserIcon->setStyleSheet(QString::fromUtf8("background: none;\n"
-"background-color: rgba(255, 255, 255, 0);"));
-        UserIcon->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/user.png")));
-        AccountFrame = new QLabel(StudentGrades);
-        AccountFrame->setObjectName("AccountFrame");
-        AccountFrame->setGeometry(QRect(20, 20, 1241, 81));
-        AccountFrame->setStyleSheet(QString::fromUtf8("background-color: #FFFFFF;\n"
-"box-shadow: 10px 10px 5px 12px black;"));
-        AccountFrame->setFrameShadow(QFrame::Plain);
-        GradeFrame = new QLabel(StudentGrades);
-        GradeFrame->setObjectName("GradeFrame");
-        GradeFrame->setGeometry(QRect(20, 130, 1241, 681));
-        GradeFrame->setStyleSheet(QString::fromUtf8("background-color: #FFFFFF;"));
-        grades = new QPushButton(StudentGrades);
-        grades->setObjectName("grades");
-        grades->setGeometry(QRect(630, 180, 101, 24));
+        SignOut_4 = new QPushButton(StudentGrades);
+        SignOut_4->setObjectName("SignOut_4");
+        SignOut_4->setGeometry(QRect(60, 230, 101, 51));
+        SignOut_4->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_4->setAutoFillBackground(false);
+        SignOut_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 16pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: bold 16pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: rgb(68, 81, 120);\n"
+" }\n"
+"\n"
+""));
+        SignOut_4->setFlat(true);
+        Background = new QLabel(StudentGrades);
+        Background->setObjectName("Background");
+        Background->setGeometry(QRect(20, 140, 31, 31));
+        Background->setAutoFillBackground(false);
+        Background->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/account-icon.png")));
+        Background->setAlignment(Qt::AlignCenter);
+        Status = new QLabel(StudentGrades);
+        Status->setObjectName("Status");
+        Status->setGeometry(QRect(1010, 30, 221, 41));
         QFont font3;
-        font3.setFamilies({QString::fromUtf8("Segoe UI Semibold")});
-        font3.setPointSize(18);
-        font3.setBold(true);
-        grades->setFont(font3);
-        grades->setCursor(QCursor(Qt::PointingHandCursor));
-        grades->setAutoFillBackground(false);
-        grades->setStyleSheet(QString::fromUtf8("color: #445178;\n"
-"background:#ffffff;\n"
-"border:none;"));
-        notes = new QPushButton(StudentGrades);
-        notes->setObjectName("notes");
-        notes->setGeometry(QRect(531, 180, 80, 24));
-        notes->setFont(font3);
-        notes->setCursor(QCursor(Qt::PointingHandCursor));
-        notes->setAutoFillBackground(false);
-        notes->setStyleSheet(QString::fromUtf8("color: #445178;\n"
-"background:#ffffff;\n"
-"border:none;"));
-        Background->raise();
-        AccountFrame->raise();
-        pushButton->raise();
-        GradeFrame->raise();
-        UserIcon->raise();
+        font3.setFamilies({QString::fromUtf8("Roboto Serif")});
+        font3.setPointSize(11);
+        Status->setFont(font3);
+        Status->setStyleSheet(QString::fromUtf8("background: none;\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color: #445178;"));
+        Status->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        Frame_3 = new QLabel(StudentGrades);
+        Frame_3->setObjectName("Frame_3");
+        Frame_3->setGeometry(QRect(0, 0, 311, 831));
+        Frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"    background-color: #ffffff; \n"
+"}"));
+        Frame_4 = new QLabel(StudentGrades);
+        Frame_4->setObjectName("Frame_4");
+        Frame_4->setGeometry(QRect(330, 90, 931, 831));
+        Frame_4->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"    background-color: #ffffff; \n"
+"}"));
+        Frame_4->raise();
+        Frame_2->raise();
+        Frame_3->raise();
         GradeTable->raise();
-        Name->raise();
+        SignInLabel_2->raise();
+        SignOut_2->raise();
+        SignOut_4->raise();
+        SignOut_3->raise();
         Status->raise();
-        grades->raise();
-        notes->raise();
+        Background->raise();
+        Background_2->raise();
+        Background_3->raise();
+        Name->raise();
 
         retranslateUi(StudentGrades);
 
@@ -266,21 +332,24 @@ public:
     void retranslateUi(QWidget *StudentGrades)
     {
         StudentGrades->setWindowTitle(QCoreApplication::translate("StudentGrades", "Form", nullptr));
-        Background->setText(QString());
-        Status->setText(QCoreApplication::translate("StudentGrades", "Teacher", nullptr));
-        pushButton->setText(QString());
         label_2->setText(QCoreApplication::translate("StudentGrades", "Subject", nullptr));
         label_3->setText(QCoreApplication::translate("StudentGrades", "Grades", nullptr));
         label->setText(QCoreApplication::translate("StudentGrades", "Average", nullptr));
         label_6->setText(QCoreApplication::translate("StudentGrades", "TextLabel", nullptr));
         Grade1->setText(QCoreApplication::translate("StudentGrades", "2", nullptr));
         label_4->setText(QCoreApplication::translate("StudentGrades", "TextLabel", nullptr));
+        Frame_2->setText(QString());
+        SignOut_2->setText(QCoreApplication::translate("StudentGrades", "Account", nullptr));
+        Background_2->setText(QString());
+        SignOut_3->setText(QCoreApplication::translate("StudentGrades", "Grades", nullptr));
+        Background_3->setText(QString());
+        SignInLabel_2->setText(QCoreApplication::translate("StudentGrades", "Audo", nullptr));
         Name->setText(QCoreApplication::translate("StudentGrades", "Name", nullptr));
-        UserIcon->setText(QString());
-        AccountFrame->setText(QString());
-        GradeFrame->setText(QString());
-        grades->setText(QCoreApplication::translate("StudentGrades", "Grades", nullptr));
-        notes->setText(QCoreApplication::translate("StudentGrades", "Notes", nullptr));
+        SignOut_4->setText(QCoreApplication::translate("StudentGrades", "Classes", nullptr));
+        Background->setText(QString());
+        Status->setText(QCoreApplication::translate("StudentGrades", "status", nullptr));
+        Frame_3->setText(QString());
+        Frame_4->setText(QString());
     } // retranslateUi
 
 };

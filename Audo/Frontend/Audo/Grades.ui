@@ -32,15 +32,15 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #4B4CAD;
+   <string notr="true">background-color: #F9F9F9;
 </string>
   </property>
   <widget class="QLabel" name="AccountFrame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>1241</width>
+     <x>320</x>
+     <y>10</y>
+     <width>951</width>
      <height>81</height>
     </rect>
    </property>
@@ -55,30 +55,11 @@ box-shadow: 10px 10px 5px 12px black;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Background">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1280</width>
-     <height>832</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/login-background.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="Name">
    <property name="geometry">
     <rect>
-     <x>940</x>
-     <y>30</y>
+     <x>1020</x>
+     <y>20</y>
      <width>221</width>
      <height>41</height>
     </rect>
@@ -101,60 +82,13 @@ color: #445178;</string>
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Status">
-   <property name="geometry">
-    <rect>
-     <x>940</x>
-     <y>50</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto Serif</family>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-background-color: rgba(255, 255, 255, 0);
-color: #445178;</string>
-   </property>
-   <property name="text">
-    <string>Teacher</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="UserIcon">
-   <property name="geometry">
-    <rect>
-     <x>1180</x>
-     <y>26</y>
-     <width>61</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-background-color: rgba(255, 255, 255, 0);</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/user.png</pixmap>
-   </property>
-  </widget>
   <widget class="QLabel" name="GradeFrame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>130</y>
-     <width>1241</width>
-     <height>681</height>
+     <x>320</x>
+     <y>110</y>
+     <width>951</width>
+     <height>701</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -167,8 +101,8 @@ background-color: rgba(255, 255, 255, 0);</string>
   <widget class="QLabel" name="StudentName">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>140</y>
+     <x>370</x>
+     <y>150</y>
      <width>851</width>
      <height>51</height>
     </rect>
@@ -197,7 +131,7 @@ font: 500 20pt &quot;Roboto Serif&quot;;</string>
   <widget class="QFrame" name="GradeTable">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>370</x>
      <y>250</y>
      <width>851</width>
      <height>181</height>
@@ -414,7 +348,7 @@ font: 500 12pt &quot;Inter&quot;;</string>
   <widget class="QFrame" name="AddGradesFrame">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>630</x>
      <y>450</y>
      <width>211</width>
      <height>41</height>
@@ -615,10 +549,10 @@ font: 500 12pt &quot;Inter&quot;;</string>
   <widget class="QTextEdit" name="Description">
    <property name="geometry">
     <rect>
-     <x>740</x>
+     <x>880</x>
      <y>453</y>
      <width>191</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
@@ -646,7 +580,7 @@ font: 500 14pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="DescriptionFrame">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>870</x>
      <y>449</y>
      <width>211</width>
      <height>41</height>
@@ -663,7 +597,7 @@ border-radius: 16px;</string>
   <widget class="QPushButton" name="AddGradeButton">
    <property name="geometry">
     <rect>
-     <x>950</x>
+     <x>1110</x>
      <y>450</y>
      <width>111</width>
      <height>41</height>
@@ -671,10 +605,11 @@ border-radius: 16px;</string>
    </property>
    <property name="font">
     <font>
-     <family>Roboto Serif</family>
+     <family>Roboto Serif SemiBold</family>
      <pointsize>12</pointsize>
-     <bold>true</bold>
+     <italic>false</italic>
      <kerning>true</kerning>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="cursor">
@@ -688,16 +623,19 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
+font: 600 12pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #8C31F4;
 border-radius: 10px;
-background-color: #986BF6;
 color:#ffffff;
 }
-
 QPushButton:hover {
-
-background-color: #7E56D2;
+font: 600 12pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #6319B7;
+border-radius: 10px;
 color:#ffffff;
- }</string>
+ }
+
+</string>
    </property>
    <property name="text">
     <string>Add Grade</string>
@@ -735,11 +673,274 @@ color:#ffffff;
     </size>
    </property>
   </widget>
-  <zorder>Background</zorder>
+  <widget class="QLabel" name="Status">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>50</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+color: #445178;</string>
+   </property>
+   <property name="text">
+    <string>status</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SignInLabel_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif Medium</family>
+     <pointsize>20</pointsize>
+     <italic>false</italic>
+     <fontweight>DemiBold</fontweight>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(68, 81, 120);
+font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Audo</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Frame_3">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>-10</y>
+     <width>311</width>
+     <height>851</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background-color: #ffffff; 
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SignOut_2">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>120</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+}
+QPushButton:hover {
+font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Account</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>180</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/grades-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SignOut_3">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>170</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+}
+QPushButton:hover {
+font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Grades</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>230</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/classes-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SignOut_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>220</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+}
+QPushButton:hover {
+font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Classes</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/account-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>AccountFrame</zorder>
   <zorder>Name</zorder>
-  <zorder>Status</zorder>
-  <zorder>UserIcon</zorder>
   <zorder>GradeFrame</zorder>
   <zorder>GradeTable</zorder>
   <zorder>StudentName</zorder>
@@ -748,6 +949,15 @@ color:#ffffff;
   <zorder>Description</zorder>
   <zorder>AddGradeButton</zorder>
   <zorder>pushButton</zorder>
+  <zorder>Status</zorder>
+  <zorder>Frame_3</zorder>
+  <zorder>SignInLabel_2</zorder>
+  <zorder>SignOut_2</zorder>
+  <zorder>Background_2</zorder>
+  <zorder>SignOut_3</zorder>
+  <zorder>Background_3</zorder>
+  <zorder>SignOut_4</zorder>
+  <zorder>Background</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>
