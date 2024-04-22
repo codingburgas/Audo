@@ -6,6 +6,7 @@
 #include "user.h"
 #include "netConfig.h"
 #include "cpr/cpr.h"
+
 Audo::Audo(QAction* switcher, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Audo)
@@ -95,44 +96,44 @@ void Audo::gradesHeadClick()
 }
 
 void Audo::joinRoom() const {
-        QString str = "http://localhost:45098/join/room";
-        QJsonObject body;
-        QNetworkRequest joinRequest;
-        const QUrl loginUrl = QUrl(str);
+        // QString str = "http://localhost:45098/join/room";
+        // QJsonObject body;
+        // QNetworkRequest joinRequest;
+        // const QUrl loginUrl = QUrl(str);
 
-        joinRequest.setUrl(loginUrl);
-        joinRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        // joinRequest.setUrl(loginUrl);
+        // joinRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-        body.insert("room_code", ui->room_code->toPlainText());
-        QNetworkReply* reply = net::manager->post(joinRequest, QJsonDocument(body).toJson());
+        // body.insert("room_code", ui->room_code->toPlainText());
+        // QNetworkReply* reply = net::manager->post(joinRequest, QJsonDocument(body).toJson());
 
 
-        QObject::connect(reply, &QNetworkReply::finished, [=]() {
-            if (reply->error() == QNetworkReply::NoError) {
-                QString strReply = (QString)reply->readAll();
-                QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-                QJsonObject jsonObj = jsonResponse.object();
+        // QObject::connect(reply, &QNetworkReply::finished, [=]() {
+        //     if (reply->error() == QNetworkReply::NoError) {
+        //         QString strReply = (QString)reply->readAll();
+        //         QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+        //         QJsonObject jsonObj = jsonResponse.object();
 
-                delete net::authToken;
-                net::authToken = new QString(jsonObj["token"].toString());
+        //         delete net::authToken;
+        //         net::authToken = new QString(jsonObj["token"].toString());
 
-            }
-            else {
-                QString strReply = (QString)reply->readAll();
-                QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-                QJsonObject jsonObj = jsonResponse.object();
+        //     }
+        //     else {
+        //         QString strReply = (QString)reply->readAll();
+        //         QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+        //         QJsonObject jsonObj = jsonResponse.object();
 
-                this->ui->error->setText(jsonObj["data"].toString());
+        //         this->ui->error->setText(jsonObj["data"].toString());
 
-            }
-            reply->deleteLater();
-        });
+        //     }
+        //     reply->deleteLater();
+        // });
 }
 
 
 Audo::~Audo()
 {
     delete ui;
-    delete this->shadowEffect;
+    // delete this->shadowEffect;
     delete this->scrollArea;
 }

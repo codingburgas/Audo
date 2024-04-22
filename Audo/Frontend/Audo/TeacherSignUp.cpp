@@ -1,7 +1,7 @@
 #include "TeacherSignUp.h"
 #include "ui_TeacherSignUp.h"
 
-#include "netConfig.h"
+#include "utils.h"
 
 TeacherSignUp::TeacherSignUp(QAction* switcher, QWidget *parent)
     : QWidget(parent), ui(new Ui::TeacherSignUp), switchAction(switcher)
@@ -23,46 +23,34 @@ void TeacherSignUp::on_SignInButton_clicked()
 
 void TeacherSignUp::on_Continue_clicked()
 {
-    QString str = "http://localhost:45098/api/register";
-    const QUrl loginUrl = QUrl(str);
+    audoUtil::Body body =
+        {
+            { "first_name", ui->FName->toText() },
+            { "last_name", ui->LName->toText() },
+            { "email", ui->Email->toText() },
+            { "password", ui->Password->toText() },
+            { "status", "teacher" },
+            { "school", "VSCPI" }
+        };
 
-    QNetworkRequest loginRequest;
-    loginRequest.setUrl(loginUrl);
-    loginRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    audoUtil::Response response = audoUtil::post("/api/register", body);
 
-    QJsonObject body;
-    body.insert("first_name", ui->FName->toPlainText());
-    body.insert("last_name", ui->LName->toPlainText());
-    body.insert("email", ui->Email->toPlainText());
-    body.insert("password", ui->Password->toPlainText());
-    body.insert("status", "teacher");
-    body.insert("school", ui->ClassCode->toPlainText());
+    if (response.status_code == audoUtil::OK) {
 
-    QNetworkReply* reply = net::manager->post(loginRequest, QJsonDocument(body).toJson());
+        audoCfg::authToken = audoUtil::post("/api/login", body).data["token"].toStr();
 
-    QObject::connect(reply, &QNetworkReply::finished, [=]() {
-        if (reply->error() == QNetworkReply::NoError) {
-            QString strReply = (QString)reply->readAll();
-            QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-            QJsonObject jsonObj = jsonResponse.object();
+        audoCfg::firstName = body[0][1];
+        audoCfg::lastName = body[1][1];
+        audoCfg::email = body[2][1];
+        audoCfg::status = body[4][1];
+        audoCfg::school = body[5][1];
 
-            delete net::authToken;
-            net::authToken = new QString(jsonObj["token"].toString());
+        switchAction->setText("Audo");
+        switchAction->trigger();
+    }
+    else {
 
-            switchAction->setText(QString("Landing"));
-            switchAction->trigger();
-        }
-        else {
-            QString strReply = (QString)reply->readAll();
-            QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-            QJsonObject jsonObj = jsonResponse.object();
-
-            ui->Warning->setText(jsonObj["data"].toString());
-
-        }
-        reply->deleteLater();
-    });
-    switchAction->setText("Audo");
-    switchAction->trigger();
+        ui->Warning->setText(response.data["data"].toString());
+    }
 }
 

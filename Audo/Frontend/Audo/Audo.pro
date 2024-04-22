@@ -30,10 +30,10 @@ HEADERS += \
     audo.h \
     class.h \
     handler.h \
-    netConfig.h \
     signin.h \
     studentgrades.h \
-    teachergrades.h
+    teachergrades.h \
+    utils.h
     user.h
 
 FORMS += \
