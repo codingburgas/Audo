@@ -38,14 +38,15 @@ returnType AddNote(CppHttp::Net::Request& req) {
 	int roomId = body["room_id"];
 	std::string content = body["content"];
 
-	*db << "SELECT * FROM uc_bridge WHERE user_id=:user_id", use(std::stoi(userId));
+	int ownerId;
+	*db << "SELECT classrooms.owner_id FROM uc_bridge INNER JOIN classrooms ON classrooms.id=uc_bridge.classroom_id WHERE classrooms.id = :room_id AND uc_bridge.user_id = :user_id", use(roomId), use(std::stoi(userId)), into(ownerId);
 
-	if (!db->got_data()) {
+	if (!db->got_data() && ownerId != std::stoi(userId)) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "User not in classroom members", std::nullopt);
 	}
 
 	Note note;
-	*db << "INSERT INTO notes(id, subject, topic, classroom_id, content, owner_id) VALUES (DEFAULT, :subject, :topic, :room_id, :content, :owner_id) RETURNING *", use(subject), use(topic), use(roomId), use(content), use(userId), into(note);
+	*db << "INSERT INTO notes(id, subject, topic, classroom_id, content, owner_id) VALUES (DEFAULT, :subject, :topic, :room_id, :content, :owner_id) RETURNING *", use(subject), use(topic), use(roomId), use(content), use(std::stoi(userId)), into(note);
 
 	json noteJson;
 	noteJson["id"] = note.id;

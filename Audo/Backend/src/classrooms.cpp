@@ -127,11 +127,27 @@ returnType GetClassroom(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Unauthorized", std::nullopt);
 	}
 
+	std::vector<UClassroom> rooms;
+	soci::rowset<UClassroom> rsClassrooms = (db->prepare << "SELECT uc_bridge.id, uc_bridge.classroom_id, uc_bridge.user_id, users.fname, users.lname FROM uc_bridge INNER JOIN users ON uc_bridge.user_id=users.id WHERE uc_bridge.classroom_id=:room_id AND uc_bridge.user_id=:user_id", use(classroomId), use(std::stoi(userId)));
+	for (rowset<UClassroom>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
+		rooms.push_back(*it);
+	}
+
 	json response;
 	response["id"] = classroom.id;
 	response["name"] = classroom.name;
 	response["owner_id"] = classroom.ownerId;
 	response["unique_code"] = classroom.code;
+
+	for (auto& room : rooms) {
+		json ucBridge;
+		ucBridge["room_id"] = room.room_id;
+		ucBridge["user_id"] = room.user_id;
+		ucBridge["fname"] = room.fname;
+		ucBridge["lname"] = room.lname;
+
+		response["users"].push_back(ucBridge);
+	}
 
 	return std::make_tuple(CppHttp::Net::ResponseType::JSON, response.dump(4), std::nullopt);
 }

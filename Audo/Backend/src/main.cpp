@@ -1,12 +1,11 @@
 #include "main.hpp"
 
-int main() {
+int main(int argc, char* argv[]) {
 	CppHttp::Net::Router router;
 	CppHttp::Net::TcpListener server;
 	server.CreateSocket();
 
 	server.SetOnReceive([&router](CppHttp::Net::Request& req) {
-		//std::cout << "received request\n";
 		router.Handle(req);
 	});
 
@@ -35,6 +34,15 @@ int main() {
 	router.AddRoute("DELETE", "/api/delete/request",       DeleteRequest);
 	router.AddRoute("POST",   "/api/accept/request",	   AcceptRequest);
 	router.AddRoute("POST",   "/api/decline/request",      DeclineRequest);
+
+	std::string ip;
+
+	if (argc > 1) {
+		ip = argv[1];
+	}
+	else {
+		ip = "";
+	}
 
 	server.Listen("127.0.0.1", 45098, 255);
 }

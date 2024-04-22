@@ -200,7 +200,6 @@ namespace CppHttp {
 					else {
 						header += "Content-Length: " + std::to_string(j.dump().length()) + "\r\n\r\n";
 						header += j.dump();
-
 					}
 
 					//std::cout << header << '\n';
