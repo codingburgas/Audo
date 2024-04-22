@@ -5,6 +5,7 @@
 #include "./ui_audo.h"
 #include "user.h"
 #include "netConfig.h"
+#include "cpr/cpr.h"
 Audo::Audo(QAction* switcher, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Audo)
