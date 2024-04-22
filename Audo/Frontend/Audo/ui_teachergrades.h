@@ -278,7 +278,7 @@ public:
 
         Description = new QTextEdit(Grades);
         Description->setObjectName("Description");
-        Description->setGeometry(QRect(740, 450, 191, 36));
+        Description->setGeometry(QRect(740, 453, 191, 36));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font4.setPointSize(14);

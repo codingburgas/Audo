@@ -125,7 +125,7 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -133,10 +133,10 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
-font: 500 16pt &quot;Roboto Serif Medium&quot;;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>Email</string>
@@ -152,7 +152,7 @@ color: rgba(107, 125, 179, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -169,7 +169,7 @@ border-radius: 16px;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -190,7 +190,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -198,10 +198,10 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);
-font: 500 16pt &quot;Roboto Serif Medium&quot;;</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>Password</string>
@@ -225,7 +225,7 @@ font: 500 16pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #C4CAE1;</string>
+color: #AAAAAA</string>
    </property>
    <property name="text">
     <string>Don’t have an account?</string>
@@ -256,16 +256,12 @@ color: #C4CAE1;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 background-color: rgba(255, 255, 255, 0);
-color: #A6B2D4;
+color: #777777;
 }
 QPushButton:hover {
 
 background-color: rgba(255, 255, 255, 0);
-color: #737B95;
- }
-QPushButton:pressed {
-background-color: rgba(255, 255, 255, 0);
-color:#444A5F;
+color: #000000;
  }
 </string>
    </property>
@@ -290,13 +286,13 @@ color:#444A5F;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0047FF;
+font: 600 16pt &quot;Inter&quot;;
+background-color: #00A3FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+font: 600 16pt &quot;Inter&quot;;
 background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;

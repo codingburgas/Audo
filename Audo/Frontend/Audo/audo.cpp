@@ -4,7 +4,7 @@
 #include <QScrollBar>
 #include "./ui_audo.h"
 #include "user.h"
-#include "netConfig.h"
+#include "utils.h"
 #include "cpr/cpr.h"
 
 Audo::Audo(QAction* switcher, QWidget *parent)

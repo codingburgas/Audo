@@ -6,7 +6,7 @@
 #include <QMainWindow>
 #include <QScrollArea>
 #include <QtNetwork/QNetworkRequest>
-#include "netConfig.h"
+#include "utils.h"
 #include <QVector>
 
 constexpr int widthClass = 331;

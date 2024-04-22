@@ -101,25 +101,25 @@ color: #445178;</string>
   <widget class="QLabel" name="StudentName">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>150</y>
-     <width>851</width>
+     <x>360</x>
+     <y>130</y>
+     <width>221</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Roboto Serif</family>
+     <family>Inter</family>
      <pointsize>20</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
 background-color: rgba(255, 255, 255, 0);
-color: #3D4460;
-font: 500 20pt &quot;Roboto Serif&quot;;</string>
+color: #000000;
+font: 600 20pt &quot;Inter&quot;;</string>
    </property>
    <property name="text">
     <string>Student Name</string>
@@ -128,235 +128,34 @@ font: 500 20pt &quot;Roboto Serif&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QFrame" name="GradeTable">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>250</y>
-     <width>851</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
-border-style: inset;
-border-width: 2px;
-border-color: rgba(68, 81, 120, 123);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Plain</enum>
-   </property>
-   <widget class="QFrame" name="AverageFullFrame">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>0</y>
-      <width>231</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #F3F3FF;
-border-style: inset;
-border-width: 2px;
-border-color: rgba(68, 81, 120, 123);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <widget class="QFrame" name="AverageFrame">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>100</y>
-       <width>231</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: #F3F3FF;
-border-style: inset;
-border-width: 2px;
-border-color: rgba(68, 81, 120, 123);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Plain</enum>
-     </property>
-     <widget class="QLabel" name="AverageGrade">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>231</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 500 16pt &quot;Inter&quot;;
-color: #445178;</string>
-      </property>
-      <property name="text">
-       <string>?</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QLabel" name="Average">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>231</width>
-       <height>101</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: #445178;
-font: 600 16pt &quot;Inter&quot;;</string>
-     </property>
-     <property name="text">
-      <string>Average</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QLabel" name="GradesLabel">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>621</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: #445178;
-font: 600 16pt &quot;Inter&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Grades</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QFrame" name="GradeList">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>100</y>
-      <width>621</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: #F3F3FF;
-border-style: inset;
-border-width: 2px;
-border-color: rgba(68, 81, 120, 123);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::NoFrame</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <widget class="QWidget" name="horizontalLayoutWidget_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>621</width>
-       <height>81</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="GradeLayout">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="leftMargin">
-       <number>20</number>
-      </property>
-      <property name="rightMargin">
-       <number>20</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="Grade1">
-        <property name="minimumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="baseSize">
-         <size>
-          <width>30</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: #FFFFFF;
-background-color: rgb(255, 82, 82);
-border: none;
-border-radius: 8px;
-font: 500 12pt &quot;Inter&quot;;</string>
-        </property>
-        <property name="text">
-         <string>2</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="GradeSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-  </widget>
   <widget class="QFrame" name="AddGradesFrame">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>450</y>
+     <x>850</x>
+     <y>280</y>
      <width>211</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
-border-radius: 10px;</string>
+    <string notr="true">QFrame
+{ 
+     border-radius:5px;
+}
+QPushButton
+{
+color: #FFFFFF;
+background-color: rgba(255, 122, 0, 120);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(255, 122, 0, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -405,13 +204,30 @@ border-radius: 10px;</string>
          <fontweight>Medium</fontweight>
         </font>
        </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
        <property name="styleSheet">
-        <string notr="true">color: #FFFFFF;
-background-color: rgb(255, 82, 82);
-font: 500 12pt &quot;Inter&quot;;</string>
+        <string notr="true">QPushButton
+{
+color: #FFFFFF;
+background-color: rgba(255, 0, 0, 120);
+font: 500 12pt &quot;Inter&quot;;
+border-radius:5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(255, 0, 0, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius:5px;
+}</string>
        </property>
        <property name="text">
         <string>2</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -437,13 +253,30 @@ font: 500 12pt &quot;Inter&quot;;</string>
          <fontweight>Medium</fontweight>
         </font>
        </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
        <property name="styleSheet">
-        <string notr="true">color: #FFFFFF;
-background-color: rgba(255, 141, 93, 123);
-font: 500 12pt &quot;Inter&quot;;</string>
+        <string notr="true">QPushButton
+{
+color: #FFFFFF;
+background-color: rgba(255, 122, 0, 120);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(255, 122, 0, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}</string>
        </property>
        <property name="text">
         <string>3</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -466,13 +299,24 @@ font: 500 12pt &quot;Inter&quot;;</string>
          <family>Inter</family>
          <pointsize>12</pointsize>
          <italic>false</italic>
-         <fontweight>Medium</fontweight>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: #FFFFFF;
-background-color: rgba(255, 197, 48, 123);
-font: 500 12pt &quot;Inter&quot;;</string>
+        <string notr="true">QPushButton
+{
+background-color: rgba(255, 214, 0, 120);
+font: 12pt;
+color:#ffffff;
+border-radius:5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(255, 214, 0, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}</string>
        </property>
        <property name="text">
         <string>4</string>
@@ -502,9 +346,21 @@ font: 500 12pt &quot;Inter&quot;;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: #FFFFFF;
+        <string notr="true">QPushButton
+{
+color: #FFFFFF;
 background-color: rgba(70, 142, 227, 123);
-font: 500 12pt &quot;Inter&quot;;</string>
+font: 500 12pt &quot;Inter&quot;;
+border-radius:5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(70, 142, 227, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}
+</string>
        </property>
        <property name="text">
         <string>5</string>
@@ -534,9 +390,21 @@ font: 500 12pt &quot;Inter&quot;;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: #FFFFFF;
+        <string notr="true">
+QPushButton
+{
+color: #FFFFFF;
 background-color: rgba(63, 198, 109, 123);
-font: 500 12pt &quot;Inter&quot;;</string>
+font: 500 12pt &quot;Inter&quot;;
+border-radius:5px;
+}
+QPushButton:hover
+{
+color: #FFFFFF;
+background-color: rgba(63, 198, 109, 255);
+font: 500 12pt &quot;Inter&quot;;
+border-radius: 5px;
+}</string>
        </property>
        <property name="text">
         <string>6</string>
@@ -546,42 +414,11 @@ font: 500 12pt &quot;Inter&quot;;</string>
     </layout>
    </widget>
   </widget>
-  <widget class="QTextEdit" name="Description">
-   <property name="geometry">
-    <rect>
-     <x>880</x>
-     <y>453</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto Serif Medium</family>
-     <pointsize>14</pointsize>
-     <italic>false</italic>
-     <fontweight>Medium</fontweight>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-background-color: rgba(255, 255, 255, 0);
-border: none;
-color: rgba(107, 125, 179, 255);
-font: 500 14pt &quot;Roboto Serif Medium&quot;;</string>
-   </property>
-   <property name="placeholderText">
-    <string>Description...</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="DescriptionFrame">
    <property name="geometry">
     <rect>
-     <x>870</x>
-     <y>449</y>
+     <x>570</x>
+     <y>560</y>
      <width>211</width>
      <height>41</height>
     </rect>
@@ -597,8 +434,8 @@ border-radius: 16px;</string>
   <widget class="QPushButton" name="AddGradeButton">
    <property name="geometry">
     <rect>
-     <x>1110</x>
-     <y>450</y>
+     <x>1080</x>
+     <y>340</y>
      <width>111</width>
      <height>41</height>
     </rect>
@@ -606,7 +443,7 @@ border-radius: 16px;</string>
    <property name="font">
     <font>
      <family>Roboto Serif SemiBold</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <kerning>true</kerning>
      <fontweight>DemiBold</fontweight>
@@ -623,14 +460,14 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-font: 600 12pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #8C31F4;
+font: 600 10pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #00B2FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
-font: 600 12pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #6319B7;
+font: 600 10pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #0097D8;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -756,9 +593,9 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QPushButton" name="SignOut_2">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>30</x>
      <y>120</y>
-     <width>111</width>
+     <width>181</width>
      <height>51</height>
     </rect>
    </property>
@@ -813,43 +650,6 @@ color: rgb(68, 81, 120);
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="SignOut_3">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>170</y>
-     <width>91</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: rgb(68, 81, 120);
-}
-QPushButton:hover {
-font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: rgb(68, 81, 120);
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Grades</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="Background_3">
@@ -939,14 +739,446 @@ color: rgb(68, 81, 120);
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="StudentName_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>200</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <fontweight>DemiBold</fontweight>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+color: #000000;
+font: 600 16pt &quot;Inter&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Grades</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>280</y>
+     <width>453</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <property name="spacing">
+       <number>7</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 0, 0);
+font: 16pt;
+color:#ffffff;
+border-radius:5px;</string>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #00BF08;
+font: 16pt;
+color:#ffffff;
+border-radius:5px;</string>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #D5F31C;
+font: 16pt;
+color:#ffffff;
+border-radius:5px;</string>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #FF7A00;
+font: 16pt;
+color:#ffffff;
+border-radius:5px;</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: #FFD600;
+font: 16pt;
+color:#ffffff;
+border-radius:5px;</string>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:none;</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="StudentName_3">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>200</y>
+     <width>151</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <fontweight>DemiBold</fontweight>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+color: #000000;
+font: 600 16pt &quot;Inter&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Add grades</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QFrame" name="AddGradesFrame_2">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>340</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <widget class="QTextEdit" name="Description">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Roboto Serif Medium</family>
+      <pointsize>14</pointsize>
+      <italic>false</italic>
+      <fontweight>Medium</fontweight>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+border: none;
+color: rgba(107, 125, 179, 255);
+font: 500 14pt &quot;Roboto Serif Medium&quot;;</string>
+    </property>
+    <property name="placeholderText">
+     <string>Description...</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="SignOut_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+}
+QPushButton:hover {
+font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: rgb(68, 81, 120);
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Grades</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>AccountFrame</zorder>
   <zorder>Name</zorder>
   <zorder>GradeFrame</zorder>
-  <zorder>GradeTable</zorder>
   <zorder>StudentName</zorder>
   <zorder>AddGradesFrame</zorder>
   <zorder>DescriptionFrame</zorder>
-  <zorder>Description</zorder>
   <zorder>AddGradeButton</zorder>
   <zorder>pushButton</zorder>
   <zorder>Status</zorder>
@@ -954,10 +1186,14 @@ color: rgb(68, 81, 120);
   <zorder>SignInLabel_2</zorder>
   <zorder>SignOut_2</zorder>
   <zorder>Background_2</zorder>
-  <zorder>SignOut_3</zorder>
   <zorder>Background_3</zorder>
   <zorder>SignOut_4</zorder>
   <zorder>Background</zorder>
+  <zorder>StudentName_2</zorder>
+  <zorder>horizontalLayoutWidget_2</zorder>
+  <zorder>StudentName_3</zorder>
+  <zorder>AddGradesFrame_2</zorder>
+  <zorder>SignOut_3</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>
