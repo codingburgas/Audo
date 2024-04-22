@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/backgrounds">
         <file>assets/backgrounds/login-background.png</file>
+        <file>assets/backgrounds/main-background.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>assets/fonts/RobotoSerif-Regular.ttf</file>
@@ -11,5 +12,9 @@
     <qresource prefix="/icons">
         <file>assets/icons/back-arrow.png</file>
         <file>assets/icons/user.png</file>
+        <file>assets/icons/account-icon.png</file>
+        <file>assets/icons/classes-icon.png</file>
+        <file>assets/icons/grades-icon.png</file>
+        <file>assets/icons/participants-icon.png</file>
     </qresource>
 </RCC>

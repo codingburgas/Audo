@@ -53,7 +53,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/login-background.png</pixmap>
+    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/main-background.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -98,7 +98,7 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(68, 81, 120);
+color: #26013C;
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -254,8 +254,20 @@ color: #C4CAE1;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #A6B2D4;</string>
+    <string notr="true">QPushButton {
+background-color: rgba(255, 255, 255, 0);
+color: #A6B2D4;
+}
+QPushButton:hover {
+
+background-color: rgba(255, 255, 255, 0);
+color: #737B95;
+ }
+QPushButton:pressed {
+background-color: rgba(255, 255, 255, 0);
+color:#444A5F;
+ }
+</string>
    </property>
    <property name="text">
     <string>Sign Up</string>
@@ -279,13 +291,13 @@ color: #A6B2D4;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0085FF;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #006FD6;
+background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;
  }

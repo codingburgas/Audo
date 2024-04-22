@@ -42,7 +42,7 @@
     <rect>
      <x>500</x>
      <y>520</y>
-     <width>201</width>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -151,7 +151,7 @@ color:#444A5F;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(68, 81, 120);
+color: #26013C;
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -175,9 +175,11 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <bold>true</bold>
+     <family>Roboto Serif SemiBold</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
      <kerning>true</kerning>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="cursor">
@@ -191,16 +193,19 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #8C31F4;
 border-radius: 10px;
-background-color: #986BF6;
 color:#ffffff;
 }
-
 QPushButton:hover {
-
-background-color: #7E56D2;
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #6319B7;
+border-radius: 10px;
 color:#ffffff;
- }</string>
+ }
+
+</string>
    </property>
    <property name="text">
     <string>Teacher</string>
@@ -223,16 +228,19 @@ color:#ffffff;
    </property>
    <property name="font">
     <font>
+     <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
-     <bold>true</bold>
+     <italic>false</italic>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: #C4CAE1;
-background-color: rgba(0, 0, 0, 0);</string>
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: #26013C;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>or</string>
@@ -266,9 +274,11 @@ border-radius: 16px;</string>
    </property>
    <property name="font">
     <font>
-     <pointsize>15</pointsize>
-     <bold>true</bold>
+     <family>Roboto Serif SemiBold</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
      <kerning>true</kerning>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="cursor">
@@ -282,16 +292,19 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #8C31F4;
 border-radius: 10px;
-background-color: #986BF6;
 color:#ffffff;
 }
-
 QPushButton:hover {
-
-background-color: #7E56D2;
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #6319B7;
+border-radius: 10px;
 color:#ffffff;
- }</string>
+ }
+
+</string>
    </property>
    <property name="text">
     <string>Student</string>
@@ -305,12 +318,12 @@ color:#ffffff;
   </widget>
   <zorder>Background</zorder>
   <zorder>Frame</zorder>
-  <zorder>SignInButton</zorder>
   <zorder>SignInLabel</zorder>
   <zorder>SignInTitle</zorder>
   <zorder>Teacher</zorder>
   <zorder>label</zorder>
   <zorder>pushButton</zorder>
+  <zorder>SignInButton</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

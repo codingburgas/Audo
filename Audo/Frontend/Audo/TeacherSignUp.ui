@@ -219,7 +219,7 @@ border-radius: 16px;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/login-background.png</pixmap>
+    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/main-background.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -257,7 +257,7 @@ color: rgb(170, 0, 0);</string>
     <rect>
      <x>480</x>
      <y>670</y>
-     <width>201</width>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
@@ -420,7 +420,7 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(68, 81, 120);
+color: #26013C;
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -451,13 +451,13 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0085FF;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #006FD6;
+background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -530,13 +530,13 @@ color: rgba(107, 125, 179, 255);</string>
   <zorder>LName</zorder>
   <zorder>Warning</zorder>
   <zorder>SignInLabel</zorder>
-  <zorder>SignInButton</zorder>
   <zorder>Email</zorder>
   <zorder>Password</zorder>
   <zorder>SignInTitle</zorder>
   <zorder>SignInType</zorder>
   <zorder>ClassCodeFrame</zorder>
   <zorder>ClassCode</zorder>
+  <zorder>SignInButton</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

@@ -60,7 +60,7 @@ public:
         Background->setToolTipDuration(-1);
         Background->setLayoutDirection(Qt::LeftToRight);
         Background->setAutoFillBackground(false);
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/main-background.png")));
         Background->setScaledContents(false);
         Background->setAlignment(Qt::AlignCenter);
         Background->setWordWrap(false);
@@ -89,7 +89,7 @@ public:
         SignIn->setGeometry(QRect(450, 470, 180, 60));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Roboto Serif SemiBold")});
-        font2.setPointSize(20);
+        font2.setPointSize(18);
         font2.setWeight(QFont::DemiBold);
         font2.setItalic(false);
         SignIn->setFont(font2);
@@ -97,18 +97,19 @@ public:
         SignIn->setMouseTracking(true);
         SignIn->setAutoFillBackground(false);
         SignIn->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"border-radius: 15px;\n"
-"background-color: #986BF6;\n"
+"font: 600 18pt \"Roboto Serif SemiBold\";\n"
+"background-color: #8C31F4;\n"
+"border-radius: 10px;\n"
 "color:#ffffff;\n"
-"font: 600 20pt;\n"
 "}\n"
-"\n"
 "QPushButton:hover {\n"
-"border-radius: 15px;\n"
-"background-color: #7E56D2;\n"
+"font: 600 18pt \"Roboto Serif SemiBold\";\n"
+"background-color: #6319B7;\n"
+"border-radius: 10px;\n"
 "color:#ffffff;\n"
-"font: 600 20pt;\n"
-" }"));
+" }\n"
+"\n"
+""));
         SignIn->setFlat(true);
         SignUp = new QPushButton(centralwidget);
         SignUp->setObjectName("SignUp");
@@ -118,18 +119,20 @@ public:
         SignUp->setMouseTracking(true);
         SignUp->setAutoFillBackground(false);
         SignUp->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"border-radius: 15px;\n"
-"background-color: #ffffff;\n"
-"color:#8C99BC;\n"
-"font: 600 20pt;\n"
+"font: 600 18pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border: 1px solid #ffffff;\n"
+"border-radius: 10px;\n"
+"color:#ffffff;\n"
 "}\n"
-"\n"
 "QPushButton:hover {\n"
-"border-radius: 15px;\n"
-"background-color: #EDE7FF;\n"
-"color:#7580A0;\n"
-"font: 600 20pt;\n"
-" }"));
+"font: 600 18pt \"Roboto Serif SemiBold\";\n"
+"background-color: #ffffff;\n"
+"border-radius: 10px;\n"
+"color:#26013C;\n"
+" }\n"
+"\n"
+""));
         SignUp->setFlat(true);
         MainPage->setCentralWidget(centralwidget);
 

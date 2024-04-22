@@ -47,7 +47,7 @@ public:
         Background = new QLabel(SignIn);
         Background->setObjectName("Background");
         Background->setGeometry(QRect(0, 0, 1280, 832));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/main-background.png")));
         Background->setAlignment(Qt::AlignCenter);
         Frame = new QLabel(SignIn);
         Frame->setObjectName("Frame");
@@ -65,7 +65,7 @@ public:
         SignInLabel->setFont(font);
         SignInLabel->setAutoFillBackground(false);
         SignInLabel->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(68, 81, 120);\n"
+"color: #26013C;\n"
 "font: 600 20pt \"Roboto Serif Medium\";"));
         SignInLabel->setScaledContents(false);
         SignInLabel->setAlignment(Qt::AlignCenter);
@@ -124,8 +124,20 @@ public:
         font3.setBold(true);
         SignUpButton->setFont(font3);
         SignUpButton->setCursor(QCursor(Qt::PointingHandCursor));
-        SignUpButton->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #A6B2D4;"));
+        SignUpButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color: #A6B2D4;\n"
+"}\n"
+"QPushButton:hover {\n"
+"\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color: #737B95;\n"
+" }\n"
+"QPushButton:pressed {\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color:#444A5F;\n"
+" }\n"
+""));
         Continue = new QPushButton(SignIn);
         Continue->setObjectName("Continue");
         Continue->setGeometry(QRect(550, 480, 161, 51));
@@ -133,13 +145,13 @@ public:
         Continue->setAutoFillBackground(false);
         Continue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #0085FF;\n"
+"background-color: #0047FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #006FD6;\n"
+"background-color: #003CD7;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"

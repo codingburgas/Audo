@@ -50,7 +50,7 @@ public:
         Background = new QLabel(StudentSignUp);
         Background->setObjectName("Background");
         Background->setGeometry(QRect(0, 0, 1280, 832));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/main-background.png")));
         Background->setAlignment(Qt::AlignCenter);
         Frame = new QLabel(StudentSignUp);
         Frame->setObjectName("Frame");
@@ -59,7 +59,7 @@ public:
 "border-radius: 16px;"));
         SignInTitle = new QLabel(StudentSignUp);
         SignInTitle->setObjectName("SignInTitle");
-        SignInTitle->setGeometry(QRect(330, 200, 151, 61));
+        SignInTitle->setGeometry(QRect(310, 200, 151, 61));
         QFont font;
         font.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font.setPointSize(20);
@@ -69,13 +69,13 @@ public:
         SignInTitle->setFont(font);
         SignInTitle->setAutoFillBackground(false);
         SignInTitle->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(68, 81, 120);\n"
+"color: #26013C;\n"
 "font: 600 20pt \"Roboto Serif Medium\";"));
         SignInTitle->setScaledContents(false);
         SignInTitle->setAlignment(Qt::AlignCenter);
         SignInType = new QLabel(StudentSignUp);
         SignInType->setObjectName("SignInType");
-        SignInType->setGeometry(QRect(330, 230, 151, 61));
+        SignInType->setGeometry(QRect(300, 230, 151, 61));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font1.setPointSize(15);
@@ -161,13 +161,13 @@ public:
         Continue->setAutoFillBackground(false);
         Continue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #0085FF;\n"
+"background-color: #0047FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #006FD6;\n"
+"background-color: #003CD7;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"
@@ -183,8 +183,9 @@ public:
         font3.setBold(true);
         SignInButton->setFont(font3);
         SignInButton->setCursor(QCursor(Qt::PointingHandCursor));
+        SignInButton->setAutoFillBackground(false);
         SignInButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"background:transparent;\n"
+"background:none;\n"
 "color: #A6B2D4;\n"
 "}\n"
 "QPushButton:hover {\n"
@@ -201,7 +202,7 @@ public:
         SignInButton->setFlat(true);
         SignInLabel = new QLabel(StudentSignUp);
         SignInLabel->setObjectName("SignInLabel");
-        SignInLabel->setGeometry(QRect(480, 670, 201, 31));
+        SignInLabel->setGeometry(QRect(480, 670, 261, 31));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Inter SemiBold")});
         font4.setPointSize(12);
@@ -217,6 +218,22 @@ public:
         Warning->setAutoFillBackground(false);
         Warning->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
 "color: rgb(170, 0, 0);"));
+        Background->raise();
+        Frame->raise();
+        SignInTitle->raise();
+        SignInType->raise();
+        FNameFrame->raise();
+        FName->raise();
+        LNameFrame->raise();
+        LName->raise();
+        EmailFrame->raise();
+        Email->raise();
+        PasswordFrame->raise();
+        Password->raise();
+        Continue->raise();
+        SignInLabel->raise();
+        Warning->raise();
+        SignInButton->raise();
 
         retranslateUi(StudentSignUp);
 

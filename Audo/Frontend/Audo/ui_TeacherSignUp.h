@@ -122,7 +122,7 @@ public:
         Background = new QLabel(TeacherSignUp);
         Background->setObjectName("Background");
         Background->setGeometry(QRect(0, 0, 1280, 832));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/main-background.png")));
         Background->setAlignment(Qt::AlignCenter);
         Warning = new QLabel(TeacherSignUp);
         Warning->setObjectName("Warning");
@@ -133,7 +133,7 @@ public:
 "color: rgb(170, 0, 0);"));
         SignInLabel = new QLabel(TeacherSignUp);
         SignInLabel->setObjectName("SignInLabel");
-        SignInLabel->setGeometry(QRect(480, 670, 201, 31));
+        SignInLabel->setGeometry(QRect(480, 670, 271, 31));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Inter SemiBold")});
         font2.setPointSize(12);
@@ -195,7 +195,7 @@ public:
         SignInTitle->setFont(font4);
         SignInTitle->setAutoFillBackground(false);
         SignInTitle->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(68, 81, 120);\n"
+"color: #26013C;\n"
 "font: 600 20pt \"Roboto Serif Medium\";"));
         SignInTitle->setScaledContents(false);
         SignInTitle->setAlignment(Qt::AlignCenter);
@@ -206,13 +206,13 @@ public:
         Continue->setAutoFillBackground(false);
         Continue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #0085FF;\n"
+"background-color: #0047FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #006FD6;\n"
+"background-color: #003CD7;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"
@@ -245,13 +245,13 @@ public:
         LName->raise();
         Warning->raise();
         SignInLabel->raise();
-        SignInButton->raise();
         Email->raise();
         Password->raise();
         SignInTitle->raise();
         SignInType->raise();
         ClassCodeFrame->raise();
         ClassCode->raise();
+        SignInButton->raise();
 
         retranslateUi(TeacherSignUp);
 

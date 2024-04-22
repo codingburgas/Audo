@@ -16,10 +16,10 @@ CXX           = cl
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -DWIN64 -DNDEBUG -DQT_QML_DEBUG -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -nologo -Zc:wchar_t -FS -Zc:strictStrings -O2 -MD -utf-8 -W3 -w44456 -w44457 -w44458 $(DEFINES)
 CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -O2 -MD -std:c++17 -utf-8 -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
-INCPATH       = -I. -IC:\Qt\6.6.2\msvc2019_64\include -IC:\Qt\6.6.2\msvc2019_64\include\QtWidgets -IC:\Qt\6.6.2\msvc2019_64\include\QtGui -IC:\Qt\6.6.2\msvc2019_64\include\QtNetwork -IC:\Qt\6.6.2\msvc2019_64\include\QtCore -Irelease -I. -IC:\VulkanSDK\1.3.250.0/include -IC:\Qt\6.6.2\msvc2019_64\mkspecs\win32-msvc 
+INCPATH       = -I. -I..\..\..\vendor\cpr\curl\include -I..\..\..\vendor\cpr\include -IC:\Qt\6.6.2\msvc2019_64\include -IC:\Qt\6.6.2\msvc2019_64\include\QtWidgets -IC:\Qt\6.6.2\msvc2019_64\include\QtGui -IC:\Qt\6.6.2\msvc2019_64\include\QtNetwork -IC:\Qt\6.6.2\msvc2019_64\include\QtCore -Irelease -I. -IC:\VulkanSDK\1.3.250.0/include -IC:\Qt\6.6.2\msvc2019_64\mkspecs\win32-msvc 
 LINKER        = link
 LFLAGS        = /NOLOGO /DYNAMICBASE /NXCOMPAT /OPT:REF /OPT:ICF /INCREMENTAL:NO /SUBSYSTEM:WINDOWS "/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'"
-LIBS          = C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.lib shell32.lib  
+LIBS          = /LIBPATH:C:\Users\alide\OneDrive\Documents\Audo\vendor\cpr\libs\Release-libs libcurl-d_imp.lib C:\Users\alide\OneDrive\Documents\Audo\vendor\cpr\libs\Release-libs\cpr.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.lib shell32.lib  
 QMAKE         = C:\Qt\6.6.2\msvc2019_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -202,13 +202,18 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_assets.cpp
 release\qrc_assets.cpp: assets.qrc \
 		C:\Qt\6.6.2\msvc2019_64\bin\rcc.exe \
+		assets\backgrounds\main-background.png \
 		assets\backgrounds\login-background.png \
 		assets\fonts\RobotoSerif-Medium.ttf \
 		assets\fonts\RobotoSerif-Regular.ttf \
 		assets\fonts\Inter-SemiBold.ttf \
 		assets\fonts\RobotoSerif-SemiBold.ttf \
+		assets\icons\classes-icon.png \
+		assets\icons\participants-icon.png \
+		assets\icons\account-icon.png \
 		assets\icons\user.png \
-		assets\icons\back-arrow.png
+		assets\icons\back-arrow.png \
+		assets\icons\grades-icon.png
 	C:\Qt\6.6.2\msvc2019_64\bin\rcc.exe -name assets --no-zstd assets.qrc -o release\qrc_assets.cpp
 
 compiler_moc_predefs_make_all: release\moc_predefs.h
@@ -388,9 +393,69 @@ release\moc_MainPage.cpp: MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" MainPage.h -o release\moc_MainPage.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" MainPage.h -o release\moc_MainPage.cpp
 
 release\moc_SignUp.cpp: SignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -560,7 +625,7 @@ release\moc_SignUp.cpp: SignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" SignUp.h -o release\moc_SignUp.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" SignUp.h -o release\moc_SignUp.cpp
 
 release\moc_StudentSignUp.cpp: StudentSignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -727,7 +792,7 @@ release\moc_StudentSignUp.cpp: StudentSignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" StudentSignUp.h -o release\moc_StudentSignUp.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" StudentSignUp.h -o release\moc_StudentSignUp.cpp
 
 release\moc_TeacherSignUp.cpp: TeacherSignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -894,7 +959,7 @@ release\moc_TeacherSignUp.cpp: TeacherSignUp.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" TeacherSignUp.h -o release\moc_TeacherSignUp.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" TeacherSignUp.h -o release\moc_TeacherSignUp.cpp
 
 release\moc_audo.cpp: audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QFont \
@@ -1273,7 +1338,7 @@ release\moc_audo.cpp: audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVector \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" audo.h -o release\moc_audo.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" audo.h -o release\moc_audo.cpp
 
 release\moc_handler.cpp: handler.h \
 		user.h \
@@ -1378,7 +1443,7 @@ release\moc_handler.cpp: handler.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvector.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" handler.h -o release\moc_handler.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" handler.h -o release\moc_handler.cpp
 
 release\moc_signin.cpp: signin.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -1550,7 +1615,7 @@ release\moc_signin.cpp: signin.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvector.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" signin.h -o release\moc_signin.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" signin.h -o release\moc_signin.cpp
 
 release\moc_studentgrades.cpp: studentgrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -1717,7 +1782,7 @@ release\moc_studentgrades.cpp: studentgrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" studentgrades.h -o release\moc_studentgrades.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" studentgrades.h -o release\moc_studentgrades.cpp
 
 release\moc_teachergrades.cpp: teachergrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
@@ -1884,7 +1949,7 @@ release\moc_teachergrades.cpp: teachergrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
 		release\moc_predefs.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
-	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" teachergrades.h -o release\moc_teachergrades.cpp
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" teachergrades.h -o release\moc_teachergrades.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -3513,7 +3578,67 @@ release\audo.obj: audo.cpp audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextformat.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpen.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
-		user.h
+		user.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h
 
 release\main.obj: main.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QMainWindow \
@@ -3683,6 +3808,66 @@ release\main.obj: main.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
 		SignIn.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVector \
@@ -4076,6 +4261,66 @@ release\MainPage.obj: MainPage.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
 		ui_MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QLocale \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \

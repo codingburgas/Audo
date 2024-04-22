@@ -47,7 +47,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/login-background.png</pixmap>
+    <pixmap resource="assets.qrc">:/backgrounds/assets/backgrounds/main-background.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -73,7 +73,7 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInTitle">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>310</x>
      <y>200</y>
      <width>151</width>
      <height>61</height>
@@ -93,7 +93,7 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(68, 81, 120);
+color: #26013C;
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -109,7 +109,7 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="SignInType">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>300</x>
      <y>230</y>
      <width>151</width>
      <height>61</height>
@@ -352,13 +352,13 @@ color: rgba(107, 125, 179, 255);</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0085FF;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #006FD6;
+background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -391,9 +391,12 @@ color:#ffffff;
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-background:transparent;
+background:none;
 color: #A6B2D4;
 }
 QPushButton:hover {
@@ -422,7 +425,7 @@ color:#444A5F;
     <rect>
      <x>480</x>
      <y>670</y>
-     <width>201</width>
+     <width>261</width>
      <height>31</height>
     </rect>
    </property>
@@ -471,6 +474,22 @@ color: rgb(170, 0, 0);</string>
     <string/>
    </property>
   </widget>
+  <zorder>Background</zorder>
+  <zorder>Frame</zorder>
+  <zorder>SignInTitle</zorder>
+  <zorder>SignInType</zorder>
+  <zorder>FNameFrame</zorder>
+  <zorder>FName</zorder>
+  <zorder>LNameFrame</zorder>
+  <zorder>LName</zorder>
+  <zorder>EmailFrame</zorder>
+  <zorder>Email</zorder>
+  <zorder>PasswordFrame</zorder>
+  <zorder>Password</zorder>
+  <zorder>Continue</zorder>
+  <zorder>SignInLabel</zorder>
+  <zorder>Warning</zorder>
+  <zorder>SignInButton</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>
