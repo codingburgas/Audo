@@ -36,9 +36,7 @@ public:
     QPushButton *join;
     QTextEdit *room_code;
     QLabel *error;
-    QPushButton *notes;
-    QPushButton *grades;
-    QTextEdit *textEdit;
+    QTextEdit *notes;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -95,6 +93,8 @@ public:
 "background: none;\n"
 "opacity: 0.75;\n"
 "border: none;"));
+        status->raise();
+        username->raise();
         hero = new QFrame(centralwidget);
         hero->setObjectName("hero");
         hero->setGeometry(QRect(30, 140, 1851, 831));
@@ -164,33 +164,17 @@ public:
         error->setStyleSheet(QString::fromUtf8("border: none;\n"
 "color: #121212;\n"
 ""));
-        notes = new QPushButton(hero);
+        notes = new QTextEdit(hero);
         notes->setObjectName("notes");
-        notes->setGeometry(QRect(1000, 50, 80, 24));
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("Segoe UI Semibold")});
-        font5.setPointSize(18);
-        font5.setBold(true);
-        notes->setFont(font5);
-        notes->setCursor(QCursor(Qt::PointingHandCursor));
-        notes->setStyleSheet(QString::fromUtf8("color: #445178"));
-        grades = new QPushButton(hero);
-        grades->setObjectName("grades");
-        grades->setGeometry(QRect(1110, 50, 80, 24));
-        grades->setFont(font5);
-        grades->setCursor(QCursor(Qt::PointingHandCursor));
-        grades->setStyleSheet(QString::fromUtf8("color: rgba(68, 81, 120, 0.5)"));
-        textEdit = new QTextEdit(hero);
-        textEdit->setObjectName("textEdit");
-        textEdit->setGeometry(QRect(380, 120, 1431, 671));
-        textEdit->setFont(font1);
-        textEdit->setStyleSheet(QString::fromUtf8("background: #F3F3FF;\n"
+        notes->setGeometry(QRect(380, 120, 1431, 671));
+        notes->setFont(font1);
+        notes->setStyleSheet(QString::fromUtf8("background: #F3F3FF;\n"
 "border: 2px solid rgba(107, 125, 179, 0.5);\n"
 "color: #121212;"));
         Audo->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Audo);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1920, 21));
+        menubar->setGeometry(QRect(0, 0, 1920, 25));
         Audo->setMenuBar(menubar);
         statusbar = new QStatusBar(Audo);
         statusbar->setObjectName("statusbar");
@@ -210,8 +194,6 @@ public:
         join->setText(QCoreApplication::translate("Audo", "Join Class", nullptr));
         room_code->setPlaceholderText(QCoreApplication::translate("Audo", "Class code", nullptr));
         error->setText(QString());
-        notes->setText(QCoreApplication::translate("Audo", "Notes", nullptr));
-        grades->setText(QCoreApplication::translate("Audo", "Grades", nullptr));
     } // retranslateUi
 
 };

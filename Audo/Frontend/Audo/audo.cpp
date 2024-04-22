@@ -14,7 +14,7 @@ Audo::Audo(QAction* switcher, QWidget *parent)
     QFont font("Segoe UI", 11);
     QPixmap closePng(":/public/close.svg");
     this->scrollArea = new QScrollArea;
-    auto scroll = this->ui->textEdit->verticalScrollBar();
+    auto scroll = this->ui->notes->verticalScrollBar();
 
     scroll->setStyleSheet("QScrollBar:vertical {"
                           "border: none;"
@@ -49,8 +49,9 @@ Audo::Audo(QAction* switcher, QWidget *parent)
     this->ui->nav->setGraphicsEffect(navShadowEffect);
     this->ui->hero->setGraphicsEffect(heroShadowEffect);
 
-    connect(this->ui->notes, &QPushButton::clicked, this, &Audo::notesHeadClick);
-    connect(this->ui->grades, &QPushButton::clicked, this, &Audo::gradesHeadClick);
+    //connect(this->ui->notes, &QPushButton::clicked, this, &Audo::notesHeadClick);
+
+    //connect(this->ui->grades, &QPushButton::clicked, this, &Audo::gradesHeadClick);
 
     for (const auto &subject : User::joinedClasses) {
         QString text = QString::fromStdString(subject.first + " - " + subject.second);

@@ -22,7 +22,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_TeacherGrades
+class Ui_Grades
 {
 public:
     QLabel *AccountFrame;
@@ -56,28 +56,28 @@ public:
     QPushButton *AddGradeButton;
     QPushButton *pushButton;
 
-    void setupUi(QWidget *TeacherGrades)
+    void setupUi(QWidget *Grades)
     {
-        if (TeacherGrades->objectName().isEmpty())
-            TeacherGrades->setObjectName("TeacherGrades");
-        TeacherGrades->resize(1280, 832);
-        TeacherGrades->setMinimumSize(QSize(1280, 832));
-        TeacherGrades->setMaximumSize(QSize(1280, 832));
-        TeacherGrades->setBaseSize(QSize(1280, 832));
-        TeacherGrades->setStyleSheet(QString::fromUtf8("background-color: #4B4CAD;\n"
+        if (Grades->objectName().isEmpty())
+            Grades->setObjectName("Grades");
+        Grades->resize(1280, 832);
+        Grades->setMinimumSize(QSize(1280, 832));
+        Grades->setMaximumSize(QSize(1280, 832));
+        Grades->setBaseSize(QSize(1280, 832));
+        Grades->setStyleSheet(QString::fromUtf8("background-color: #4B4CAD;\n"
 ""));
-        AccountFrame = new QLabel(TeacherGrades);
+        AccountFrame = new QLabel(Grades);
         AccountFrame->setObjectName("AccountFrame");
         AccountFrame->setGeometry(QRect(20, 20, 1241, 81));
         AccountFrame->setStyleSheet(QString::fromUtf8("background-color: #FFFFFF;\n"
 "box-shadow: 10px 10px 5px 12px black;"));
         AccountFrame->setFrameShadow(QFrame::Plain);
-        Background = new QLabel(TeacherGrades);
+        Background = new QLabel(Grades);
         Background->setObjectName("Background");
         Background->setGeometry(QRect(0, 0, 1280, 832));
         Background->setPixmap(QPixmap(QString::fromUtf8(":/backgrounds/assets/backgrounds/login-background.png")));
         Background->setAlignment(Qt::AlignCenter);
-        Name = new QLabel(TeacherGrades);
+        Name = new QLabel(Grades);
         Name->setObjectName("Name");
         Name->setGeometry(QRect(940, 30, 221, 41));
         QFont font;
@@ -88,7 +88,7 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "color: #445178;"));
         Name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        Status = new QLabel(TeacherGrades);
+        Status = new QLabel(Grades);
         Status->setObjectName("Status");
         Status->setGeometry(QRect(940, 50, 221, 41));
         QFont font1;
@@ -99,17 +99,17 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "color: #445178;"));
         Status->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        UserIcon = new QLabel(TeacherGrades);
+        UserIcon = new QLabel(Grades);
         UserIcon->setObjectName("UserIcon");
         UserIcon->setGeometry(QRect(1180, 26, 61, 71));
         UserIcon->setStyleSheet(QString::fromUtf8("background: none;\n"
 "background-color: rgba(255, 255, 255, 0);"));
         UserIcon->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/user.png")));
-        GradeFrame = new QLabel(TeacherGrades);
+        GradeFrame = new QLabel(Grades);
         GradeFrame->setObjectName("GradeFrame");
         GradeFrame->setGeometry(QRect(20, 130, 1241, 681));
         GradeFrame->setStyleSheet(QString::fromUtf8("background-color: #FFFFFF;"));
-        StudentName = new QLabel(TeacherGrades);
+        StudentName = new QLabel(Grades);
         StudentName->setObjectName("StudentName");
         StudentName->setGeometry(QRect(210, 140, 851, 51));
         QFont font2;
@@ -123,7 +123,7 @@ public:
 "color: #3D4460;\n"
 "font: 500 20pt \"Roboto Serif\";"));
         StudentName->setAlignment(Qt::AlignCenter);
-        GradeTable = new QFrame(TeacherGrades);
+        GradeTable = new QFrame(Grades);
         GradeTable->setObjectName("GradeTable");
         GradeTable->setGeometry(QRect(210, 250, 851, 181));
         GradeTable->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
@@ -202,7 +202,7 @@ public:
 
         GradeLayout->addItem(GradeSpacer);
 
-        AddGradesFrame = new QFrame(TeacherGrades);
+        AddGradesFrame = new QFrame(Grades);
         AddGradesFrame->setObjectName("AddGradesFrame");
         AddGradesFrame->setGeometry(QRect(500, 450, 211, 41));
         AddGradesFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
@@ -276,9 +276,9 @@ public:
 
         AddGradesLayout->addWidget(Add3);
 
-        Description = new QTextEdit(TeacherGrades);
+        Description = new QTextEdit(Grades);
         Description->setObjectName("Description");
-        Description->setGeometry(QRect(740, 453, 191, 31));
+        Description->setGeometry(QRect(740, 450, 191, 36));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font4.setPointSize(14);
@@ -291,12 +291,12 @@ public:
 "border: none;\n"
 "color: rgba(107, 125, 179, 255);\n"
 "font: 500 14pt \"Roboto Serif Medium\";"));
-        DescriptionFrame = new QLabel(TeacherGrades);
+        DescriptionFrame = new QLabel(Grades);
         DescriptionFrame->setObjectName("DescriptionFrame");
         DescriptionFrame->setGeometry(QRect(730, 449, 211, 41));
         DescriptionFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
 "border-radius: 16px;"));
-        AddGradeButton = new QPushButton(TeacherGrades);
+        AddGradeButton = new QPushButton(Grades);
         AddGradeButton->setObjectName("AddGradeButton");
         AddGradeButton->setGeometry(QRect(950, 450, 111, 41));
         QFont font5;
@@ -320,7 +320,7 @@ public:
 "color:#ffffff;\n"
 " }"));
         AddGradeButton->setFlat(true);
-        pushButton = new QPushButton(TeacherGrades);
+        pushButton = new QPushButton(Grades);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(40, 150, 51, 61));
         pushButton->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
@@ -342,43 +342,43 @@ public:
         AddGradeButton->raise();
         pushButton->raise();
 
-        retranslateUi(TeacherGrades);
+        retranslateUi(Grades);
 
         AddGradeButton->setDefault(false);
 
 
-        QMetaObject::connectSlotsByName(TeacherGrades);
+        QMetaObject::connectSlotsByName(Grades);
     } // setupUi
 
-    void retranslateUi(QWidget *TeacherGrades)
+    void retranslateUi(QWidget *Grades)
     {
-        TeacherGrades->setWindowTitle(QCoreApplication::translate("TeacherGrades", "Form", nullptr));
+        Grades->setWindowTitle(QCoreApplication::translate("Grades", "Form", nullptr));
         AccountFrame->setText(QString());
         Background->setText(QString());
-        Name->setText(QCoreApplication::translate("TeacherGrades", "Name", nullptr));
-        Status->setText(QCoreApplication::translate("TeacherGrades", "Teacher", nullptr));
+        Name->setText(QCoreApplication::translate("Grades", "Name", nullptr));
+        Status->setText(QCoreApplication::translate("Grades", "Teacher", nullptr));
         UserIcon->setText(QString());
         GradeFrame->setText(QString());
-        StudentName->setText(QCoreApplication::translate("TeacherGrades", "Student Name", nullptr));
-        AverageGrade->setText(QCoreApplication::translate("TeacherGrades", "?", nullptr));
-        Average->setText(QCoreApplication::translate("TeacherGrades", "Average", nullptr));
-        GradesLabel->setText(QCoreApplication::translate("TeacherGrades", "Grades", nullptr));
-        Grade1->setText(QCoreApplication::translate("TeacherGrades", "2", nullptr));
-        Add2->setText(QCoreApplication::translate("TeacherGrades", "2", nullptr));
-        Add6->setText(QCoreApplication::translate("TeacherGrades", "3", nullptr));
-        Add5->setText(QCoreApplication::translate("TeacherGrades", "4", nullptr));
-        Add4->setText(QCoreApplication::translate("TeacherGrades", "5", nullptr));
-        Add3->setText(QCoreApplication::translate("TeacherGrades", "6", nullptr));
-        Description->setPlaceholderText(QCoreApplication::translate("TeacherGrades", "Description...", nullptr));
+        StudentName->setText(QCoreApplication::translate("Grades", "Student Name", nullptr));
+        AverageGrade->setText(QCoreApplication::translate("Grades", "?", nullptr));
+        Average->setText(QCoreApplication::translate("Grades", "Average", nullptr));
+        GradesLabel->setText(QCoreApplication::translate("Grades", "Grades", nullptr));
+        Grade1->setText(QCoreApplication::translate("Grades", "2", nullptr));
+        Add2->setText(QCoreApplication::translate("Grades", "2", nullptr));
+        Add6->setText(QCoreApplication::translate("Grades", "3", nullptr));
+        Add5->setText(QCoreApplication::translate("Grades", "4", nullptr));
+        Add4->setText(QCoreApplication::translate("Grades", "5", nullptr));
+        Add3->setText(QCoreApplication::translate("Grades", "6", nullptr));
+        Description->setPlaceholderText(QCoreApplication::translate("Grades", "Description...", nullptr));
         DescriptionFrame->setText(QString());
-        AddGradeButton->setText(QCoreApplication::translate("TeacherGrades", "Add Grade", nullptr));
+        AddGradeButton->setText(QCoreApplication::translate("Grades", "Add Grade", nullptr));
         pushButton->setText(QString());
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class TeacherGrades: public Ui_TeacherGrades {};
+    class Grades: public Ui_Grades {};
 } // namespace Ui
 
 QT_END_NAMESPACE

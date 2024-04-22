@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TeacherGrades</class>
- <widget class="QWidget" name="TeacherGrades">
+ <class>Grades</class>
+ <widget class="QWidget" name="Grades">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -616,9 +616,9 @@ font: 500 12pt &quot;Inter&quot;;</string>
    <property name="geometry">
     <rect>
      <x>740</x>
-     <y>453</y>
+     <y>450</y>
      <width>191</width>
-     <height>31</height>
+     <height>36</height>
     </rect>
    </property>
    <property name="font">
