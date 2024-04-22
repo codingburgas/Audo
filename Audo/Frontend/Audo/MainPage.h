@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QPushButton>
+#include "cpr/cpr.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
