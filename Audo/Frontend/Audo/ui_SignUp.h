@@ -48,7 +48,7 @@ public:
         font.setBold(true);
         SignInLabel->setFont(font);
         SignInLabel->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #C4CAE1;"));
+"color: #AAAAAA;"));
         SignInLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         SignInButton = new QPushButton(SignUp);
         SignInButton->setObjectName("SignInButton");
@@ -61,16 +61,12 @@ public:
         SignInButton->setCursor(QCursor(Qt::PointingHandCursor));
         SignInButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgba(255, 255, 255, 0);\n"
-"color: #A6B2D4;\n"
+"color: #777777;\n"
 "}\n"
 "QPushButton:hover {\n"
 "\n"
 "background-color: rgba(255, 255, 255, 0);\n"
-"color: #737B95;\n"
-" }\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(255, 255, 255, 0);\n"
-"color:#444A5F;\n"
+"color: #000000;\n"
 " }\n"
 ""));
         SignInButton->setCheckable(false);
@@ -111,13 +107,13 @@ public:
         Teacher->setAutoFillBackground(false);
         Teacher->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #8C31F4;\n"
+"background-color: #0047FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #6319B7;\n"
+"background-color: #003CD7;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"
@@ -134,8 +130,11 @@ public:
         font4.setItalic(false);
         label->setFont(font4);
         label->setAutoFillBackground(false);
-        label->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #26013C;\n"
+        label->setStyleSheet(QString::fromUtf8("\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"\n"
+"\n"
+"color: #777777;\n"
 "font: 600 16pt \"Roboto Serif Medium\";"));
         Frame = new QLabel(SignUp);
         Frame->setObjectName("Frame");
@@ -151,13 +150,13 @@ public:
         pushButton->setAutoFillBackground(false);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #8C31F4;\n"
+"background-color: #0047FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #6319B7;\n"
+"background-color: #003CD7;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"

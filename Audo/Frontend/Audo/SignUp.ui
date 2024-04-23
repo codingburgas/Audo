@@ -55,7 +55,7 @@
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #C4CAE1;</string>
+color: #AAAAAA;</string>
    </property>
    <property name="text">
     <string>Already have an account?</string>
@@ -86,16 +86,12 @@ color: #C4CAE1;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 background-color: rgba(255, 255, 255, 0);
-color: #A6B2D4;
+color: #777777;
 }
 QPushButton:hover {
 
 background-color: rgba(255, 255, 255, 0);
-color: #737B95;
- }
-QPushButton:pressed {
-background-color: rgba(255, 255, 255, 0);
-color:#444A5F;
+color: #000000;
  }
 </string>
    </property>
@@ -194,13 +190,13 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #8C31F4;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #6319B7;
+background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -238,8 +234,11 @@ color:#ffffff;
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #26013C;
+    <string notr="true">
+background-color: rgba(255, 255, 255, 0);
+
+
+color: #777777;
 font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -293,13 +292,13 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #8C31F4;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #6319B7;
+background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;
  }

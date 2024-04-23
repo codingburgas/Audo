@@ -75,24 +75,24 @@ public:
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font1.setPointSize(16);
-        font1.setWeight(QFont::Medium);
+        font1.setWeight(QFont::DemiBold);
         font1.setItalic(false);
         Email->setFont(font1);
         Email->setAutoFillBackground(false);
         Email->setStyleSheet(QString::fromUtf8("background: none;\n"
-"font: 500 16pt \"Roboto Serif Medium\";\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);"));
+"color: #777777;"));
         EmailFrame = new QLabel(SignIn);
         EmailFrame->setObjectName("EmailFrame");
         EmailFrame->setGeometry(QRect(360, 270, 561, 71));
-        EmailFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        EmailFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         PasswordFrame = new QLabel(SignIn);
         PasswordFrame->setObjectName("PasswordFrame");
         PasswordFrame->setGeometry(QRect(360, 370, 561, 71));
-        PasswordFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        PasswordFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         Password = new QTextEdit(SignIn);
         Password->setObjectName("Password");
@@ -100,10 +100,10 @@ public:
         Password->setFont(font1);
         Password->setAutoFillBackground(false);
         Password->setStyleSheet(QString::fromUtf8("background: none;\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);\n"
-"font: 500 16pt \"Roboto Serif Medium\";"));
+"color: #777777;"));
         SignUpLabel = new QLabel(SignIn);
         SignUpLabel->setObjectName("SignUpLabel");
         SignUpLabel->setGeometry(QRect(510, 628, 231, 16));
@@ -113,7 +113,7 @@ public:
         font2.setBold(true);
         SignUpLabel->setFont(font2);
         SignUpLabel->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #C4CAE1;"));
+"color: #AAAAAA"));
         SignUpLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         SignUpButton = new QPushButton(SignIn);
         SignUpButton->setObjectName("SignUpButton");
@@ -126,16 +126,12 @@ public:
         SignUpButton->setCursor(QCursor(Qt::PointingHandCursor));
         SignUpButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "background-color: rgba(255, 255, 255, 0);\n"
-"color: #A6B2D4;\n"
+"color: #777777;\n"
 "}\n"
 "QPushButton:hover {\n"
 "\n"
 "background-color: rgba(255, 255, 255, 0);\n"
-"color: #737B95;\n"
-" }\n"
-"QPushButton:pressed {\n"
-"background-color: rgba(255, 255, 255, 0);\n"
-"color:#444A5F;\n"
+"color: #000000;\n"
 " }\n"
 ""));
         Continue = new QPushButton(SignIn);

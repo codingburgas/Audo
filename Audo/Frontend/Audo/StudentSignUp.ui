@@ -73,9 +73,9 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInTitle">
    <property name="geometry">
     <rect>
-     <x>310</x>
+     <x>320</x>
      <y>200</y>
-     <width>151</width>
+     <width>121</width>
      <height>61</height>
     </rect>
    </property>
@@ -93,7 +93,7 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #26013C;
+color: #000000;
 font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -109,9 +109,9 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="SignInType">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>320</x>
      <y>230</y>
-     <width>151</width>
+     <width>101</width>
      <height>61</height>
     </rect>
    </property>
@@ -129,7 +129,7 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(144, 158, 198);
+color: #7F7F7F;
 font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
@@ -152,7 +152,7 @@ font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -173,7 +173,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -181,10 +181,10 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
-font: 500 16pt &quot;Roboto Serif Medium&quot;;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>First Name</string>
@@ -200,7 +200,7 @@ color: rgba(107, 125, 179, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -221,7 +221,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -229,10 +229,10 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
-font: 500 16pt &quot;Roboto Serif Medium&quot;;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>Last Name</string>
@@ -248,7 +248,7 @@ color: rgba(107, 125, 179, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -269,7 +269,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -277,10 +277,10 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
-font: 500 16pt &quot;Roboto Serif Medium&quot;;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>Email</string>
@@ -296,7 +296,7 @@ color: rgba(107, 125, 179, 255);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: #F3F3FF;
+    <string notr="true">background-color: #EEEEEE;
 border-radius: 16px;</string>
    </property>
    <property name="text">
@@ -317,7 +317,7 @@ border-radius: 16px;</string>
      <family>Roboto Serif Medium</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight>Medium</fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="autoFillBackground">
@@ -325,10 +325,10 @@ border-radius: 16px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
-font: 500 16pt &quot;Roboto Serif Medium&quot;;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
 background-color: rgba(255, 255, 255, 0);
 border: none;
-color: rgba(107, 125, 179, 255);</string>
+color: #777777;</string>
    </property>
    <property name="placeholderText">
     <string>Password</string>
@@ -396,17 +396,13 @@ color:#ffffff;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-background:none;
-color: #A6B2D4;
+background-color: rgba(255, 255, 255, 0);
+color: #777777;
 }
 QPushButton:hover {
 
-background:transparent;
-color: #737B95;
- }
-QPushButton:pressed {
-background:transparent;
-color:#444A5F;
+background-color: rgba(255, 255, 255, 0);
+color: #000000;
  }
 </string>
    </property>
@@ -438,7 +434,7 @@ color:#444A5F;
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: #C4CAE1;</string>
+color: #AAAAAA;</string>
    </property>
    <property name="text">
     <string>Already have an account?</string>

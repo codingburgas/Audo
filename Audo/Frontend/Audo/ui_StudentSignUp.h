@@ -59,7 +59,7 @@ public:
 "border-radius: 16px;"));
         SignInTitle = new QLabel(StudentSignUp);
         SignInTitle->setObjectName("SignInTitle");
-        SignInTitle->setGeometry(QRect(310, 200, 151, 61));
+        SignInTitle->setGeometry(QRect(320, 200, 121, 61));
         QFont font;
         font.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font.setPointSize(20);
@@ -69,13 +69,13 @@ public:
         SignInTitle->setFont(font);
         SignInTitle->setAutoFillBackground(false);
         SignInTitle->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #26013C;\n"
+"color: #000000;\n"
 "font: 600 20pt \"Roboto Serif Medium\";"));
         SignInTitle->setScaledContents(false);
         SignInTitle->setAlignment(Qt::AlignCenter);
         SignInType = new QLabel(StudentSignUp);
         SignInType->setObjectName("SignInType");
-        SignInType->setGeometry(QRect(300, 230, 151, 61));
+        SignInType->setGeometry(QRect(320, 230, 101, 61));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font1.setPointSize(15);
@@ -85,14 +85,14 @@ public:
         SignInType->setFont(font1);
         SignInType->setAutoFillBackground(false);
         SignInType->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: rgb(144, 158, 198);\n"
+"color: #7F7F7F;\n"
 "font: 600 15pt \"Roboto Serif Medium\";"));
         SignInType->setScaledContents(false);
         SignInType->setAlignment(Qt::AlignCenter);
         FNameFrame = new QLabel(StudentSignUp);
         FNameFrame->setObjectName("FNameFrame");
         FNameFrame->setGeometry(QRect(340, 300, 281, 71));
-        FNameFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        FNameFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         FName = new QTextEdit(StudentSignUp);
         FName->setObjectName("FName");
@@ -100,19 +100,19 @@ public:
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Roboto Serif Medium")});
         font2.setPointSize(16);
-        font2.setWeight(QFont::Medium);
+        font2.setWeight(QFont::DemiBold);
         font2.setItalic(false);
         FName->setFont(font2);
         FName->setAutoFillBackground(false);
         FName->setStyleSheet(QString::fromUtf8("background: none;\n"
-"font: 500 16pt \"Roboto Serif Medium\";\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);"));
+"color: #777777;"));
         LNameFrame = new QLabel(StudentSignUp);
         LNameFrame->setObjectName("LNameFrame");
         LNameFrame->setGeometry(QRect(640, 300, 281, 71));
-        LNameFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        LNameFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         LName = new QTextEdit(StudentSignUp);
         LName->setObjectName("LName");
@@ -120,14 +120,14 @@ public:
         LName->setFont(font2);
         LName->setAutoFillBackground(false);
         LName->setStyleSheet(QString::fromUtf8("background: none;\n"
-"font: 500 16pt \"Roboto Serif Medium\";\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);"));
+"color: #777777;"));
         EmailFrame = new QLabel(StudentSignUp);
         EmailFrame->setObjectName("EmailFrame");
         EmailFrame->setGeometry(QRect(340, 390, 581, 71));
-        EmailFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        EmailFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         Email = new QTextEdit(StudentSignUp);
         Email->setObjectName("Email");
@@ -135,14 +135,14 @@ public:
         Email->setFont(font2);
         Email->setAutoFillBackground(false);
         Email->setStyleSheet(QString::fromUtf8("background: none;\n"
-"font: 500 16pt \"Roboto Serif Medium\";\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);"));
+"color: #777777;"));
         PasswordFrame = new QLabel(StudentSignUp);
         PasswordFrame->setObjectName("PasswordFrame");
         PasswordFrame->setGeometry(QRect(340, 480, 581, 71));
-        PasswordFrame->setStyleSheet(QString::fromUtf8("background-color: #F3F3FF;\n"
+        PasswordFrame->setStyleSheet(QString::fromUtf8("background-color: #EEEEEE;\n"
 "border-radius: 16px;"));
         Password = new QTextEdit(StudentSignUp);
         Password->setObjectName("Password");
@@ -150,10 +150,10 @@ public:
         Password->setFont(font2);
         Password->setAutoFillBackground(false);
         Password->setStyleSheet(QString::fromUtf8("background: none;\n"
-"font: 500 16pt \"Roboto Serif Medium\";\n"
+"font: 600 16pt \"Roboto Serif Medium\";\n"
 "background-color: rgba(255, 255, 255, 0);\n"
 "border: none;\n"
-"color: rgba(107, 125, 179, 255);"));
+"color: #777777;"));
         Continue = new QPushButton(StudentSignUp);
         Continue->setObjectName("Continue");
         Continue->setGeometry(QRect(550, 590, 161, 51));
@@ -185,17 +185,13 @@ public:
         SignInButton->setCursor(QCursor(Qt::PointingHandCursor));
         SignInButton->setAutoFillBackground(false);
         SignInButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"background:none;\n"
-"color: #A6B2D4;\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color: #777777;\n"
 "}\n"
 "QPushButton:hover {\n"
 "\n"
-"background:transparent;\n"
-"color: #737B95;\n"
-" }\n"
-"QPushButton:pressed {\n"
-"background:transparent;\n"
-"color:#444A5F;\n"
+"background-color: rgba(255, 255, 255, 0);\n"
+"color: #000000;\n"
 " }\n"
 ""));
         SignInButton->setCheckable(false);
@@ -209,7 +205,7 @@ public:
         font4.setBold(true);
         SignInLabel->setFont(font4);
         SignInLabel->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
-"color: #C4CAE1;"));
+"color: #AAAAAA;"));
         SignInLabel->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         Warning = new QLabel(StudentSignUp);
         Warning->setObjectName("Warning");

@@ -548,7 +548,7 @@ color: #445178;</string>
    </property>
    <property name="font">
     <font>
-     <family>Roboto Serif Medium</family>
+     <family>Inter</family>
      <pointsize>20</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
@@ -559,8 +559,8 @@ color: #445178;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
-color: rgb(68, 81, 120);
-font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
+color: #000000;
+font: 600 20pt &quot;Inter&quot;;</string>
    </property>
    <property name="text">
     <string>Audo</string>

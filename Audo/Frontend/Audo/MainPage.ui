@@ -175,13 +175,13 @@ color: rgb(255, 255, 255);</string>
     <property name="styleSheet">
      <string notr="true">QPushButton {
 font: 600 18pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #00A3FF;
+background-color: #F06B0A;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 18pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0066FF;
+background-color: #E94600;
 border-radius: 10px;
 color:#ffffff;
  }

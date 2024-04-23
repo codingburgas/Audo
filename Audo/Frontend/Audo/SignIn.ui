@@ -286,13 +286,13 @@ color: #000000;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-font: 600 16pt &quot;Inter&quot;;
-background-color: #00A3FF;
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+background-color: #0047FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
-font: 600 16pt &quot;Inter&quot;;
+font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
 background-color: #003CD7;
 border-radius: 10px;
 color:#ffffff;

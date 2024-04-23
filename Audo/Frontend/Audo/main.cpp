@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
         }
         if (windowToSwitch == "TeacherSignUp"){
-            currentWindow = &studentSignUp;
+            currentWindow = &teacherSignUp;
 
         }
         if (windowToSwitch == "Audo"){
