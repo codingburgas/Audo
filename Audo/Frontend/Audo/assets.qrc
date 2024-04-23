@@ -12,6 +12,7 @@
     <qresource prefix="/icons">
         <file>assets/icons/back-arrow.png</file>
         <file>assets/icons/user.png</file>
+        <file>assets/icons/logo.png</file>
         <file>assets/icons/account-icon.png</file>
         <file>assets/icons/classes-icon.png</file>
         <file>assets/icons/grades-icon.png</file>
