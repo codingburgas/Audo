@@ -20,36 +20,6 @@ SignIn::~SignIn(){
     delete ui;
 }
 
-
-
-void SignIn::on_Pedalite_azsumgei() {
-    // QString str = "http://localhost:45098/api/get/user";
-    // const QUrl url = QUrl(str);
-    // QNetworkRequest user;
-
-    // user.setUrl(url);
-    // QString authToken = *net::authToken;
-    // QString header = "Bearer " + authToken;
-    // user.setRawHeader("Authorization", header.toUtf8());
-
-    // QNetworkReply* reply = net::manager->get(user);
-    // QObject::connect(reply, &QNetworkReply::finished, this, &SignIn::on_Pedalite_azsumgeiFinished);
-}
-
-void SignIn::on_Pedalite_azsumgeiFinished() {
-    // QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
-
-    // if (reply->error() == QNetworkReply::NoError) {
-    //     QString strReply = (QString)reply->readAll();
-    //     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-    //     QJsonObject jsonObj = jsonResponse.object();
-    //     this->userInfo.append(jsonObj["fname"].toString().toStdString());
-    //     this->userInfo.append(jsonObj["lname"].toString().toStdString());
-    //     emit SignIn::userInfoReady(this->userInfo);
-    // }
-    // reply->deleteLater();
-}
-
 void SignIn::on_Continue_clicked(){
 
     audoUtil::Body body =

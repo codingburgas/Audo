@@ -3,6 +3,7 @@
 #include "SignUp.h"
 #include "StudentSignUp.h"
 #include "TeacherSignUp.h"
+#include "teachergrades.h"
 #include "audo.h"
 #include <QtLogging>
 #include <QApplication>
@@ -22,10 +23,12 @@ int main(int argc, char *argv[])
     SignUp signUp(&switchWindows);
     StudentSignUp studentSignUp(&switchWindows);
     TeacherSignUp teacherSignUp(&switchWindows);
+    TeacherGrades teacherGrades(&switchWindows);
     Audo heroPage(&switchWindows);
-    QWidget* currentWindow = &mainPage;
+    QWidget* currentWindow = &teacherGrades;
     Handler handler;
-    mainPage.show();
+    currentWindow->show();
+    teacherGrades.FetchUI();
     QObject::connect(&switchWindows, &QAction::triggered, [&]() {
 
         std::string windowToSwitch = switchWindows.text().toStdString();
@@ -50,17 +53,12 @@ int main(int argc, char *argv[])
 
         }
         if (windowToSwitch == "Audo"){
-            QObject::connect(&signIn, &SignIn::userInfoReady, [&](QVector<std::string> userInfo) {
-                for (const std::string& info : userInfo) {
-                    qDebug() << info;
-                }
-                heroPage.setUserName(userInfo);
-
-            });
-
-            signIn.on_Pedalite_azsumgei();
             currentWindow = &heroPage;
         }
+        if (windowToSwitch == "TeacherGrades"){
+            currentWindow = &teacherGrades;
+        }
+
         currentWindow->show();
 
     });

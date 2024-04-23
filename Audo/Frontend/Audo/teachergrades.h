@@ -15,6 +15,12 @@ public:
     explicit TeacherGrades(QAction* switchAction, QWidget *parent = nullptr);
     ~TeacherGrades();
 
+public:
+    void FetchGrades();
+
+private:
+    void AddGrade(const int&& grade, const std::string&& desc);
+
 private:
     Ui::Grades *ui;
     QAction* switchAction;
