@@ -17,3 +17,5 @@ ghZi/BbtbnHE/cXpcGlaQiUTwDGCUnRy9ZjZ0YUGJNXq5bWa1QpsxMkOQaa7WLX1
 tw8Opak99jIpiPrix4PlAkBjLP3KvV0BzUgPP3P1Tlj3hJDQJxKZxmrpZKRJ/GA2
 bOkXOU193F+nMGkcpe+QPZvLa2ROfNpz35KQ1nB3tTyR
 -----END RSA PRIVATE KEY-----)";
+static std::string const mailgunUsername = "api";
+static std::string const mailgunPassword = "005b9dc9303f5cfe851e33e5c111ca9f-2175ccc2-5f58d078";

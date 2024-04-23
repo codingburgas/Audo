@@ -4,6 +4,8 @@
 #include "secret.hpp"
 #include "hash.hpp"
 #include <chrono>
+#include <fstream>
+#include <cpr/cpr.h>
 #undef min
 #undef max
 #include "jwt-cpp/traits/nlohmann-json/traits.h"

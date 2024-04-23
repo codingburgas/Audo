@@ -33,14 +33,18 @@ returnType AddRequest(CppHttp::Net::Request& req) {
         return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, e.what(), std::nullopt);
     }
 
-    int roomId = body["room_id"];
+    std::string roomCode = body["room_code"];
 
     // Check if room exists
 
     int ownerId;
+	int roomId;
     int selectedUserId;
+	std::string ownerEmail;
+	std::string senderFname;
+	std::string senderLname;
 
-    *db << "SELECT classrooms.owner_id FROM classrooms WHERE classrooms.id=:room_id", use(roomId), into(ownerId);
+    *db << "SELECT users.email, classrooms.owner_id, classrooms.id FROM classrooms INNER JOIN users ON users.id=classrooms.owner_id WHERE classrooms.unique_code=:room_code", use(roomCode), into(ownerEmail), into(ownerId), into(roomId);
 
     if (!db->got_data()) {
         return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "Room does not exist", std::nullopt);
@@ -62,8 +66,31 @@ returnType AddRequest(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::BAD_REQUEST, "You already have access to this room", std::nullopt);
 	}
 
+	*db << "SELECT fname, lname FROM users WHERE id=:user_id", use(std::stoi(userId)), into(senderFname), into(senderLname);
+
     Request request;
     *db << "INSERT INTO requests(id, user_id, room_id) VALUES (DEFAULT, :user_id, :room_id) RETURNING *", use(std::stoi(userId)), use(roomId), into(request);
+
+	// get the register email html template from ../templates/register.html
+	std::ifstream file("./templates/email.html");
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	std::string html;
+
+	// replace the placeholders in the html template with the user's data
+	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), senderFname);
+	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), senderLname);
+
+	// send the email
+	cpr::Response r = cpr::Post(cpr::Url{ "https://api.eu.mailgun.net/v3/audovscpi.live/messages" },
+		cpr::Authentication{ mailgunUsername, mailgunPassword, cpr::AuthMode::BASIC },
+		cpr::Multipart{
+			{"from", "noreply@audovscpi.live"},
+			{"to", ownerEmail},
+			{"subject", "Welcome to Audo"},
+			{"html", html}
+		}
+	);
 
     json requestJson;
     requestJson["id"] = request.id;
