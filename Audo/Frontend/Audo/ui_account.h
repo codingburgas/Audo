@@ -11,8 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -41,17 +44,25 @@ public:
     QLabel *Frame_2;
     QLabel *Name;
     QLabel *Status;
-    QLabel *Frame_3;
-    QLabel *Background;
-    QPushButton *SignOut_2;
-    QPushButton *SignOut_3;
-    QLabel *Background_2;
-    QPushButton *SignOut_4;
-    QLabel *Background_3;
     QLabel *EmailFrame_5;
     QLabel *UserPassword_2;
     QLabel *generalInfo_6;
     QLabel *Background_4;
+    QPushButton *SignOut_4;
+    QLabel *Background_3;
+    QPushButton *SignOut_2;
+    QLabel *Background_2;
+    QLabel *Background;
+    QLabel *Frame_3;
+    QPushButton *SignOut_3;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer_2;
+    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer_3;
 
     void setupUi(QWidget *Form)
     {
@@ -264,7 +275,7 @@ public:
 "}"));
         Name = new QLabel(Form);
         Name->setObjectName("Name");
-        Name->setGeometry(QRect(1080, 0, 171, 41));
+        Name->setGeometry(QRect(1080, 10, 171, 41));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Roboto Serif")});
         font4.setPointSize(14);
@@ -275,7 +286,7 @@ public:
         Name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         Status = new QLabel(Form);
         Status->setObjectName("Status");
-        Status->setGeometry(QRect(1030, 30, 221, 41));
+        Status->setGeometry(QRect(1030, 40, 221, 41));
         QFont font5;
         font5.setFamilies({QString::fromUtf8("Roboto Serif")});
         font5.setPointSize(11);
@@ -284,90 +295,6 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "color: #777777;"));
         Status->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        Frame_3 = new QLabel(Form);
-        Frame_3->setObjectName("Frame_3");
-        Frame_3->setGeometry(QRect(0, 0, 310, 832));
-        Frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
-"    background-color: #ffffff; \n"
-"}"));
-        Background = new QLabel(Form);
-        Background->setObjectName("Background");
-        Background->setGeometry(QRect(20, 140, 31, 31));
-        Background->setAutoFillBackground(false);
-        Background->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/account-icon.png")));
-        Background->setAlignment(Qt::AlignCenter);
-        SignOut_2 = new QPushButton(Form);
-        SignOut_2->setObjectName("SignOut_2");
-        SignOut_2->setGeometry(QRect(60, 130, 111, 51));
-        SignOut_2->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_2->setAutoFillBackground(false);
-        SignOut_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_2->setFlat(true);
-        SignOut_3 = new QPushButton(Form);
-        SignOut_3->setObjectName("SignOut_3");
-        SignOut_3->setGeometry(QRect(60, 180, 91, 51));
-        SignOut_3->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_3->setAutoFillBackground(false);
-        SignOut_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_3->setFlat(true);
-        Background_2 = new QLabel(Form);
-        Background_2->setObjectName("Background_2");
-        Background_2->setGeometry(QRect(20, 190, 31, 31));
-        Background_2->setAutoFillBackground(false);
-        Background_2->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/grades-icon.png")));
-        Background_2->setAlignment(Qt::AlignCenter);
-        SignOut_4 = new QPushButton(Form);
-        SignOut_4->setObjectName("SignOut_4");
-        SignOut_4->setGeometry(QRect(60, 230, 101, 51));
-        SignOut_4->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_4->setAutoFillBackground(false);
-        SignOut_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_4->setFlat(true);
-        Background_3 = new QLabel(Form);
-        Background_3->setObjectName("Background_3");
-        Background_3->setGeometry(QRect(20, 240, 31, 31));
-        Background_3->setAutoFillBackground(false);
-        Background_3->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background_3->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/classes-icon.png")));
-        Background_3->setAlignment(Qt::AlignCenter);
         EmailFrame_5 = new QLabel(Form);
         EmailFrame_5->setObjectName("EmailFrame_5");
         EmailFrame_5->setGeometry(QRect(410, 650, 781, 61));
@@ -395,11 +322,133 @@ public:
         generalInfo_6->setAlignment(Qt::AlignCenter);
         Background_4 = new QLabel(Form);
         Background_4->setObjectName("Background_4");
-        Background_4->setGeometry(QRect(30, 20, 101, 51));
+        Background_4->setGeometry(QRect(0, 20, 311, 51));
         Background_4->setAutoFillBackground(false);
         Background_4->setStyleSheet(QString::fromUtf8("background:none;"));
         Background_4->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/logo.png")));
         Background_4->setAlignment(Qt::AlignCenter);
+        SignOut_4 = new QPushButton(Form);
+        SignOut_4->setObjectName("SignOut_4");
+        SignOut_4->setGeometry(QRect(30, 230, 241, 51));
+        SignOut_4->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_4->setAutoFillBackground(false);
+        SignOut_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_4->setFlat(true);
+        Background_3 = new QLabel(Form);
+        Background_3->setObjectName("Background_3");
+        Background_3->setGeometry(QRect(40, 240, 31, 31));
+        Background_3->setAutoFillBackground(false);
+        Background_3->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_3->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/classes-icon.png")));
+        Background_3->setAlignment(Qt::AlignCenter);
+        SignOut_2 = new QPushButton(Form);
+        SignOut_2->setObjectName("SignOut_2");
+        SignOut_2->setGeometry(QRect(30, 130, 241, 51));
+        SignOut_2->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_2->setAutoFillBackground(false);
+        SignOut_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_2->setFlat(true);
+        Background_2 = new QLabel(Form);
+        Background_2->setObjectName("Background_2");
+        Background_2->setGeometry(QRect(40, 190, 31, 31));
+        Background_2->setAutoFillBackground(false);
+        Background_2->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/grades-icon.png")));
+        Background_2->setAlignment(Qt::AlignCenter);
+        Background = new QLabel(Form);
+        Background->setObjectName("Background");
+        Background->setGeometry(QRect(40, 140, 31, 31));
+        Background->setAutoFillBackground(false);
+        Background->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/account-icon.png")));
+        Background->setAlignment(Qt::AlignCenter);
+        Frame_3 = new QLabel(Form);
+        Frame_3->setObjectName("Frame_3");
+        Frame_3->setGeometry(QRect(0, 0, 310, 832));
+        Frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"    background-color: #ffffff; \n"
+"}"));
+        SignOut_3 = new QPushButton(Form);
+        SignOut_3->setObjectName("SignOut_3");
+        SignOut_3->setGeometry(QRect(30, 180, 241, 51));
+        SignOut_3->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_3->setAutoFillBackground(false);
+        SignOut_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_3->setFlat(true);
+        horizontalLayoutWidget = new QWidget(Form);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(30, 300, 241, 461));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName("verticalLayout");
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
+
+        horizontalLayout_2->addLayout(verticalLayout);
+
+
+        horizontalLayout->addLayout(horizontalLayout_2);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_3);
+
+
+        horizontalLayout_3->addLayout(verticalLayout_2);
+
+
+        horizontalLayout->addLayout(horizontalLayout_3);
+
+        Frame_3->raise();
         Frame->raise();
         SignInLabel->raise();
         generalInfo->raise();
@@ -417,21 +466,21 @@ public:
         generalInfo_5->raise();
         UserPassword->raise();
         SignOut->raise();
-        DeleteAccount->raise();
         Frame_2->raise();
         Name->raise();
         Status->raise();
-        Frame_3->raise();
-        Background->raise();
-        SignOut_2->raise();
-        SignOut_3->raise();
-        Background_2->raise();
-        SignOut_4->raise();
-        Background_3->raise();
         EmailFrame_5->raise();
         UserPassword_2->raise();
         generalInfo_6->raise();
+        SignOut_4->raise();
+        SignOut_2->raise();
+        SignOut_3->raise();
+        Background->raise();
         Background_4->raise();
+        DeleteAccount->raise();
+        horizontalLayoutWidget->raise();
+        Background_2->raise();
+        Background_3->raise();
 
         retranslateUi(Form);
 
@@ -462,17 +511,17 @@ public:
         Frame_2->setText(QString());
         Name->setText(QCoreApplication::translate("Form", "Name", nullptr));
         Status->setText(QCoreApplication::translate("Form", "status", nullptr));
-        Frame_3->setText(QString());
-        Background->setText(QString());
-        SignOut_2->setText(QCoreApplication::translate("Form", "Account", nullptr));
-        SignOut_3->setText(QCoreApplication::translate("Form", "Grades", nullptr));
-        Background_2->setText(QString());
-        SignOut_4->setText(QCoreApplication::translate("Form", "Classes", nullptr));
-        Background_3->setText(QString());
         EmailFrame_5->setText(QString());
         UserPassword_2->setText(QCoreApplication::translate("Form", "VSCPI", nullptr));
         generalInfo_6->setText(QCoreApplication::translate("Form", "Organisation", nullptr));
         Background_4->setText(QString());
+        SignOut_4->setText(QCoreApplication::translate("Form", "Classes", nullptr));
+        Background_3->setText(QString());
+        SignOut_2->setText(QCoreApplication::translate("Form", "Account", nullptr));
+        Background_2->setText(QString());
+        Background->setText(QString());
+        Frame_3->setText(QString());
+        SignOut_3->setText(QCoreApplication::translate("Form", "Grades", nullptr));
     } // retranslateUi
 
 };

@@ -55,33 +55,6 @@ box-shadow: 10px 10px 5px 12px black;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Name">
-   <property name="geometry">
-    <rect>
-     <x>1020</x>
-     <y>20</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto Serif</family>
-     <pointsize>14</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-background-color: rgba(255, 255, 255, 0);
-color: #000000;</string>
-   </property>
-   <property name="text">
-    <string>Name</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
   <widget class="QLabel" name="GradeFrame">
    <property name="geometry">
     <rect>
@@ -204,6 +177,9 @@ border-radius: 5px;
          <fontweight>Medium</fontweight>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
@@ -252,6 +228,9 @@ border-radius:5px;
          <italic>false</italic>
          <fontweight>Medium</fontweight>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
@@ -302,6 +281,9 @@ border-radius: 5px;
          <bold>false</bold>
         </font>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
@@ -344,6 +326,9 @@ border-radius: 5px;
          <italic>false</italic>
          <fontweight>Medium</fontweight>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
@@ -388,6 +373,9 @@ border-radius: 5px;
          <italic>false</italic>
          <fontweight>Medium</fontweight>
         </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -465,203 +453,6 @@ color:#ffffff;
    </property>
    <property name="flat">
     <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Status">
-   <property name="geometry">
-    <rect>
-     <x>1020</x>
-     <y>50</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto Serif</family>
-     <pointsize>11</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-background-color: rgba(255, 255, 255, 0);
-color: #777777;</string>
-   </property>
-   <property name="text">
-    <string>Status</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="SidebarFrame">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>-10</y>
-     <width>311</width>
-     <height>851</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QFrame {
-    background-color: #ffffff; 
-}</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="AccountButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>120</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: #777777;
-}
-QPushButton:hover {
-font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: #000000;
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Account</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="PencilIcon">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>180</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>ArrowCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/participants-icon.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="BookIcon">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>230</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/classes-icon.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ClassButton">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>220</y>
-     <width>101</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: #777777;
-}
-QPushButton:hover {
-font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: #000000;
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Classes</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="UserIcon">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/account-icon.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="GradesTitle">
@@ -748,7 +539,7 @@ font: 600 16pt &quot;Inter&quot;;</string>
    <widget class="QTextEdit" name="Description">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>0</y>
       <width>191</width>
       <height>41</height>
@@ -761,6 +552,9 @@ font: 600 16pt &quot;Inter&quot;;</string>
       <italic>false</italic>
       <fontweight>Medium</fontweight>
      </font>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -776,43 +570,6 @@ font: 500 14pt &quot;Roboto Serif Medium&quot;;</string>
      <string>Description...</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QPushButton" name="GradesButton">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>170</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: #777777;
-}
-QPushButton:hover {
-font: bold 16pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: #000000;
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Participants</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
   </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
@@ -891,9 +648,9 @@ color: #000000;
   <widget class="QLabel" name="Background_4">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>0</x>
      <y>20</y>
-     <width>101</width>
+     <width>311</width>
      <height>51</height>
     </rect>
    </property>
@@ -913,6 +670,312 @@ color: #000000;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="SignOut_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>400</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: #777777;
+}
+QPushButton:hover {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: #000000;
+background-color: #EEEEEE;
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Classes</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>410</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/classes-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SignOut_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: #777777;
+}
+QPushButton:hover {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: #000000;
+background-color: #EEEEEE;
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Account</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>190</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/participants-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Background">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>140</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="assets.qrc">:/icons/assets/icons/account-icon.png</pixmap>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Frame_3">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>310</width>
+     <height>832</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background-color: #ffffff; 
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SignOut_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>180</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+background:none;
+border-radius: 10px;
+color: #777777;
+}
+QPushButton:hover {
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
+border-radius: 10px;
+color: #000000;
+background-color: #EEEEEE;
+ }
+
+</string>
+   </property>
+   <property name="text">
+    <string>Participants</string>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Status">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>40</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+color: #777777;</string>
+   </property>
+   <property name="text">
+    <string>status</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Name">
+   <property name="geometry">
+    <rect>
+     <x>1090</x>
+     <y>10</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+background-color: rgba(255, 255, 255, 0);
+color: #000000;</string>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>241</width>
+     <height>161</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <zorder>Frame_3</zorder>
+  <zorder>AccountFrame</zorder>
+  <zorder>GradeFrame</zorder>
+  <zorder>StudentName</zorder>
+  <zorder>AddGradesFrame</zorder>
+  <zorder>AddGradeButton</zorder>
+  <zorder>GradesTitle</zorder>
+  <zorder>AddGradesTitle</zorder>
+  <zorder>DescriptionFrame</zorder>
+  <zorder>frame</zorder>
+  <zorder>Background_4</zorder>
+  <zorder>SignOut_4</zorder>
+  <zorder>SignOut_2</zorder>
+  <zorder>Background</zorder>
+  <zorder>SignOut_3</zorder>
+  <zorder>Background_3</zorder>
+  <zorder>Background_2</zorder>
+  <zorder>Status</zorder>
+  <zorder>Name</zorder>
+  <zorder>verticalLayoutWidget</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

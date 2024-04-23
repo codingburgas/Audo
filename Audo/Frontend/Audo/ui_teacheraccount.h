@@ -21,8 +21,6 @@ class Ui_teacherAccount
 {
 public:
     QLabel *SignInLabel;
-    QLabel *Background;
-    QLabel *Background_2;
     QLabel *UserPassword_2;
     QLabel *UserFirstName;
     QPushButton *SignOut;
@@ -33,27 +31,29 @@ public:
     QLabel *EmailFrame;
     QLabel *SignInLabel_4;
     QLabel *Status;
-    QLabel *Frame_3;
     QLabel *SignInLabel_5;
-    QPushButton *SignOut_2;
     QLabel *UserPassword;
     QLabel *UserEmail;
     QLabel *generalInfo_3;
     QLabel *generalInfo_4;
     QLabel *generalInfo_5;
-    QPushButton *SignOut_3;
-    QLabel *Background_3;
     QLabel *generalInfo_2;
     QLabel *Frame_2;
     QLabel *EmailFrame_2;
     QLabel *Name;
     QLabel *UserLastName;
     QLabel *Frame;
-    QPushButton *SignOut_4;
     QPushButton *DeleteAccount;
     QLabel *UserLastName_2;
     QLabel *UserPassword_3;
+    QPushButton *SignOut_4;
+    QLabel *Background_3;
+    QPushButton *SignOut_2;
     QLabel *Background_4;
+    QLabel *Frame_3;
+    QPushButton *SignOut_3;
+    QLabel *Background_2;
+    QLabel *Background;
 
     void setupUi(QWidget *teacherAccount)
     {
@@ -75,20 +75,6 @@ public:
 "font: 600 20pt \"Roboto Serif Medium\";"));
         SignInLabel->setScaledContents(false);
         SignInLabel->setAlignment(Qt::AlignCenter);
-        Background = new QLabel(teacherAccount);
-        Background->setObjectName("Background");
-        Background->setGeometry(QRect(20, 140, 31, 31));
-        Background->setAutoFillBackground(false);
-        Background->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/account-icon.png")));
-        Background->setAlignment(Qt::AlignCenter);
-        Background_2 = new QLabel(teacherAccount);
-        Background_2->setObjectName("Background_2");
-        Background_2->setGeometry(QRect(20, 190, 31, 31));
-        Background_2->setAutoFillBackground(false);
-        Background_2->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/grades-icon.png")));
-        Background_2->setAlignment(Qt::AlignCenter);
         UserPassword_2 = new QLabel(teacherAccount);
         UserPassword_2->setObjectName("UserPassword_2");
         UserPassword_2->setGeometry(QRect(430, 670, 81, 31));
@@ -200,12 +186,6 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "color: #777777;"));
         Status->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        Frame_3 = new QLabel(teacherAccount);
-        Frame_3->setObjectName("Frame_3");
-        Frame_3->setGeometry(QRect(0, 0, 310, 832));
-        Frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
-"    background-color: #ffffff; \n"
-"}"));
         SignInLabel_5 = new QLabel(teacherAccount);
         SignInLabel_5->setObjectName("SignInLabel_5");
         SignInLabel_5->setGeometry(QRect(430, 450, 411, 31));
@@ -216,25 +196,6 @@ public:
 "font: 600 16pt \"Roboto Serif Medium\";"));
         SignInLabel_5->setScaledContents(false);
         SignInLabel_5->setAlignment(Qt::AlignCenter);
-        SignOut_2 = new QPushButton(teacherAccount);
-        SignOut_2->setObjectName("SignOut_2");
-        SignOut_2->setGeometry(QRect(60, 130, 111, 51));
-        SignOut_2->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_2->setAutoFillBackground(false);
-        SignOut_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_2->setFlat(true);
         UserPassword = new QLabel(teacherAccount);
         UserPassword->setObjectName("UserPassword");
         UserPassword->setGeometry(QRect(420, 560, 241, 31));
@@ -280,32 +241,6 @@ public:
 "font: 400 12pt \"Roboto Serif Medium\";"));
         generalInfo_5->setScaledContents(false);
         generalInfo_5->setAlignment(Qt::AlignCenter);
-        SignOut_3 = new QPushButton(teacherAccount);
-        SignOut_3->setObjectName("SignOut_3");
-        SignOut_3->setGeometry(QRect(60, 180, 91, 51));
-        SignOut_3->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_3->setAutoFillBackground(false);
-        SignOut_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_3->setFlat(true);
-        Background_3 = new QLabel(teacherAccount);
-        Background_3->setObjectName("Background_3");
-        Background_3->setGeometry(QRect(20, 240, 31, 31));
-        Background_3->setAutoFillBackground(false);
-        Background_3->setStyleSheet(QString::fromUtf8("background:none;"));
-        Background_3->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/classes-icon.png")));
-        Background_3->setAlignment(Qt::AlignCenter);
         generalInfo_2 = new QLabel(teacherAccount);
         generalInfo_2->setObjectName("generalInfo_2");
         generalInfo_2->setGeometry(QRect(410, 280, 101, 41));
@@ -353,25 +288,6 @@ public:
         Frame->setGeometry(QRect(339, 110, 931, 761));
         Frame->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 ""));
-        SignOut_4 = new QPushButton(teacherAccount);
-        SignOut_4->setObjectName("SignOut_4");
-        SignOut_4->setGeometry(QRect(60, 230, 101, 51));
-        SignOut_4->setCursor(QCursor(Qt::PointingHandCursor));
-        SignOut_4->setAutoFillBackground(false);
-        SignOut_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background:none;\n"
-"border-radius: 10px;\n"
-"color: #777777;\n"
-"}\n"
-"QPushButton:hover {\n"
-"font: bold 16pt \"Roboto Serif SemiBold\";\n"
-"border-radius: 10px;\n"
-"color: #000000;\n"
-" }\n"
-"\n"
-""));
-        SignOut_4->setFlat(true);
         DeleteAccount = new QPushButton(teacherAccount);
         DeleteAccount->setObjectName("DeleteAccount");
         DeleteAccount->setGeometry(QRect(960, 750, 231, 51));
@@ -412,19 +328,104 @@ public:
 "font: 600 16pt \"Roboto Serif Medium\";"));
         UserPassword_3->setScaledContents(false);
         UserPassword_3->setAlignment(Qt::AlignCenter);
+        SignOut_4 = new QPushButton(teacherAccount);
+        SignOut_4->setObjectName("SignOut_4");
+        SignOut_4->setGeometry(QRect(30, 230, 241, 51));
+        SignOut_4->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_4->setAutoFillBackground(false);
+        SignOut_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_4->setFlat(true);
+        Background_3 = new QLabel(teacherAccount);
+        Background_3->setObjectName("Background_3");
+        Background_3->setGeometry(QRect(40, 240, 31, 31));
+        Background_3->setAutoFillBackground(false);
+        Background_3->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_3->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/classes-icon.png")));
+        Background_3->setAlignment(Qt::AlignCenter);
+        SignOut_2 = new QPushButton(teacherAccount);
+        SignOut_2->setObjectName("SignOut_2");
+        SignOut_2->setGeometry(QRect(30, 130, 241, 51));
+        SignOut_2->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_2->setAutoFillBackground(false);
+        SignOut_2->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_2->setFlat(true);
         Background_4 = new QLabel(teacherAccount);
         Background_4->setObjectName("Background_4");
-        Background_4->setGeometry(QRect(30, 20, 101, 51));
+        Background_4->setGeometry(QRect(0, 20, 311, 51));
         Background_4->setAutoFillBackground(false);
         Background_4->setStyleSheet(QString::fromUtf8("background:none;"));
         Background_4->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/logo.png")));
         Background_4->setAlignment(Qt::AlignCenter);
+        Frame_3 = new QLabel(teacherAccount);
+        Frame_3->setObjectName("Frame_3");
+        Frame_3->setGeometry(QRect(0, 0, 310, 832));
+        Frame_3->setStyleSheet(QString::fromUtf8("QFrame {\n"
+"    background-color: #ffffff; \n"
+"}"));
+        SignOut_3 = new QPushButton(teacherAccount);
+        SignOut_3->setObjectName("SignOut_3");
+        SignOut_3->setGeometry(QRect(30, 180, 241, 51));
+        SignOut_3->setCursor(QCursor(Qt::PointingHandCursor));
+        SignOut_3->setAutoFillBackground(false);
+        SignOut_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"background:none;\n"
+"border-radius: 10px;\n"
+"color: #777777;\n"
+"}\n"
+"QPushButton:hover {\n"
+"font: 600 14pt \"Roboto Serif SemiBold\";\n"
+"border-radius: 10px;\n"
+"color: #000000;\n"
+"background-color: #EEEEEE;\n"
+" }\n"
+"\n"
+""));
+        SignOut_3->setFlat(true);
+        Background_2 = new QLabel(teacherAccount);
+        Background_2->setObjectName("Background_2");
+        Background_2->setGeometry(QRect(40, 190, 31, 31));
+        Background_2->setAutoFillBackground(false);
+        Background_2->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background_2->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/participants-icon.png")));
+        Background_2->setAlignment(Qt::AlignCenter);
+        Background = new QLabel(teacherAccount);
+        Background->setObjectName("Background");
+        Background->setGeometry(QRect(40, 140, 31, 31));
+        Background->setAutoFillBackground(false);
+        Background->setStyleSheet(QString::fromUtf8("background:none;"));
+        Background->setPixmap(QPixmap(QString::fromUtf8(":/icons/assets/icons/account-icon.png")));
+        Background->setAlignment(Qt::AlignCenter);
         Frame_3->raise();
         Frame->raise();
         Frame_2->raise();
         SignInLabel->raise();
-        Background->raise();
-        Background_2->raise();
         UserFirstName->raise();
         SignOut->raise();
         generalInfo->raise();
@@ -435,24 +436,26 @@ public:
         SignInLabel_4->raise();
         Status->raise();
         SignInLabel_5->raise();
-        SignOut_2->raise();
         UserPassword->raise();
         generalInfo_3->raise();
         generalInfo_4->raise();
         generalInfo_5->raise();
-        SignOut_3->raise();
-        Background_3->raise();
         generalInfo_2->raise();
         EmailFrame_2->raise();
         Name->raise();
         UserLastName->raise();
-        SignOut_4->raise();
         DeleteAccount->raise();
         UserPassword_2->raise();
         UserEmail->raise();
         UserLastName_2->raise();
         UserPassword_3->raise();
+        SignOut_4->raise();
+        SignOut_2->raise();
         Background_4->raise();
+        SignOut_3->raise();
+        Background->raise();
+        Background_2->raise();
+        Background_3->raise();
 
         retranslateUi(teacherAccount);
 
@@ -463,8 +466,6 @@ public:
     {
         teacherAccount->setWindowTitle(QCoreApplication::translate("teacherAccount", "Form", nullptr));
         SignInLabel->setText(QCoreApplication::translate("teacherAccount", "Account settings", nullptr));
-        Background->setText(QString());
-        Background_2->setText(QString());
         UserPassword_2->setText(QCoreApplication::translate("teacherAccount", "VSCPI", nullptr));
         UserFirstName->setText(QCoreApplication::translate("teacherAccount", "Denis", nullptr));
         SignOut->setText(QCoreApplication::translate("teacherAccount", "Sign out", nullptr));
@@ -475,27 +476,29 @@ public:
         EmailFrame->setText(QString());
         SignInLabel_4->setText(QCoreApplication::translate("teacherAccount", "Student", nullptr));
         Status->setText(QCoreApplication::translate("teacherAccount", "status", nullptr));
-        Frame_3->setText(QString());
         SignInLabel_5->setText(QCoreApplication::translate("teacherAccount", "DAYusein21@codingburgas.bg", nullptr));
-        SignOut_2->setText(QCoreApplication::translate("teacherAccount", "Account", nullptr));
         UserPassword->setText(QCoreApplication::translate("teacherAccount", "Denis121312!!@$", nullptr));
         UserEmail->setText(QString());
         generalInfo_3->setText(QCoreApplication::translate("teacherAccount", "Last name", nullptr));
         generalInfo_4->setText(QCoreApplication::translate("teacherAccount", "Email", nullptr));
         generalInfo_5->setText(QCoreApplication::translate("teacherAccount", "Password", nullptr));
-        SignOut_3->setText(QCoreApplication::translate("teacherAccount", "Grades", nullptr));
-        Background_3->setText(QString());
         generalInfo_2->setText(QCoreApplication::translate("teacherAccount", "First name", nullptr));
         Frame_2->setText(QString());
         EmailFrame_2->setText(QString());
         Name->setText(QCoreApplication::translate("teacherAccount", "Name", nullptr));
         UserLastName->setText(QCoreApplication::translate("teacherAccount", "Hristova", nullptr));
         Frame->setText(QString());
-        SignOut_4->setText(QCoreApplication::translate("teacherAccount", "Classes", nullptr));
         DeleteAccount->setText(QCoreApplication::translate("teacherAccount", "Delete account", nullptr));
         UserLastName_2->setText(QCoreApplication::translate("teacherAccount", "Hristina", nullptr));
         UserPassword_3->setText(QCoreApplication::translate("teacherAccount", "HHsda@codingburgas.bg", nullptr));
+        SignOut_4->setText(QCoreApplication::translate("teacherAccount", "Classes", nullptr));
+        Background_3->setText(QString());
+        SignOut_2->setText(QCoreApplication::translate("teacherAccount", "Account", nullptr));
         Background_4->setText(QString());
+        Frame_3->setText(QString());
+        SignOut_3->setText(QCoreApplication::translate("teacherAccount", "Participants", nullptr));
+        Background_2->setText(QString());
+        Background->setText(QString());
     } // retranslateUi
 
 };

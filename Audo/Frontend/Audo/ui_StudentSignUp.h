@@ -103,6 +103,7 @@ public:
         font2.setWeight(QFont::DemiBold);
         font2.setItalic(false);
         FName->setFont(font2);
+        FName->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         FName->setAutoFillBackground(false);
         FName->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -118,6 +119,7 @@ public:
         LName->setObjectName("LName");
         LName->setGeometry(QRect(650, 320, 271, 41));
         LName->setFont(font2);
+        LName->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         LName->setAutoFillBackground(false);
         LName->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -133,6 +135,7 @@ public:
         Email->setObjectName("Email");
         Email->setGeometry(QRect(350, 410, 571, 41));
         Email->setFont(font2);
+        Email->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Email->setAutoFillBackground(false);
         Email->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -148,6 +151,7 @@ public:
         Password->setObjectName("Password");
         Password->setGeometry(QRect(350, 500, 571, 41));
         Password->setFont(font2);
+        Password->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Password->setAutoFillBackground(false);
         Password->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"

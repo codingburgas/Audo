@@ -51,6 +51,9 @@
      <fontweight>DemiBold</fontweight>
     </font>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -82,6 +85,9 @@ color: #777777;</string>
      <fontweight>DemiBold</fontweight>
     </font>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -112,6 +118,9 @@ color: #777777;</string>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -318,6 +327,9 @@ font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
      <fontweight>DemiBold</fontweight>
     </font>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -420,13 +432,13 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0047FF;
+background-color: #4282FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #003CD7;
+background-color: #0057FF;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -473,6 +485,9 @@ border-radius: 16px;</string>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>

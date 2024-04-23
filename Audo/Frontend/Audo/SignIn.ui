@@ -128,6 +128,9 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
      <fontweight>DemiBold</fontweight>
     </font>
    </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -192,6 +195,9 @@ border-radius: 16px;</string>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>

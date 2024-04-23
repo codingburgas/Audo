@@ -19,6 +19,7 @@ SOURCES += \
     MainPage.cpp \
     signin.cpp \
     studentgrades.cpp \
+    studentnotes.cpp \
     teacheraccount.cpp \
     teachergrades.cpp
 
@@ -33,6 +34,7 @@ HEADERS += \
     handler.h \
     signin.h \
     studentgrades.h \
+    studentnotes.h \
     teacheraccount.h \
     teachergrades.h \
     utils.h
@@ -47,6 +49,7 @@ FORMS += \
     audo.ui \
     signin.ui \
     studentgrades.ui \
+    studentnotes.ui \
     teacheraccount.ui \
     teachergrades.ui
 
