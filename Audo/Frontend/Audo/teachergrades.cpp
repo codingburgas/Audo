@@ -19,6 +19,8 @@ void TeacherGrades::FetchGrades()
 {
     AddGrade(3, "student is slow");
     AddGrade(2, "student became even slower");
+    AddGrade(2, "Student became Ivan Stoychev");
+    AddGrade(1, "Student became Stoyan Ivanov");
 
 }
 
@@ -42,7 +44,7 @@ void TeacherGrades::AddGrade(const int&& grade, const std::string&& desc)
     switch(grade)
     {
     case 2:
-        newStyleSheet += "background-color: #FF7A00;";
+        newStyleSheet += "background-color: #FF0000;";
         break;
 
     case 3:
@@ -60,7 +62,11 @@ void TeacherGrades::AddGrade(const int&& grade, const std::string&& desc)
     case 6:
         newStyleSheet += "background-color: #00BF08;";
         break;
+
+    default:
+        newStyleSheet += "background-color: #000000;";
     }
+    newGrade->setStyleSheet(newStyleSheet);
 
     QLabel* newDesc = new QLabel;
 

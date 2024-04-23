@@ -16,9 +16,10 @@ public:
     ~TeacherGrades();
 
 public:
-    void FetchGrades();
+    void FetchUI();
 
 private:
+    void FetchGrades();
     void AddGrade(const int&& grade, const std::string&& desc);
 
 private:

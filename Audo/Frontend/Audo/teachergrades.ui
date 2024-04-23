@@ -131,7 +131,7 @@ font: 600 20pt &quot;Inter&quot;;</string>
   <widget class="QFrame" name="AddGradesFrame">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>890</x>
      <y>280</y>
      <width>211</width>
      <height>41</height>
@@ -417,7 +417,7 @@ border-radius: 5px;
   <widget class="QPushButton" name="AddGradeButton">
    <property name="geometry">
     <rect>
-     <x>1090</x>
+     <x>1120</x>
      <y>340</y>
      <width>111</width>
      <height>41</height>
@@ -726,59 +726,10 @@ font: 600 16pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="horizontalLayoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>280</y>
-     <width>497</width>
-     <height>471</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="GradesHorizontal">
-    <item>
-     <layout class="QVBoxLayout" name="GradesIconVertical">
-      <property name="spacing">
-       <number>7</number>
-      </property>
-      <item>
-       <spacer name="IconSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="GradesDescVertical">
-      <item>
-       <spacer name="DescriptionSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="AddGradesTitle">
    <property name="geometry">
     <rect>
-     <x>850</x>
+     <x>890</x>
      <y>200</y>
      <width>151</width>
      <height>51</height>
@@ -808,7 +759,7 @@ font: 600 16pt &quot;Inter&quot;;</string>
   <widget class="QFrame" name="DescriptionFrame">
    <property name="geometry">
     <rect>
-     <x>860</x>
+     <x>890</x>
      <y>340</y>
      <width>211</width>
      <height>41</height>
@@ -895,6 +846,80 @@ color: rgb(68, 81, 120);
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>359</x>
+     <y>289</y>
+     <width>501</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>497</width>
+      <height>471</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="GradesHorizontal">
+     <item>
+      <layout class="QVBoxLayout" name="GradesIconVertical">
+       <property name="spacing">
+        <number>7</number>
+       </property>
+       <item>
+        <spacer name="IconSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="GradesDescVertical">
+       <item>
+        <spacer name="DescriptionSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
   <zorder>AccountFrame</zorder>
   <zorder>Name</zorder>
   <zorder>GradeFrame</zorder>
@@ -910,10 +935,10 @@ color: rgb(68, 81, 120);
   <zorder>ClassButton</zorder>
   <zorder>UserIcon</zorder>
   <zorder>GradesTitle</zorder>
-  <zorder>horizontalLayoutWidget_2</zorder>
   <zorder>AddGradesTitle</zorder>
   <zorder>DescriptionFrame</zorder>
   <zorder>GradesButton</zorder>
+  <zorder>frame</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>
