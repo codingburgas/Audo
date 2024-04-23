@@ -190,13 +190,13 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0047FF;
+background-color: #F06B0A;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #003CD7;
+background-color: #E94600;
 border-radius: 10px;
 color:#ffffff;
  }
@@ -292,13 +292,13 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">QPushButton {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #0047FF;
+background-color: #F06B0A;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
 font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
-background-color: #003CD7;
+background-color: #E94600;
 border-radius: 10px;
 color:#ffffff;
  }

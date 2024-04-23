@@ -19,6 +19,7 @@ SOURCES += \
     MainPage.cpp \
     signin.cpp \
     studentgrades.cpp \
+    teacheraccount.cpp \
     teachergrades.cpp
 
 HEADERS += \
@@ -32,6 +33,7 @@ HEADERS += \
     handler.h \
     signin.h \
     studentgrades.h \
+    teacheraccount.h \
     teachergrades.h \
     utils.h
     user.h
@@ -45,6 +47,7 @@ FORMS += \
     audo.ui \
     signin.ui \
     studentgrades.ui \
+    teacheraccount.ui \
     teachergrades.ui
 
 # Default rules for deployment.
