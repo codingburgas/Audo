@@ -47,7 +47,6 @@
 <a href="https://www.microsoft.com/en-ww/microsoft-365/powerpoint"><img src="https://img.icons8.com/color/344/ms-powerpoint.png" alt="MS PowerPoint logo" width=48px /></a>
   <a href="https://www.microsoft.com/en-ww/microsoft-365/excel"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/1101px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" alt="MS Excel logo" width=48px /></a>
 </p>
-## 📄 Documents
 
 ### Presenting and Team Documentation
 
