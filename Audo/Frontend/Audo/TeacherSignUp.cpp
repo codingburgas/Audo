@@ -30,7 +30,7 @@ void TeacherSignUp::on_Continue_clicked()
             { "email", ui->Email->toText() },
             { "password", ui->Password->toText() },
             { "status", "teacher" },
-            { "school", "VSCPI" }
+            { "school", ui->School->toText() }
         };
 
     audoUtil::Response response = audoUtil::post("/api/register", body);
@@ -39,13 +39,13 @@ void TeacherSignUp::on_Continue_clicked()
 
         audoCfg::authToken = audoUtil::post("/api/login", body).data["token"].toStr();
 
-        audoCfg::firstName = body[0][1];
-        audoCfg::lastName = body[1][1];
-        audoCfg::email = body[2][1];
-        audoCfg::status = body[4][1];
-        audoCfg::school = body[5][1];
+        audoCfg::firstName = ui->FName->toPlainText();
+        audoCfg::lastName = ui->LName->toPlainText();
+        audoCfg::email = ui->Email->toPlainText();
+        audoCfg::status = "Teacher";
+        audoCfg::school = ui->School->toPlainText();
 
-        switchAction->setText("TeacherGrades");
+        switchAction->setText("TeacherNotes");
         switchAction->trigger();
     }
     else {

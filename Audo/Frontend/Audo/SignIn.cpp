@@ -36,13 +36,22 @@ void SignIn::on_Continue_clicked(){
 
         audoUtil::Response user = audoUtil::get("/api/get/user");
 
-        audoCfg::firstName = user.data["fname"].toStr();
-        audoCfg::lastName = user.data["lname"].toStr();
-        audoCfg::email = user.data["email"].toStr();
-        audoCfg::status = user.data["status"].toStr();
-        audoCfg::school = user.data["school"].toStr();
+        audoCfg::firstName = user.data["fname"].toString();
+        audoCfg::lastName = user.data["lname"].toString();
+        audoCfg::email = user.data["email"].toString();
 
-        switchAction->setText("Audo");
+        if(user.data["status"].toString() == "teacher")
+            audoCfg::status = "Teacher";
+        if(user.data["status"].toString() == "student")
+            audoCfg::status = "Student";
+
+        audoCfg::school = user.data["school"].toString();
+
+        if(audoCfg::status == "teacher")
+            switchAction->setText("TeacherNotes");
+
+        else
+            switchAction->setText("StudentNotes");
         switchAction->trigger();
     }
     else {

@@ -30,7 +30,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Frame_2">
+  <widget class="QLabel" name="NameFrame">
    <property name="geometry">
     <rect>
      <x>329</x>
@@ -48,7 +48,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Frame_3">
+  <widget class="QLabel" name="Sidebar">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -66,7 +66,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="Background_4">
+  <widget class="QLabel" name="Logo">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -91,7 +91,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="SignOut_2">
+  <widget class="QPushButton" name="AccountButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -129,7 +129,7 @@ background-color: #EEEEEE;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="Background">
+  <widget class="QLabel" name="AccountIcon">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -154,7 +154,7 @@ background-color: #EEEEEE;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="SignOut_3">
+  <widget class="QPushButton" name="GradesButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -192,7 +192,7 @@ background-color: #EEEEEE;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="Background_3">
+  <widget class="QLabel" name="ClassesIcon">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -217,7 +217,7 @@ background-color: #EEEEEE;
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="SignOut_4">
+  <widget class="QPushButton" name="ClassesButton">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -255,7 +255,7 @@ background-color: #EEEEEE;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="Background_2">
+  <widget class="QLabel" name="GradesIcon">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -387,7 +387,7 @@ color:#ffffff;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QFrame" name="DescriptionFrame">
+  <widget class="QFrame" name="ClassCodeFrame">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -443,7 +443,7 @@ font: 500 10pt &quot;Roboto Serif Medium&quot;;</string>
     </property>
    </widget>
   </widget>
-  <widget class="QLabel" name="StudentName">
+  <widget class="QLabel" name="Subject">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -457,14 +457,14 @@ font: 500 10pt &quot;Roboto Serif Medium&quot;;</string>
      <family>Inter</family>
      <pointsize>16</pointsize>
      <italic>false</italic>
-     <fontweight></fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
 background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 650 16pt &quot;Inter&quot;;</string>
+font: 600 16pt &quot;Inter&quot;;</string>
    </property>
    <property name="text">
     <string>Subject name</string>
@@ -473,7 +473,7 @@ font: 650 16pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="StudentName_2">
+  <widget class="QLabel" name="Topic">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -503,7 +503,7 @@ font: 600 14pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Frame_4">
+  <widget class="QLabel" name="TopicFrame">
    <property name="geometry">
     <rect>
      <x>360</x>
@@ -520,7 +520,7 @@ border-radius:5px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="StudentName_3">
+  <widget class="QLabel" name="TopicText">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -550,7 +550,7 @@ font: 500 12pt &quot;Inter&quot;;</string>
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Frame_5">
+  <widget class="QLabel" name="TopicsFrame">
    <property name="geometry">
     <rect>
      <x>1060</x>
@@ -567,7 +567,7 @@ font: 500 12pt &quot;Inter&quot;;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="StudentName_4">
+  <widget class="QLabel" name="TopicsTitle">
    <property name="geometry">
     <rect>
      <x>1080</x>
@@ -597,7 +597,7 @@ font: 600 14pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Background_7">
+  <widget class="QLabel" name="TopicsIcon">
    <property name="geometry">
     <rect>
      <x>1080</x>
@@ -622,7 +622,7 @@ font: 600 14pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="Frame_6">
+  <widget class="QLabel" name="TopicsTitleFrame">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -648,33 +648,12 @@ border-radius:10px;</string>
      <height>631</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <layout class="QVBoxLayout" name="TopicLayout">
     <property name="spacing">
      <number>0</number>
     </property>
     <item>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
+     <spacer name="TopicSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -697,75 +676,95 @@ border-radius:10px;</string>
      <height>461</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="ClassLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QVBoxLayout" name="ClassLeaveLayout">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <spacer name="verticalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+       <spacer name="ClassLeaveSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QVBoxLayout" name="ClassNameLayout">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
+       <spacer name="ClassNameSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <zorder>Frame_5</zorder>
-  <zorder>Frame_6</zorder>
+  <widget class="QLabel" name="Warning">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>760</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Inter</family>
+     <pointsize>8</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: rgb(170, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>TopicsFrame</zorder>
+  <zorder>TopicsTitleFrame</zorder>
   <zorder>Frame</zorder>
-  <zorder>Frame_2</zorder>
-  <zorder>Frame_3</zorder>
-  <zorder>Background_4</zorder>
-  <zorder>SignOut_2</zorder>
-  <zorder>SignOut_3</zorder>
-  <zorder>SignOut_4</zorder>
+  <zorder>NameFrame</zorder>
+  <zorder>Sidebar</zorder>
+  <zorder>Logo</zorder>
+  <zorder>AccountButton</zorder>
+  <zorder>GradesButton</zorder>
+  <zorder>ClassesButton</zorder>
   <zorder>Status</zorder>
   <zorder>Name</zorder>
   <zorder>JoinClass</zorder>
-  <zorder>DescriptionFrame</zorder>
-  <zorder>StudentName</zorder>
-  <zorder>StudentName_2</zorder>
-  <zorder>Frame_4</zorder>
-  <zorder>StudentName_3</zorder>
-  <zorder>StudentName_4</zorder>
-  <zorder>Background_7</zorder>
+  <zorder>ClassCodeFrame</zorder>
+  <zorder>Subject</zorder>
+  <zorder>Topic</zorder>
+  <zorder>TopicFrame</zorder>
+  <zorder>TopicText</zorder>
+  <zorder>TopicsTitle</zorder>
+  <zorder>TopicsIcon</zorder>
   <zorder>verticalLayoutWidget_3</zorder>
-  <zorder>Background</zorder>
+  <zorder>AccountIcon</zorder>
   <zorder>horizontalLayoutWidget</zorder>
-  <zorder>Background_2</zorder>
-  <zorder>Background_3</zorder>
+  <zorder>GradesIcon</zorder>
+  <zorder>ClassesIcon</zorder>
+  <zorder>Warning</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

@@ -140,14 +140,14 @@
      <family>Inter</family>
      <pointsize>20</pointsize>
      <italic>false</italic>
-     <fontweight></fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
 background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 650 20pt &quot;Inter&quot;;</string>
+font: 600 20pt &quot;Inter&quot;;</string>
    </property>
    <property name="text">
     <string>Subject</string>
@@ -203,14 +203,14 @@ font: 650 20pt &quot;Inter&quot;;</string>
      <family>Inter</family>
      <pointsize>20</pointsize>
      <italic>false</italic>
-     <fontweight></fontweight>
+     <fontweight>DemiBold</fontweight>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;
 background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 650 20pt &quot;Inter&quot;;</string>
+font: 600 20pt &quot;Inter&quot;;</string>
    </property>
    <property name="text">
     <string>Grades</string>

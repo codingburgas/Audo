@@ -452,7 +452,7 @@ color:#ffffff;
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="ClassCodeFrame">
+  <widget class="QLabel" name="SchoolFrame">
    <property name="geometry">
     <rect>
      <x>340</x>
@@ -469,7 +469,7 @@ border-radius: 16px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QTextEdit" name="ClassCode">
+  <widget class="QTextEdit" name="School">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -500,7 +500,7 @@ border: none;
 color: #777777;</string>
    </property>
    <property name="placeholderText">
-    <string>Class code</string>
+    <string>School</string>
    </property>
   </widget>
   <widget class="QLabel" name="Warning">
@@ -544,8 +544,8 @@ color: rgb(170, 0, 0);</string>
   <zorder>Password</zorder>
   <zorder>SignInTitle</zorder>
   <zorder>SignInType</zorder>
-  <zorder>ClassCodeFrame</zorder>
-  <zorder>ClassCode</zorder>
+  <zorder>SchoolFrame</zorder>
+  <zorder>School</zorder>
   <zorder>SignInButton</zorder>
   <zorder>Warning</zorder>
  </widget>

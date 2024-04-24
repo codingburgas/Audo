@@ -57,9 +57,9 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>180</y>
+     <y>100</y>
      <width>670</width>
-     <height>531</height>
+     <height>631</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -74,7 +74,7 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>200</y>
+     <y>120</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -110,7 +110,7 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>230</y>
+     <y>150</y>
      <width>101</width>
      <height>61</height>
     </rect>
@@ -146,7 +146,7 @@ font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>300</y>
+     <y>220</y>
      <width>281</width>
      <height>71</height>
     </rect>
@@ -163,7 +163,7 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>320</y>
+     <y>240</y>
      <width>271</width>
      <height>41</height>
     </rect>
@@ -197,7 +197,7 @@ color: #777777;</string>
    <property name="geometry">
     <rect>
      <x>640</x>
-     <y>300</y>
+     <y>220</y>
      <width>281</width>
      <height>71</height>
     </rect>
@@ -214,7 +214,7 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>320</y>
+     <y>240</y>
      <width>271</width>
      <height>41</height>
     </rect>
@@ -248,7 +248,7 @@ color: #777777;</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>390</y>
+     <y>310</y>
      <width>581</width>
      <height>71</height>
     </rect>
@@ -265,7 +265,7 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>410</y>
+     <y>330</y>
      <width>571</width>
      <height>41</height>
     </rect>
@@ -299,7 +299,7 @@ color: #777777;</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>480</y>
+     <y>400</y>
      <width>581</width>
      <height>71</height>
     </rect>
@@ -316,7 +316,7 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>500</y>
+     <y>420</y>
      <width>571</width>
      <height>41</height>
     </rect>
@@ -459,7 +459,7 @@ color: #AAAAAA;</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>270</y>
+     <y>190</y>
      <width>541</width>
      <height>31</height>
     </rect>
@@ -482,6 +482,57 @@ color: rgb(170, 0, 0);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QTextEdit" name="School">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>510</y>
+     <width>571</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Roboto Serif Medium</family>
+     <pointsize>16</pointsize>
+     <italic>false</italic>
+     <fontweight>DemiBold</fontweight>
+    </font>
+   </property>
+   <property name="cursor" stdset="0">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
+background-color: rgba(255, 255, 255, 0);
+border: none;
+color: #777777;</string>
+   </property>
+   <property name="placeholderText">
+    <string>School</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="SchoolFrame">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>490</y>
+     <width>581</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #EEEEEE;
+border-radius: 16px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Frame</zorder>
   <zorder>SignInTitle</zorder>
@@ -498,6 +549,8 @@ color: rgb(170, 0, 0);</string>
   <zorder>SignInLabel</zorder>
   <zorder>Warning</zorder>
   <zorder>SignInButton</zorder>
+  <zorder>SchoolFrame</zorder>
+  <zorder>School</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

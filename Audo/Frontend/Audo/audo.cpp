@@ -4,9 +4,7 @@
 #include <QScrollBar>
 #include <QScrollArea>
 Audo::Audo(QAction* switcher, QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Audo)
-    , switchAction(switcher)
+    : QMainWindow(parent), ui(new Ui::Audo), switchAction(switcher)
 {
     ui->setupUi(this);
     QGraphicsDropShadowEffect *shadowEffect = new QGraphicsDropShadowEffect();

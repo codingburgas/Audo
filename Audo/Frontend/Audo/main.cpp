@@ -5,6 +5,8 @@
 #include "TeacherSignUp.h"
 #include "teachergrades.h"
 #include "audo.h"
+#include "studentnotes.h"
+#include "studentgrades.h"
 #include <QtLogging>
 #include <QApplication>
 #include "handler.h"
@@ -24,40 +26,50 @@ int main(int argc, char *argv[])
     StudentSignUp studentSignUp(&switchWindows);
     TeacherSignUp teacherSignUp(&switchWindows);
     TeacherGrades teacherGrades(&switchWindows);
-    Audo heroPage(&switchWindows);
-    QWidget* currentWindow = &teacherGrades;
+
+    Audo teacherNotes(&switchWindows);
+
+    StudentNotes studentNotes(&switchWindows);
+    StudentGrades studentGrades(&switchWindows);
+
+    QWidget* currentWindow = &mainPage;
+
     Handler handler;
+
     currentWindow->show();
-    teacherGrades.FetchUI();
     QObject::connect(&switchWindows, &QAction::triggered, [&]() {
 
         std::string windowToSwitch = switchWindows.text().toStdString();
         currentWindow->hide();
 
-        if (windowToSwitch == "SignIn"){
+        if (windowToSwitch == "SignIn")
             currentWindow = &signIn;
-        }
-        if (windowToSwitch == "Landing"){
+
+        else if (windowToSwitch == "Landing")
             currentWindow = &mainPage;
-        }
-        if (windowToSwitch == "SignUp"){
+
+        else if (windowToSwitch == "SignUp")
             currentWindow = &signUp;
 
-        }
-        if (windowToSwitch == "StudentSignUp"){
+        else if (windowToSwitch == "StudentSignUp")
             currentWindow = &studentSignUp;
 
+        else if (windowToSwitch == "StudentNotes"){
+            studentNotes.FetchUI();
+            currentWindow = &studentNotes;
         }
-        if (windowToSwitch == "TeacherSignUp"){
+
+        else if (windowToSwitch == "StudentGrades")
+            currentWindow = &studentGrades;
+
+        else if (windowToSwitch == "TeacherSignUp")
             currentWindow = &teacherSignUp;
 
-        }
-        if (windowToSwitch == "Audo"){
-            currentWindow = &heroPage;
-        }
-        if (windowToSwitch == "TeacherGrades"){
+        else if (windowToSwitch == "TeacherNotes")
+            currentWindow = &teacherNotes;
+
+        else if (windowToSwitch == "TeacherGrades")
             currentWindow = &teacherGrades;
-        }
 
         currentWindow->show();
 

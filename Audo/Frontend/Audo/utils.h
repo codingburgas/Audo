@@ -10,15 +10,18 @@
 
 namespace audoCfg{
 
-    static std::string authToken;
+    inline std::string authToken;
 
-    static std::string firstName;
-    static std::string lastName;
-    static std::string email;
-    static std::string status;
-    static std::string school;
+    inline QString firstName;
+    inline QString lastName;
+    inline QString email;
+    inline QString status;
+    inline QString school;
 
-    static std::string baseUrl = "20.234.64.232:45098";
+    inline QString currentClassName;
+    inline QString currentClassId;
+
+    inline std::string baseUrl = "localhost:45098";
 }
 
 namespace audoUtil{
@@ -56,8 +59,14 @@ namespace audoUtil{
         QJsonDocument jsonDoc;
         jsonDoc.setObject(jsonObj);
 
-        cpr::Response r = cpr::Post(cpr::Url{audoCfg::baseUrl + urlAdd},
-                                    cpr::Body{jsonDoc.toJson()});
+        cpr::Response r;
+        if(needAuth)
+            r = cpr::Post(cpr::Url{audoCfg::baseUrl + urlAdd},
+                                        cpr::Header{{"Authorization", "Bearer " + audoCfg::authToken}},
+                                        cpr::Body{jsonDoc.toJson()});
+        else
+            r = cpr::Post(cpr::Url{audoCfg::baseUrl + urlAdd},
+                                        cpr::Body{jsonDoc.toJson()});
 
         return Response({r.status_code, QJsonDocument::fromJson(QString::fromStdString(r.text).toUtf8()).object()});
 
