@@ -1,7 +1,9 @@
 "use client"
 import * as React from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import Image from 'next/image';
+import PieChart from "../components/pieChart";
 import { Inter } from "next/font/google";
 import {
   Accordion,
@@ -30,22 +32,42 @@ const inter = Inter({ subsets: ["latin"] });
 
 
 export default function Home() {
+  const [total, setTotal] = useState(0);
   const router = useRouter();
-  const tests = [
-    { title: "History", url: "/history" },
-    { title: "Physics", url: "/physics" },
-    { title: "Math", url: "/math" },
-    { title: "Math", url: "/math" },
-    { title: "Math", url: "/math" },
-    { title: "Math", url: "/math" },
-    { title: "Math", url: "/math" },
-    { title: "Math", url: "/math" },
-  ];
+  const getTotalStorageTests = () => {
+    let totalStorageTests =  localStorage.getItem('totalTests');
+    return totalStorageTests;
+    
+  };
+
+  // calculate result
+  const calculateResult = () => {
+    // get finished tests:
+    let finishedTests: any = getTotalStorageTests();
+    if(localStorage.getItem('totalTests') && localStorage.getItem('totalTests') !== '0') {
+      // get all tests
+          
+      let intFinishedTests = parseInt(finishedTests);
+      // calcutate  result: 10 tests, finished: 2 = 20%
+      let result = (intFinishedTests / 8) * 100;
+      setTotal(result);
+    }
+    else {
+      setTotal(0);
+    }
+  };
+
+  useEffect(() => {
+    calculateResult();
+  }, [])
 
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-          <div className="mt-10 ml-6">
+          <div className="mt-10 ml-6 flex flex-row">
+          <div>
+
+            
         <svg width="153" height="77" viewBox="0 0 153 77" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_235_2)">
           <path d="M56.7936 28.2167C56.7936 28.2167 61.8568 26.6541 63.7196 26.2935C65.5825 25.933 66.6811 25.7406 68.4962 25.0435C70.3591 24.3223 72.6996 22.856 73.5116 22.5435C74.3236 22.255 74.3236 22.3511 75.8522 22.0867C77.7628 21.7502 80.3899 19.7309 81.393 20.3078C81.9662 20.6684 83.4947 22.88 84.1634 21.9665C84.45 21.5819 85.071 20.9569 85.6919 21.1973C86.3606 21.4617 86.2173 21.4136 86.8861 22.6396C87.5548 23.8656 87.8414 23.7935 88.7012 24.2262C89.6087 24.6348 88.94 24.4425 89.8953 25.4041C90.8984 26.3657 92.8568 27.4474 93.5733 28.0244C94.0509 28.4571 94.4331 28.7936 94.5764 28.9138C92.4747 28.5772 88.5101 28.0003 83.9246 27.6157C83.4947 27.207 83.4469 26.5339 83.3514 26.2935C82.9693 25.332 80.4854 25.6204 81.3452 24.8272C81.6318 24.5147 85.5964 22.6877 84.2589 22.7838C83.4469 22.856 82.014 23.0002 81.7274 23.0723C77.6673 23.9377 82.6827 21.053 78.5748 21.9425C78.1927 22.0386 77.0941 21.9425 76.4253 22.3031C75.8044 22.6636 74.9446 22.2309 74.1804 22.6636C73.4161 23.0964 73.8938 23.2887 72.6518 23.7935C71.4577 24.2983 71.5055 24.3223 70.4546 24.6829C69.4515 25.0435 69.3082 25.5483 68.4007 25.7166C67.5409 25.8849 65.8691 26.2935 65.2959 26.2935C64.6749 26.2935 62.2867 27.0147 62.0001 27.1589C61.7612 27.3272 56.7936 28.2167 56.7936 28.2167Z" fill="black"/>
@@ -95,6 +117,19 @@ export default function Home() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+           
+
+            </div>
+            <div className="ml-[30vw] mt-[10vh]">
+
+            
+    <PieChart total={total} />
+    {total !== 0 ? (
+                <div className="font-semibold text-2xl mt-10 mb-5 -ml-[2rem]">Total Finished Tests: {total}%</div>
+            ) : (
+                <div>0%</div>
+            )}
+    </div>
             </div>
           <ContextMenuContent
               className="min-w-[18rem] bg-[#fdfdff] rounded-lg overflow-hidden p-[0.5rem] shadow-lg border-solid border-[0.1rem] border-[#CCCCCC] border-opacity-60"
@@ -147,6 +182,7 @@ export default function Home() {
             </ContextMenuContent>
       </ContextMenuTrigger>
   </ContextMenu>
+  
     );
     
 }
