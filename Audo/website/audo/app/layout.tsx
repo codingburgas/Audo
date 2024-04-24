@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`h-screen w-screen text-[62.5%] `}>
       <SessionProvider>
         <body className={`${inter.className} bg-[#fefefe]`}>{children}</body>
       </SessionProvider>
