@@ -38,9 +38,9 @@
   <widget class="QLabel" name="AccountFrame">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>10</y>
-     <width>951</width>
+     <width>941</width>
      <height>81</height>
     </rect>
    </property>
@@ -58,9 +58,9 @@ box-shadow: 10px 10px 5px 12px black;</string>
   <widget class="QLabel" name="GradeFrame">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>110</y>
-     <width>951</width>
+     <width>941</width>
      <height>701</height>
     </rect>
    </property>

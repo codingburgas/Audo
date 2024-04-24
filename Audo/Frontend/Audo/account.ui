@@ -10,6 +10,18 @@
     <height>832</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>832</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>832</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -23,10 +35,10 @@
   <widget class="QLabel" name="Frame">
    <property name="geometry">
     <rect>
-     <x>339</x>
-     <y>110</y>
-     <width>931</width>
-     <height>761</height>
+     <x>329</x>
+     <y>100</y>
+     <width>941</width>
+     <height>771</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -40,16 +52,16 @@
   <widget class="QLabel" name="SignInLabel">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>140</y>
-     <width>261</width>
+     <x>400</x>
+     <y>130</y>
+     <width>241</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>20</pointsize>
+     <pointsize>18</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -60,7 +72,7 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 18pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Account settings</string>
@@ -75,8 +87,8 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="generalInfo">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>230</y>
+     <x>400</x>
+     <y>220</y>
      <width>141</width>
      <height>41</height>
     </rect>
@@ -110,7 +122,7 @@ font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="EmailFrame">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>320</y>
      <width>351</width>
      <height>61</height>
@@ -127,16 +139,16 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="UserFirstName">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>340</y>
-     <width>71</width>
-     <height>31</height>
+     <x>420</x>
+     <y>330</y>
+     <width>61</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -147,7 +159,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Denis</string>
@@ -162,16 +174,16 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="generalInfo_2">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>280</y>
-     <width>101</width>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -182,7 +194,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #BFBFBF;
-font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
+font: 400 10pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>First name</string>
@@ -197,7 +209,7 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="EmailFrame_2">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>820</x>
      <y>320</y>
      <width>361</width>
      <height>61</height>
@@ -215,15 +227,15 @@ border-radius: 16px;</string>
    <property name="geometry">
     <rect>
      <x>840</x>
-     <y>340</y>
-     <width>91</width>
-     <height>31</height>
+     <y>330</y>
+     <width>71</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -234,7 +246,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Yusein</string>
@@ -249,16 +261,16 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="generalInfo_3">
    <property name="geometry">
     <rect>
-     <x>830</x>
+     <x>820</x>
      <y>280</y>
-     <width>101</width>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -269,7 +281,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #BFBFBF;
-font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
+font: 400 10pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Last name</string>
@@ -285,15 +297,15 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>180</y>
-     <width>121</width>
+     <y>160</y>
+     <width>91</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -304,7 +316,7 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #404040;;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Student</string>
@@ -319,7 +331,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="UserEmail">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>430</y>
      <width>781</width>
      <height>61</height>
@@ -333,19 +345,19 @@ border-radius: 16px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="SignInLabel_5">
+  <widget class="QLabel" name="UserEmail_2">
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>450</y>
-     <width>411</width>
-     <height>31</height>
+     <y>440</y>
+     <width>341</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -356,7 +368,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>DAYusein21@codingburgas.bg</string>
@@ -371,16 +383,16 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="generalInfo_4">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>390</y>
-     <width>51</width>
+     <width>41</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -391,7 +403,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #BFBFBF;
-font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
+font: 400 10pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Email</string>
@@ -408,14 +420,14 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
     <rect>
      <x>420</x>
      <y>560</y>
-     <width>241</width>
+     <width>201</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -426,7 +438,7 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Denis121312!!@$</string>
@@ -441,7 +453,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="EmailFrame_4">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>540</y>
      <width>781</width>
      <height>61</height>
@@ -458,16 +470,16 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="generalInfo_5">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>500</y>
-     <width>91</width>
+     <width>71</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -478,7 +490,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #BFBFBF;
-font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
+font: 400 10pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Password</string>
@@ -493,7 +505,7 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QPushButton" name="SignOut">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>720</x>
      <y>750</y>
      <width>161</width>
      <height>51</height>
@@ -507,13 +519,13 @@ font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
 background-color: #4282FF;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
 background-color: #0057FF;
 border-radius: 10px;
 color:#ffffff;
@@ -531,7 +543,7 @@ color:#ffffff;
   <widget class="QPushButton" name="DeleteAccount">
    <property name="geometry">
     <rect>
-     <x>960</x>
+     <x>950</x>
      <y>750</y>
      <width>231</width>
      <height>51</height>
@@ -545,13 +557,13 @@ color:#ffffff;
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
 background-color: #FF0000;
 border-radius: 10px;
 color:#ffffff;
 }
 QPushButton:hover {
-font: 600 16pt &quot;Roboto Serif SemiBold&quot;;
+font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
 background-color: #E20505
 border-radius: 10px;
 color:#ffffff;
@@ -569,9 +581,9 @@ color:#ffffff;
   <widget class="QLabel" name="Frame_2">
    <property name="geometry">
     <rect>
-     <x>339</x>
+     <x>329</x>
      <y>10</y>
-     <width>931</width>
+     <width>941</width>
      <height>71</height>
     </rect>
    </property>
@@ -641,7 +653,7 @@ color: #777777;</string>
   <widget class="QLabel" name="EmailFrame_5">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>650</y>
      <width>781</width>
      <height>61</height>
@@ -655,19 +667,19 @@ border-radius: 16px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="UserPassword_2">
+  <widget class="QLabel" name="UserOrganisation">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>420</x>
      <y>670</y>
-     <width>81</width>
+     <width>71</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
+     <pointsize>14</pointsize>
      <italic>false</italic>
      <fontweight>DemiBold</fontweight>
     </font>
@@ -678,7 +690,7 @@ border-radius: 16px;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #000000;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
+font: 600 14pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>VSCPI</string>
@@ -693,16 +705,16 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="generalInfo_6">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>400</x>
      <y>610</y>
-     <width>121</width>
+     <width>101</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Roboto Serif Medium</family>
-     <pointsize>12</pointsize>
+     <pointsize>10</pointsize>
      <italic>false</italic>
      <bold>false</bold>
     </font>
@@ -713,7 +725,7 @@ font: 600 16pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="styleSheet">
     <string notr="true">background-color: rgba(255, 255, 255, 0);
 color: #BFBFBF;
-font: 400 12pt &quot;Roboto Serif Medium&quot;;</string>
+font: 400 10pt &quot;Roboto Serif Medium&quot;;</string>
    </property>
    <property name="text">
     <string>Organisation</string>
@@ -1023,7 +1035,7 @@ background-color: #EEEEEE;
   <zorder>generalInfo_3</zorder>
   <zorder>SignInLabel_4</zorder>
   <zorder>UserEmail</zorder>
-  <zorder>SignInLabel_5</zorder>
+  <zorder>UserEmail_2</zorder>
   <zorder>generalInfo_4</zorder>
   <zorder>EmailFrame_4</zorder>
   <zorder>generalInfo_5</zorder>
@@ -1033,7 +1045,7 @@ background-color: #EEEEEE;
   <zorder>Name</zorder>
   <zorder>Status</zorder>
   <zorder>EmailFrame_5</zorder>
-  <zorder>UserPassword_2</zorder>
+  <zorder>UserOrganisation</zorder>
   <zorder>generalInfo_6</zorder>
   <zorder>SignOut_4</zorder>
   <zorder>SignOut_2</zorder>

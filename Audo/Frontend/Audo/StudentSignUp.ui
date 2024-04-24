@@ -73,7 +73,7 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInTitle">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>120</y>
      <width>121</width>
      <height>61</height>
@@ -109,7 +109,7 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
   <widget class="QLabel" name="SignInType">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>150</y>
      <width>101</width>
      <height>61</height>
@@ -387,7 +387,7 @@ color:#ffffff;
   <widget class="QPushButton" name="SignInButton">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>680</x>
      <y>670</y>
      <width>81</width>
      <height>31</height>

@@ -156,7 +156,7 @@ border-radius: 16px;</string>
   <widget class="QPushButton" name="SignInButton">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>680</x>
      <y>680</y>
      <width>81</width>
      <height>31</height>
@@ -277,7 +277,7 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInType">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>150</y>
      <width>101</width>
      <height>61</height>
@@ -381,7 +381,7 @@ border-radius: 16px;</string>
   <widget class="QLabel" name="SignInTitle">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>330</x>
      <y>120</y>
      <width>121</width>
      <height>61</height>
