@@ -82,7 +82,6 @@ void StudentNotes::FetchUI()
 
     audoUtil::Response rooms = audoUtil::get("/api/get/user/rooms", audoUtil::ResponseType::ARRAY);
 
-    qDebug() << rooms.array->isEmpty();
     if (rooms.array->isEmpty()) return;
 
     audoCfg::currentClassId = (*rooms.array)[0].toObject()["id"].toInt();
@@ -121,6 +120,7 @@ void StudentNotes::AddClass(QJsonObject&& classInfo)
     classButton->setMinimumHeight(26);
 
     classButton->setObjectName(std::to_string(classInfo["id"].toInt()) + "Button");
+    classButton->setAccessibleDescription(QString::fromStdString(std::to_string(classInfo["id"].toInt())));
 
     if(classInfo["id"].toInt() == audoCfg::currentClassId)
     {
@@ -130,25 +130,26 @@ void StudentNotes::AddClass(QJsonObject&& classInfo)
     {
         classButton->setStyleSheet("QPushButton{ background-color: rgba(255, 255, 255, 0); font: 500 14pt \"Inter\"; color: rgba(0, 0, 0, 123);} QPushButton:hover{ color: rgba(0, 0, 0, 255); }");
         classButton->setCursor(Qt::CursorShape::PointingHandCursor);
+        connect(classButton, &QPushButton::clicked, [this, classButton]() { SetClass(classButton); });
     }
 
     classButton->setFlat(true);
     classButton->setAutoFillBackground(true);
 
-    QPushButton* leaveButton = new QPushButton("X");
+    // QPushButton* leaveButton = new QPushButton("X");
 
-    leaveButton->setMaximumSize(QSize(26, 26));
-    leaveButton->setMinimumSize(QSize(26, 26));
+    // leaveButton->setMaximumSize(QSize(26, 26));
+    // leaveButton->setMinimumSize(QSize(26, 26));
 
-    leaveButton->setObjectName(std::to_string(classInfo["id"].toInt()) + "LeaveButton");
-    leaveButton->setStyleSheet("QPushButton{ background-color: rgba(255, 0, 0, 123); border-radius: 10px; font: 500 14pt \"Inter\"; color: rgba(255, 255, 255, 255);} QPushButton:hover{ background-color: rgba(255, 0, 0, 255); }");
-    leaveButton->setCursor(Qt::CursorShape::PointingHandCursor);
+    // leaveButton->setObjectName(std::to_string(classInfo["id"].toInt()) + "LeaveButton");
+    // leaveButton->setStyleSheet("QPushButton{ background-color: rgba(255, 0, 0, 123); border-radius: 10px; font: 500 14pt \"Inter\"; color: rgba(255, 255, 255, 255);} QPushButton:hover{ background-color: rgba(255, 0, 0, 255); }");
+    // leaveButton->setCursor(Qt::CursorShape::PointingHandCursor);
 
-    leaveButton->setFlat(true);
-    leaveButton->setAutoFillBackground(true);
+    // leaveButton->setFlat(true);
+    // leaveButton->setAutoFillBackground(true);
 
     classNameLayout->insertWidget(classNameLayout->count() - 1, classButton);
-    classLeaveLayout->insertWidget(classLeaveLayout->count() - 1, leaveButton);
+    // classLeaveLayout->insertWidget(classLeaveLayout->count() - 1, leaveButton);
 
 }
 
@@ -191,6 +192,68 @@ void StudentNotes::SetNote(QPushButton* noteButton)
         QWidget* item = ui->TopicLayout->itemAt(0)->widget();
         ui->TopicLayout->removeItem(ui->TopicLayout->itemAt(0));
         delete item;
+    }
+
+    for(const auto& note : loadedNotes)
+    {
+        if(note.id == audoCfg::currentNoteId)
+        {
+            ui->Note->setText(note.content);
+            ui->Subject->setText(note.subject);
+            ui->Topic->setText(note.topic);
+        }
+
+        AddNote(note);
+    }
+}
+
+void StudentNotes::SetClass(QPushButton* classButton)
+{
+    audoCfg::currentClassId = std::stoi(classButton->accessibleDescription().toStdString());
+
+    ui->Note->setText("Content");
+    ui->Subject->setText("Subject");
+    ui->Topic->setText("Topic");
+
+    LoadNotes();
+
+    {
+        int count = ui->ClassNameLayout->count() - 1;
+        for(int i = 0; i < count; i++)
+        {
+            QWidget* item = ui->ClassNameLayout->itemAt(0)->widget();
+            ui->ClassNameLayout->removeItem(ui->ClassNameLayout->itemAt(0));
+            delete item;
+        }
+    }
+
+    {
+        int count = ui->ClassLeaveLayout->count() - 1;
+        for(int i = 0; i < count; i++)
+        {
+            QWidget* item = ui->ClassLeaveLayout->itemAt(0)->widget();
+            ui->ClassLeaveLayout->removeItem(ui->ClassLeaveLayout->itemAt(0));
+            delete item;
+        }
+    }
+
+    {
+        int count = ui->TopicLayout->count() - 1;
+        for(int i = 0; i < count; i++)
+        {
+            QWidget* item = ui->TopicLayout->itemAt(0)->widget();
+            ui->TopicLayout->removeItem(ui->TopicLayout->itemAt(0));
+            delete item;
+        }
+    }
+
+    audoUtil::Response rooms = audoUtil::get("/api/get/user/rooms", audoUtil::ResponseType::ARRAY);
+
+    if (rooms.array->isEmpty()) return;
+
+    for(const auto& room : *rooms.array)
+    {
+        AddClass(room.toObject());
     }
 
     for(const auto& note : loadedNotes)

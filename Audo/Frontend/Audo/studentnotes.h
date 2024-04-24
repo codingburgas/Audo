@@ -34,7 +34,7 @@ private:
     void AddClass(QJsonObject&& classInfo);
     void AddNote(const Note& noteInfo);
 
-    //void SetClass(QPushButton* classButton);
+    void SetClass(QPushButton* classButton);
     void SetNote(QPushButton* noteButton);
 
     void LoadNotes();

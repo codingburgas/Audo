@@ -258,7 +258,7 @@ returnType GetClassrooms(CppHttp::Net::Request& req) {
 
 	std::vector<Classroom> classrooms;
 
-	soci::rowset<Classroom> rsClassrooms = (db->prepare << "SELECT * FROM classrooms WHERE owner_id = :id OR id = (SELECT classroom_id FROM uc_bridge WHERE user_id = :id);", use(std::stoi(userId)), use(std::stoi(userId)));
+	soci::rowset<Classroom> rsClassrooms = (db->prepare << "SELECT * FROM classrooms WHERE owner_id = :id OR id IN (SELECT classroom_id FROM uc_bridge WHERE user_id = :id);", use(std::stoi(userId)), use(std::stoi(userId)));
 	for (rowset<Classroom>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
 		classrooms.push_back(*it);
 	}

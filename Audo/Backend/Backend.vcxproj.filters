@@ -27,6 +27,9 @@
     <ClInclude Include="include\notes.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\qa.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="include\requests.hpp">
       <Filter>include</Filter>
     </ClInclude>
@@ -36,11 +39,12 @@
     <ClInclude Include="include\secret.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\tests.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="include\users.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\tests.hpp" />
-    <ClInclude Include="include\qa.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\classrooms.cpp">
@@ -64,9 +68,11 @@
     <ClCompile Include="src\requests.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\tests.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\users.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\tests.cpp" />
   </ItemGroup>
 </Project>
