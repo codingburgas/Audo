@@ -34,6 +34,9 @@ int main(int argc, char* argv[]) {
 	router.AddRoute("DELETE", "/api/delete/request",       DeleteRequest);
 	router.AddRoute("POST",   "/api/accept/request",	   AcceptRequest);
 	router.AddRoute("POST",   "/api/decline/request",      DeclineRequest);
+	router.AddRoute("POST",   "/api/submit/test",          SubmitTest);
+	router.AddRoute("GET",    "/api/get/tests",            GetTests);
+	router.AddRoute("GET",    "/api/get/rankings",         GetRankings);
 
 	std::string ip;
 

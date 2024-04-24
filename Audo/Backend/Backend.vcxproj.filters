@@ -39,6 +39,8 @@
     <ClInclude Include="include\users.hpp">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="include\tests.hpp" />
+    <ClInclude Include="include\qa.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\classrooms.cpp">
@@ -65,5 +67,6 @@
     <ClCompile Include="src\users.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\tests.cpp" />
   </ItemGroup>
 </Project>

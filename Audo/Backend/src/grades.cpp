@@ -50,6 +50,7 @@ returnType GetGrades(CppHttp::Net::Request& req) {
 		json gradeJson;
 		gradeJson["id"] = grade.id;
 		gradeJson["score"] = grade.score;
+		gradeJson["subject"] = grade.subject;
 
 		response.push_back(gradeJson);
 	}

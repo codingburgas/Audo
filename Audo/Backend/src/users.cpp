@@ -333,7 +333,7 @@ returnType UpdateUser(CppHttp::Net::Request& req) {
 
 	User user;
 
-	*db << "SELECT * FROM users WHERE id = :id", into(user), use(userId);
+	*db << "SELECT * FROM users WHERE id = :id", into(user), use(std::stoi(userId));
 
 	if (!db->got_data()) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "User with id " + userId + " not found", std::nullopt);
@@ -341,7 +341,7 @@ returnType UpdateUser(CppHttp::Net::Request& req) {
 
 	std::string hashedSalted = Hash(email + password + std::to_string((user.id) * 52834) + secret);
 
-	*db << "UPDATE users SET fname = :fname, lname = :lname, email = :email, password = :password WHERE id = :id RETURNING *", use(fName), use(lName), use(email), use(hashedSalted), use(userId), into(user);
+	*db << "UPDATE users SET fname = :fname, lname = :lname, email = :email, password = :password WHERE id = :id RETURNING *", use(fName), use(lName), use(email), use(hashedSalted), use(std::stoi(userId)), into(user);
 
 	json userJson;
 	userJson["fname"] = user.fname;

@@ -40,7 +40,6 @@ namespace soci {
 
 returnType AddRequest(CppHttp::Net::Request& req);
 returnType GetRequests(CppHttp::Net::Request& req);
-returnType GetRequest(CppHttp::Net::Request& req);
 returnType DeleteRequest(CppHttp::Net::Request& req);
 returnType AcceptRequest(CppHttp::Net::Request& req);
 returnType DeclineRequest(CppHttp::Net::Request& req);
