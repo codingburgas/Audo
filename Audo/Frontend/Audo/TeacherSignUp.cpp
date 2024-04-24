@@ -25,12 +25,12 @@ void TeacherSignUp::on_Continue_clicked()
 {
     audoUtil::Body body =
         {
-            { "first_name", ui->FName->toText() },
-            { "last_name", ui->LName->toText() },
-            { "email", ui->Email->toText() },
-            { "password", ui->Password->toText() },
+            { "first_name", ui->FName->toPlainText() },
+            { "last_name", ui->LName->toPlainText() },
+            { "email", ui->Email->toPlainText() },
+            { "password", ui->Password->toPlainText() },
             { "status", "teacher" },
-            { "school", ui->School->toText() }
+            { "school", ui->School->toPlainText() }
         };
 
     audoUtil::Response response = audoUtil::post("/api/register", body);

@@ -24,8 +24,8 @@ void SignIn::on_Continue_clicked(){
 
     audoUtil::Body body =
     {
-        { "email", ui->Email->toText() },
-        { "password", ui->Password->toText() }
+        { "email", ui->Email->toPlainText() },
+        { "password", ui->Password->toPlainText() }
     };
 
     audoUtil::Response response = audoUtil::post("/api/login", body);

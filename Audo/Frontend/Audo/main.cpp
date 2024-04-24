@@ -40,36 +40,46 @@ int main(int argc, char *argv[])
     QObject::connect(&switchWindows, &QAction::triggered, [&]() {
 
         std::string windowToSwitch = switchWindows.text().toStdString();
-        currentWindow->hide();
 
-        if (windowToSwitch == "SignIn")
+
+        if (windowToSwitch == "SignIn"){
+            currentWindow->hide();
             currentWindow = &signIn;
-
-        else if (windowToSwitch == "Landing")
+        }
+        else if (windowToSwitch == "Landing"){
+            currentWindow->hide();
             currentWindow = &mainPage;
-
-        else if (windowToSwitch == "SignUp")
+        }
+        else if (windowToSwitch == "SignUp"){
+            currentWindow->hide();
             currentWindow = &signUp;
-
-        else if (windowToSwitch == "StudentSignUp")
+        }
+        else if (windowToSwitch == "StudentSignUp"){
+            currentWindow->hide();
             currentWindow = &studentSignUp;
-
+        }
         else if (windowToSwitch == "StudentNotes"){
             studentNotes.FetchUI();
+            currentWindow->hide();
             currentWindow = &studentNotes;
         }
-
-        else if (windowToSwitch == "StudentGrades")
+        else if (windowToSwitch == "StudentGrades"){
+            currentWindow->hide();
             currentWindow = &studentGrades;
-
-        else if (windowToSwitch == "TeacherSignUp")
+        }
+        else if (windowToSwitch == "TeacherSignUp"){
+            currentWindow->hide();
             currentWindow = &teacherSignUp;
-
-        else if (windowToSwitch == "TeacherNotes")
+        }
+        else if (windowToSwitch == "TeacherNotes"){
+            currentWindow->hide();
             currentWindow = &teacherNotes;
-
-        else if (windowToSwitch == "TeacherGrades")
+        }
+        else if (windowToSwitch == "TeacherGrades"){
+            currentWindow->hide();
             currentWindow = &teacherGrades;
+        }
+
 
         currentWindow->show();
 
