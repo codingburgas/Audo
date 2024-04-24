@@ -29,7 +29,7 @@ namespace soci
             n.id = v.get<int>("id");
             n.subject = v.get<std::string>("subject");
             n.topic = v.get<std::string>("topic");
-            n.room_id = v.get<int>("room_id");
+            n.room_id = v.get<int>("classroom_id");
             n.content = v.get<std::string>("content");
             n.owner_id = v.get<int>("owner_id");
         }
@@ -39,7 +39,7 @@ namespace soci
             v.set("id", n.id);
             v.set("subject", n.subject);
             v.set("topic", n.topic);
-            v.set("room_id", n.room_id);
+            v.set("classroom_id", n.room_id);
             v.set("content", n.content);
             v.set("owner_id", n.owner_id);
             ind = i_ok;

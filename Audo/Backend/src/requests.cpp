@@ -35,8 +35,6 @@ returnType AddRequest(CppHttp::Net::Request& req) {
 
     std::string roomCode = body["room_code"];
 
-    // Check if room exists
-
     int ownerId;
 	int roomId;
     int selectedUserId;
@@ -87,7 +85,7 @@ returnType AddRequest(CppHttp::Net::Request& req) {
 		cpr::Multipart{
 			{"from", "noreply@audovscpi.live"},
 			{"to", ownerEmail},
-			{"subject", "Welcome to Audo"},
+			{"subject", "New join request"},
 			{"html", html}
 		}
 	);
@@ -135,7 +133,14 @@ returnType GetRequests(CppHttp::Net::Request& req) {
 
     int roomId = body["room_id"];
 
-    *db << "SELECT requests.* FROM requests INNER JOIN classrooms ON classrooms.id=requests.room_id WHERE classrooms.owner_id=:user_id AND requests.room_id=:room_id ", use(std::stoi(userId)), use(roomId);
+	int ownerId;
+	*db << "SELECT classrooms.owner_id FROM requests INNER JOIN classrooms ON classrooms.id=requests.room_id WHERE requests.room_id=:room_id", use(roomId), into(ownerId);
+
+	if (ownerId != std::stoi(userId)) {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Unauthorized", std::nullopt);
+	}
+    
+	*db << "SELECT requests.* FROM requests WHERE room_id=:room_id", use(roomId);
 
     if (!db->got_data()) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "No requests found", std::nullopt);
@@ -267,6 +272,16 @@ returnType AcceptRequest(CppHttp::Net::Request& req) {
 
 	*db << "DELETE FROM requests WHERE id = :request_id", use(requestId);
 	*db << "INSERT INTO uc_bridge (id, classroom_id, user_id) VALUES (DEFAULT, :classroomId, :userId)", use(request.room_id), use(request.user_id);
+
+	// get the register email html template from ../templates/register.html
+	std::ifstream file("./templates/email.html");
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	std::string html;
+
+	// replace the placeholders in the html template with the user's data
+	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), senderFname);
+	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), senderLname);
 
 	json response;
 	response["id"] = request.id;

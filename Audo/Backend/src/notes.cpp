@@ -101,7 +101,7 @@ returnType GetNotes(CppHttp::Net::Request& req) {
 	}
 
 	std::vector<Note> notes;
-	soci::rowset<Note> rsClassrooms = (db->prepare << "SELECT * FROM notes WHERE room_id = :room_id", use(roomId));
+	soci::rowset<Note> rsClassrooms = (db->prepare << "SELECT * FROM notes WHERE classroom_id = :room_id", use(roomId));
 	for (rowset<Note>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
 		notes.push_back(*it);
 	}
@@ -218,7 +218,7 @@ returnType DeleteNote(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "Note not found", std::nullopt);
 	}
 
-	if (ownerId != noteId && std::stoi(userId) != classroomOwnerId) {
+	if (ownerId != std::stoi(userId) && std::stoi(userId) != classroomOwnerId) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "User not owner of note", std::nullopt);
 	}
 
