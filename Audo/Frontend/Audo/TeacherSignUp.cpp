@@ -45,7 +45,7 @@ void TeacherSignUp::on_Continue_clicked()
         audoCfg::status = body[4][1];
         audoCfg::school = body[5][1];
 
-        switchAction->setText("Audo");
+        switchAction->setText("TeacherGrades");
         switchAction->trigger();
     }
     else {

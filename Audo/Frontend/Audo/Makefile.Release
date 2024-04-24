@@ -59,6 +59,8 @@ SOURCES       = SignUp.cpp \
 		MainPage.cpp \
 		signin.cpp \
 		studentgrades.cpp \
+		studentnotes.cpp \
+		teacheraccount.cpp \
 		teachergrades.cpp release\qrc_assets.cpp \
 		release\moc_MainPage.cpp \
 		release\moc_SignUp.cpp \
@@ -68,6 +70,8 @@ SOURCES       = SignUp.cpp \
 		release\moc_handler.cpp \
 		release\moc_signin.cpp \
 		release\moc_studentgrades.cpp \
+		release\moc_studentnotes.cpp \
+		release\moc_teacheraccount.cpp \
 		release\moc_teachergrades.cpp
 OBJECTS       = release\SignUp.obj \
 		release\StudentSignUp.obj \
@@ -78,6 +82,8 @@ OBJECTS       = release\SignUp.obj \
 		release\MainPage.obj \
 		release\signin.obj \
 		release\studentgrades.obj \
+		release\studentnotes.obj \
+		release\teacheraccount.obj \
 		release\teachergrades.obj \
 		release\qrc_assets.obj \
 		release\moc_MainPage.obj \
@@ -88,6 +94,8 @@ OBJECTS       = release\SignUp.obj \
 		release\moc_handler.obj \
 		release\moc_signin.obj \
 		release\moc_studentgrades.obj \
+		release\moc_studentnotes.obj \
+		release\moc_teacheraccount.obj \
 		release\moc_teachergrades.obj
 
 DIST          =  MainPage.h \
@@ -100,6 +108,8 @@ DIST          =  MainPage.h \
 		handler.h \
 		signin.h \
 		studentgrades.h \
+		studentnotes.h \
+		teacheraccount.h \
 		teachergrades.h \
 		utils.h SignUp.cpp \
 		StudentSignUp.cpp \
@@ -110,6 +120,8 @@ DIST          =  MainPage.h \
 		MainPage.cpp \
 		signin.cpp \
 		studentgrades.cpp \
+		studentnotes.cpp \
+		teacheraccount.cpp \
 		teachergrades.cpp
 QMAKE_TARGET  = Audo
 DESTDIR        = release\ #avoid trailing-slash linebreak
@@ -165,9 +177,9 @@ DESTDIR_TARGET = release\Audo.exe
 first: all
 all: Makefile.Release  release\Audo.exe
 
-release\Audo.exe: C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.lib ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_teachergrades.h $(OBJECTS) 
+release\Audo.exe: C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.lib C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.lib ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_studentnotes.h ui_teacheraccount.h ui_teachergrades.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) /MANIFEST:embed /OUT:$(DESTDIR_TARGET) @<<
-release\SignUp.obj release\StudentSignUp.obj release\TeacherSignUp.obj release\account.obj release\audo.obj release\main.obj release\MainPage.obj release\signin.obj release\studentgrades.obj release\teachergrades.obj release\qrc_assets.obj release\moc_MainPage.obj release\moc_SignUp.obj release\moc_StudentSignUp.obj release\moc_TeacherSignUp.obj release\moc_audo.obj release\moc_handler.obj release\moc_signin.obj release\moc_studentgrades.obj release\moc_teachergrades.obj
+release\SignUp.obj release\StudentSignUp.obj release\TeacherSignUp.obj release\account.obj release\audo.obj release\main.obj release\MainPage.obj release\signin.obj release\studentgrades.obj release\studentnotes.obj release\teacheraccount.obj release\teachergrades.obj release\qrc_assets.obj release\moc_MainPage.obj release\moc_SignUp.obj release\moc_StudentSignUp.obj release\moc_TeacherSignUp.obj release\moc_audo.obj release\moc_handler.obj release\moc_signin.obj release\moc_studentgrades.obj release\moc_studentnotes.obj release\moc_teacheraccount.obj release\moc_teachergrades.obj
 $(LIBS)
 <<
 
@@ -177,10 +189,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) Audo.zip $(SOURCES) $(DIST) Audo.pro C:\Qt\6.6.2\msvc2019_64\mkspecs\features\spec_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\windows-desktop.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\msvc-desktop.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\qconfig.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_libjpeg.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_example_icons_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_freetype_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_harfbuzz_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_jpeg_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_linguist_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_png_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatch_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcompiler.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlintegration.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlintegration_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlls_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickeffects_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt_functions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt_config.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\msvc-version.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\toolchain.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\default_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resolve_config.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\default_post.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\build_pass.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qml_debug.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\precompile_header.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\warn_on.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\permissions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resources_functions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resources.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\moc.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\opengl.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\uic.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qmake_use.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\file_copies.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\windows.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\testcase_targets.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exceptions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\yacc.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\lex.prf Audo.pro assets.qrc C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.prl   assets.qrc C:\Qt\6.6.2\msvc2019_64\mkspecs\features\data\dummy.cpp MainPage.h SignUp.h StudentSignUp.h TeacherSignUp.h account.h audo.h class.h handler.h signin.h studentgrades.h teachergrades.h utils.h  SignUp.cpp StudentSignUp.cpp TeacherSignUp.cpp account.cpp audo.cpp main.cpp MainPage.cpp signin.cpp studentgrades.cpp teachergrades.cpp MainPage.ui SignUp.ui StudentSignUp.ui TeacherSignUp.ui account.ui audo.ui signin.ui studentgrades.ui teachergrades.ui    
+	$(ZIP) Audo.zip $(SOURCES) $(DIST) Audo.pro C:\Qt\6.6.2\msvc2019_64\mkspecs\features\spec_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\windows-desktop.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\windows_vulkan_sdk.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\windows-vulkan.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\msvc-desktop.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\qconfig.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_freetype.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_libjpeg.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_ext_libpng.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_core.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_core_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_dbus.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designer.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_entrypoint_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_example_icons_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_fb_support_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_freetype_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_gui.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_harfbuzz_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_help.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_help_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_jpeg_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsanimation.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsanimation_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsqmlmodels.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssettings.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssettings_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssharedimage.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labssharedimage_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_linguist.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_linguist_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_network.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_network_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_opengl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_openglwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_packetprotocol_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_png_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatch_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchconversionsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qdoccatchgeneratorsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qml.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcompiler.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcore.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlcore_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmldebug_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmldom_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlintegration.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlintegration_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmllocalstorage.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlls_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlmodels_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltoolingsettings_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quick.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickeffects_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicklayouts.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicklayouts_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickshapes_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_sql.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svg.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svgwidgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_svgwidgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_testlib.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_tools_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uitools.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_widgets.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_xml.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\modules\qt_lib_zlib_private.pri C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt_functions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt_config.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\win32-msvc\qmake.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\spec_post.prf .qmake.stash C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exclusive_builds.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\common\msvc-version.conf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\toolchain.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\default_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\default_pre.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resolve_config.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exclusive_builds_post.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\default_post.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\build_pass.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qml_debug.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\precompile_header.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\warn_on.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\permissions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qt.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resources_functions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\resources.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\moc.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\opengl.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\uic.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\qmake_use.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\file_copies.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\win32\windows.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\testcase_targets.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\exceptions.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\yacc.prf C:\Qt\6.6.2\msvc2019_64\mkspecs\features\lex.prf Audo.pro assets.qrc C:\Qt\6.6.2\msvc2019_64\lib\Qt6Widgets.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Gui.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Network.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6Core.prl C:\Qt\6.6.2\msvc2019_64\lib\Qt6EntryPoint.prl   assets.qrc C:\Qt\6.6.2\msvc2019_64\mkspecs\features\data\dummy.cpp MainPage.h SignUp.h StudentSignUp.h TeacherSignUp.h account.h audo.h class.h handler.h signin.h studentgrades.h studentnotes.h teacheraccount.h teachergrades.h utils.h  SignUp.cpp StudentSignUp.cpp TeacherSignUp.cpp account.cpp audo.cpp main.cpp MainPage.cpp signin.cpp studentgrades.cpp studentnotes.cpp teacheraccount.cpp teachergrades.cpp MainPage.ui SignUp.ui StudentSignUp.ui TeacherSignUp.ui account.ui audo.ui signin.ui studentgrades.ui studentnotes.ui teacheraccount.ui teachergrades.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\SignUp.obj release\StudentSignUp.obj release\TeacherSignUp.obj release\account.obj release\audo.obj release\main.obj release\MainPage.obj release\signin.obj release\studentgrades.obj release\teachergrades.obj release\qrc_assets.obj release\moc_MainPage.obj release\moc_SignUp.obj release\moc_StudentSignUp.obj release\moc_TeacherSignUp.obj release\moc_audo.obj release\moc_handler.obj release\moc_signin.obj release\moc_studentgrades.obj release\moc_teachergrades.obj
+	-$(DEL_FILE) release\SignUp.obj release\StudentSignUp.obj release\TeacherSignUp.obj release\account.obj release\audo.obj release\main.obj release\MainPage.obj release\signin.obj release\studentgrades.obj release\studentnotes.obj release\teacheraccount.obj release\teachergrades.obj release\qrc_assets.obj release\moc_MainPage.obj release\moc_SignUp.obj release\moc_StudentSignUp.obj release\moc_TeacherSignUp.obj release\moc_audo.obj release\moc_handler.obj release\moc_signin.obj release\moc_studentgrades.obj release\moc_studentnotes.obj release\moc_teacheraccount.obj release\moc_teachergrades.obj
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -211,6 +223,7 @@ release\qrc_assets.cpp: assets.qrc \
 		assets\icons\classes-icon.png \
 		assets\icons\participants-icon.png \
 		assets\icons\account-icon.png \
+		assets\icons\logo.png \
 		assets\icons\user.png \
 		assets\icons\back-arrow.png \
 		assets\icons\grades-icon.png
@@ -222,9 +235,9 @@ compiler_moc_predefs_clean:
 release\moc_predefs.h: C:\Qt\6.6.2\msvc2019_64\mkspecs\features\data\dummy.cpp
 	cl -BxC:\Qt\6.6.2\msvc2019_64\bin\qmake.exe -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -O2 -MD -std:c++17 -utf-8 -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E C:\Qt\6.6.2\msvc2019_64\mkspecs\features\data\dummy.cpp 2>NUL >release\moc_predefs.h
 
-compiler_moc_header_make_all: release\moc_MainPage.cpp release\moc_SignUp.cpp release\moc_StudentSignUp.cpp release\moc_TeacherSignUp.cpp release\moc_audo.cpp release\moc_handler.cpp release\moc_signin.cpp release\moc_studentgrades.cpp release\moc_teachergrades.cpp
+compiler_moc_header_make_all: release\moc_MainPage.cpp release\moc_SignUp.cpp release\moc_StudentSignUp.cpp release\moc_TeacherSignUp.cpp release\moc_audo.cpp release\moc_handler.cpp release\moc_signin.cpp release\moc_studentgrades.cpp release\moc_studentnotes.cpp release\moc_teacheraccount.cpp release\moc_teachergrades.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_MainPage.cpp release\moc_SignUp.cpp release\moc_StudentSignUp.cpp release\moc_TeacherSignUp.cpp release\moc_audo.cpp release\moc_handler.cpp release\moc_signin.cpp release\moc_studentgrades.cpp release\moc_teachergrades.cpp
+	-$(DEL_FILE) release\moc_MainPage.cpp release\moc_SignUp.cpp release\moc_StudentSignUp.cpp release\moc_TeacherSignUp.cpp release\moc_audo.cpp release\moc_handler.cpp release\moc_signin.cpp release\moc_studentgrades.cpp release\moc_studentnotes.cpp release\moc_teacheraccount.cpp release\moc_teachergrades.cpp
 release\moc_MainPage.cpp: MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QMainWindow \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qmainwindow.h \
@@ -1142,6 +1155,80 @@ release\moc_audo.cpp: audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QString \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QUrl \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVariant \
+		utils.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborcommon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qregularexpression.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\quuid.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qendian.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonDocument \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsondocument.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVector \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvector.h \
 		release\moc_predefs.h \
@@ -1592,6 +1679,340 @@ release\moc_studentgrades.cpp: studentgrades.h \
 		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
 	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" studentgrades.h -o release\moc_studentgrades.cpp
 
+release\moc_studentnotes.cpp: studentnotes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversionchecks.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfiginclude.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconfig.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfigmacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcoreexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtdeprecationmarkers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtpreprocessorsupport.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qassert.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtnoop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtclasshelpermacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlogging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qflags.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconstructormacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdarwinhelpers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexceptionhandling.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qforeach.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttypetraits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmalloc.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qminmax.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnumeric.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qoverload.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qswap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtenvironmentvariables.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtresource.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttranslation.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtmetamacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstring.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qchar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrefcount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpair.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydatapointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydataops.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qxptype_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20functional.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20memory.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20type_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlatin1stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qanystringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qutf8stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringtokenizer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterator.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetatype.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatastream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevicebase.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfloat16.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmath.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetacontainer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtaggedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopeguard.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbindingstorage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q23utility.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qaction.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qkeysequence.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qicon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsize.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrect.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcolor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgb.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qimage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtransform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpolygon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qregion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringconverter_base.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpalette.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbrush.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfont.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcursor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbitmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qurl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qeventpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvector2d.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvectornd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpointingdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qscreen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QRect \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSize \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSizeF \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QTransform \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
+		release\moc_predefs.h \
+		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" studentnotes.h -o release\moc_studentnotes.cpp
+
+release\moc_teacheraccount.cpp: teacheraccount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversionchecks.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfiginclude.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconfig.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfigmacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcoreexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtdeprecationmarkers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtpreprocessorsupport.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qassert.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtnoop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtclasshelpermacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlogging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qflags.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconstructormacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdarwinhelpers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexceptionhandling.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qforeach.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttypetraits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmalloc.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qminmax.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnumeric.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qoverload.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qswap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtenvironmentvariables.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtresource.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttranslation.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtmetamacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstring.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qchar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrefcount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpair.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydatapointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydataops.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qxptype_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20functional.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20memory.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20type_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlatin1stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qanystringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qutf8stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringtokenizer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterator.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetatype.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatastream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevicebase.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfloat16.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmath.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetacontainer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtaggedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopeguard.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbindingstorage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q23utility.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qaction.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qkeysequence.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qicon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsize.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrect.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcolor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgb.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qimage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtransform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpolygon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qregion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringconverter_base.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpalette.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbrush.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfont.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcursor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbitmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qurl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qeventpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvector2d.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvectornd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpointingdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qscreen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QRect \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSize \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSizeF \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QTransform \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
+		release\moc_predefs.h \
+		C:\Qt\6.6.2\msvc2019_64\bin\moc.exe
+	C:\Qt\6.6.2\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo/release/moc_predefs.h -IC:/Qt/6.6.2/msvc2019_64/mkspecs/win32-msvc -IC:/Users/alide/OneDrive/Documents/Audo/Audo/Frontend/Audo -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/curl/include -IC:/Users/alide/OneDrive/Documents/Audo/vendor/cpr/include -IC:/Qt/6.6.2/msvc2019_64/include -IC:/Qt/6.6.2/msvc2019_64/include/QtWidgets -IC:/Qt/6.6.2/msvc2019_64/include/QtGui -IC:/Qt/6.6.2/msvc2019_64/include/QtNetwork -IC:/Qt/6.6.2/msvc2019_64/include/QtCore -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\ATLMFC\include" -I"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt" -I"C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" teacheraccount.h -o release\moc_teacheraccount.cpp
+
 release\moc_teachergrades.cpp: teachergrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
@@ -1763,9 +2184,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_teachergrades.h
+compiler_uic_make_all: ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_studentnotes.h ui_teacheraccount.h ui_teachergrades.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_teachergrades.h
+	-$(DEL_FILE) ui_MainPage.h ui_SignUp.h ui_StudentSignUp.h ui_TeacherSignUp.h ui_account.h ui_audo.h ui_signin.h ui_studentgrades.h ui_studentnotes.h ui_teacheraccount.h ui_teachergrades.h
 ui_MainPage.h: MainPage.ui \
 		C:\Qt\6.6.2\msvc2019_64\bin\uic.exe
 	C:\Qt\6.6.2\msvc2019_64\bin\uic.exe MainPage.ui -o ui_MainPage.h
@@ -1797,6 +2218,14 @@ ui_signin.h: signin.ui \
 ui_studentgrades.h: studentgrades.ui \
 		C:\Qt\6.6.2\msvc2019_64\bin\uic.exe
 	C:\Qt\6.6.2\msvc2019_64\bin\uic.exe studentgrades.ui -o ui_studentgrades.h
+
+ui_studentnotes.h: studentnotes.ui \
+		C:\Qt\6.6.2\msvc2019_64\bin\uic.exe
+	C:\Qt\6.6.2\msvc2019_64\bin\uic.exe studentnotes.ui -o ui_studentnotes.h
+
+ui_teacheraccount.h: teacheraccount.ui \
+		C:\Qt\6.6.2\msvc2019_64\bin\uic.exe
+	C:\Qt\6.6.2\msvc2019_64\bin\uic.exe teacheraccount.ui -o ui_teacheraccount.h
 
 ui_teachergrades.h: teachergrades.ui \
 		C:\Qt\6.6.2\msvc2019_64\bin\uic.exe
@@ -2939,57 +3368,7 @@ release\audo.obj: audo.cpp audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QString \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QUrl \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVariant \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVector \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvector.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QLabel \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlabel.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpicture.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextdocument.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QPixMap \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QScrollBar \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qscrollbar.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractslider.h \
-		ui_audo.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QIcon \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QApplication \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qapplication.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qeventloop.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication_platform.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfutureinterface.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmutex.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtsan_impl.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qresultstore.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture_impl.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthreadpool.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthread.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrunnable.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexception.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpromise.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputmethod.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QFrame \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QMenuBar \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qmenubar.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qmenu.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QStatusBar \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qstatusbar.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QTextEdit \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtextedit.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextoption.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextcursor.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextformat.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpen.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
-		user.h \
+		utils.h \
 		..\..\..\vendor\cpr\include\cpr\cpr.h \
 		..\..\..\vendor\cpr\include\cpr\api.h \
 		..\..\..\vendor\cpr\include\cpr\async.h \
@@ -3049,7 +3428,70 @@ release\audo.obj: audo.cpp audo.h \
 		..\..\..\vendor\cpr\include\cpr\cprver.h \
 		..\..\..\vendor\cpr\include\cpr\interceptor.h \
 		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
-		..\..\..\vendor\cpr\include\cpr\status_codes.h
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborcommon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qregularexpression.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\quuid.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qendian.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonDocument \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsondocument.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVector \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvector.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QLabel \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlabel.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpicture.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextdocument.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QPixMap \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QScrollBar \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qscrollbar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractslider.h \
+		ui_audo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QIcon \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QApplication \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qeventloop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication_platform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfutureinterface.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmutex.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtsan_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qresultstore.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthreadpool.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthread.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrunnable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexception.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpromise.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputmethod.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QFrame \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QMenuBar \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qmenu.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QStatusBar \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QTextEdit \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextoption.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextcursor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextformat.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
+		user.h
 
 release\main.obj: main.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QMainWindow \
@@ -3286,6 +3728,7 @@ release\main.obj: main.cpp MainPage.h \
 		SignUp.h \
 		StudentSignUp.h \
 		TeacherSignUp.h \
+		teachergrades.h \
 		audo.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QFont \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QGraphicsDropShadowEffect \
@@ -3303,6 +3746,20 @@ release\main.obj: main.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QString \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QUrl \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVariant \
+		utils.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborcommon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qregularexpression.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\quuid.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qendian.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonDocument \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsondocument.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QtLogging \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QApplication \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qapplication.h \
@@ -3324,7 +3781,6 @@ release\main.obj: main.cpp MainPage.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpromise.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputmethod.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
 		handler.h \
 		user.h
@@ -4063,12 +4519,11 @@ release\studentgrades.obj: studentgrades.cpp studentgrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QFrame \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qframe.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QGridLayout \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qgridlayout.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qboxlayout.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlayout.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlayoutitem.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qboxlayout.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QHBoxLayout \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qgridlayout.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QLabel \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlabel.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpicture.h \
@@ -4076,9 +4531,371 @@ release\studentgrades.obj: studentgrades.cpp studentgrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QSpacerItem
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QSpacerItem \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QVBoxLayout
 
-release\teachergrades.obj: teachergrades.cpp TeacherGrades.h \
+release\studentnotes.obj: studentnotes.cpp studentnotes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversionchecks.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfiginclude.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconfig.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfigmacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcoreexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtdeprecationmarkers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtpreprocessorsupport.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qassert.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtnoop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtclasshelpermacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlogging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qflags.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconstructormacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdarwinhelpers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexceptionhandling.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qforeach.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttypetraits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmalloc.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qminmax.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnumeric.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qoverload.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qswap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtenvironmentvariables.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtresource.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttranslation.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtmetamacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstring.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qchar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrefcount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpair.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydatapointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydataops.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qxptype_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20functional.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20memory.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20type_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlatin1stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qanystringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qutf8stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringtokenizer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterator.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetatype.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatastream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevicebase.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfloat16.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmath.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetacontainer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtaggedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopeguard.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbindingstorage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q23utility.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qaction.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qkeysequence.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qicon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsize.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrect.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcolor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgb.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qimage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtransform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpolygon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qregion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringconverter_base.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpalette.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbrush.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfont.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcursor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbitmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qurl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qeventpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvector2d.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvectornd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpointingdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qscreen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QRect \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSize \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSizeF \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QTransform \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
+		ui_studentnotes.h
+
+release\teacheraccount.obj: teacheraccount.cpp teacheraccount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobal.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversionchecks.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfiginclude.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconfig.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcore-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtconfigmacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtcoreexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompilerdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsystemdetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qprocessordetection.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtdeprecationmarkers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtpreprocessorsupport.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qassert.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtnoop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtversion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtclasshelpermacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtypeinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsysinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlogging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qflags.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbasicatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qatomic_cxx11.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qgenericatomic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qconstructormacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdarwinhelpers.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexceptionhandling.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qforeach.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttypetraits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qglobalstatic.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmalloc.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qminmax.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnumeric.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qoverload.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qswap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtenvironmentvariables.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtresource.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qttranslation.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qversiontagging.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtgui-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtguiexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgets-config.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsexports.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnamespace.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtmetamacros.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobjectdefs_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfunctionaltools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qwindowdefs_win.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstring.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qchar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrefcount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpair.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydatapointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qarraydataops.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qxptype_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20functional.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20memory.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearrayview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringfwd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q20type_traits.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringliteral.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlatin1stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qanystringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qutf8stringview.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringtokenizer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringbuilder.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhashfunctions.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterator.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbytearraylist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringlist.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qalgorithms.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringmatcher.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetatype.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcompare.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatastream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevicebase.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfloat16.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmath.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiterable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmetacontainer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontainerinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtaggedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qscopeguard.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qobject_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qbindingstorage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmargins.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\q23utility.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qaction.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qkeysequence.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qicon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsize.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpaintdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrect.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcolor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgb.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qrgba64.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qimage.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpixelformat.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtransform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpolygon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qregion.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qline.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvariant.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdebug.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtextstream.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qstringconverter_base.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcontiguouscache.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qsharedpointer_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qshareddata_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qset.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qhash.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qvarlengtharray.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpalette.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbrush.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfont.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontmetrics.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qfontinfo.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qsizepolicy.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qcursor.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qbitmap.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qevent.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qiodevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpointer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qurl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qeventpoint.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvector2d.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qvectornd.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpointingdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputdevice.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qscreen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QList \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QRect \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSize \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QSizeF \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QTransform \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
+		ui_teacheraccount.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVariant \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QApplication \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qeventloop.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication_platform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfutureinterface.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qmutex.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdeadlinetimer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qelapsedtimer.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qtsan_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qresultstore.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qfuture_impl.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthreadpool.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qthread.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qrunnable.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qexception.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qpromise.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qinputmethod.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qlocale.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qguiapplication_platform.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QLabel \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qlabel.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qframe.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpicture.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextdocument.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QPushButton \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qpushbutton.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qabstractbutton.h
+
+release\teachergrades.obj: teachergrades.cpp teachergrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QWidget \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qwidget.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qtwidgetsglobal.h \
@@ -4243,7 +5060,6 @@ release\teachergrades.obj: teachergrades.cpp TeacherGrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qnativeinterface.h \
 		ui_teachergrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QVariant \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\QIcon \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QApplication \
 		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\qapplication.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcoreapplication.h \
@@ -4287,7 +5103,81 @@ release\teachergrades.obj: teachergrades.cpp TeacherGrades.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextoption.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextcursor.h \
 		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qtextformat.h \
-		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpen.h
+		C:\Qt\6.6.2\msvc2019_64\include\QtGui\qpen.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtWidgets\QVBoxLayout \
+		utils.h \
+		..\..\..\vendor\cpr\include\cpr\cpr.h \
+		..\..\..\vendor\cpr\include\cpr\api.h \
+		..\..\..\vendor\cpr\include\cpr\async.h \
+		..\..\..\vendor\cpr\include\cpr\async_wrapper.h \
+		..\..\..\vendor\cpr\include\cpr\response.h \
+		..\..\..\vendor\cpr\include\cpr\cert_info.h \
+		..\..\..\vendor\cpr\include\cpr\cookies.h \
+		..\..\..\vendor\cpr\include\cpr\curlholder.h \
+		..\..\..\vendor\cpr\curl\include\curl\curl.h \
+		..\..\..\vendor\cpr\curl\include\curl\curlver.h \
+		..\..\..\vendor\cpr\curl\include\curl\system.h \
+		..\..\..\vendor\cpr\curl\include\curl\easy.h \
+		..\..\..\vendor\cpr\curl\include\curl\multi.h \
+		..\..\..\vendor\cpr\curl\include\curl\urlapi.h \
+		..\..\..\vendor\cpr\curl\include\curl\options.h \
+		..\..\..\vendor\cpr\curl\include\curl\header.h \
+		..\..\..\vendor\cpr\curl\include\curl\websockets.h \
+		..\..\..\vendor\cpr\curl\include\curl\typecheck-gcc.h \
+		..\..\..\vendor\cpr\include\cpr\cprtypes.h \
+		..\..\..\vendor\cpr\include\cpr\error.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_options.h \
+		..\..\..\vendor\cpr\include\cpr\filesystem.h \
+		..\..\..\vendor\cpr\include\cpr\util.h \
+		..\..\..\vendor\cpr\include\cpr\callback.h \
+		..\..\..\vendor\cpr\include\cpr\singleton.h \
+		..\..\..\vendor\cpr\include\cpr\threadpool.h \
+		..\..\..\vendor\cpr\include\cpr\auth.h \
+		..\..\..\vendor\cpr\include\cpr\bearer.h \
+		..\..\..\vendor\cpr\include\cpr\multipart.h \
+		..\..\..\vendor\cpr\include\cpr\buffer.h \
+		..\..\..\vendor\cpr\include\cpr\file.h \
+		..\..\..\vendor\cpr\include\cpr\multiperform.h \
+		..\..\..\vendor\cpr\include\cpr\curlmultiholder.h \
+		..\..\..\vendor\cpr\include\cpr\session.h \
+		..\..\..\vendor\cpr\include\cpr\accept_encoding.h \
+		..\..\..\vendor\cpr\include\cpr\body.h \
+		..\..\..\vendor\cpr\include\cpr\connect_timeout.h \
+		..\..\..\vendor\cpr\include\cpr\timeout.h \
+		..\..\..\vendor\cpr\include\cpr\http_version.h \
+		..\..\..\vendor\cpr\include\cpr\interface.h \
+		..\..\..\vendor\cpr\include\cpr\limit_rate.h \
+		..\..\..\vendor\cpr\include\cpr\local_port.h \
+		..\..\..\vendor\cpr\include\cpr\local_port_range.h \
+		..\..\..\vendor\cpr\include\cpr\low_speed.h \
+		..\..\..\vendor\cpr\include\cpr\parameters.h \
+		..\..\..\vendor\cpr\include\cpr\curl_container.h \
+		..\..\..\vendor\cpr\include\cpr\payload.h \
+		..\..\..\vendor\cpr\include\cpr\proxies.h \
+		..\..\..\vendor\cpr\include\cpr\proxyauth.h \
+		..\..\..\vendor\cpr\include\cpr\range.h \
+		..\..\..\vendor\cpr\include\cpr\redirect.h \
+		..\..\..\vendor\cpr\include\cpr\reserve_size.h \
+		..\..\..\vendor\cpr\include\cpr\resolve.h \
+		..\..\..\vendor\cpr\include\cpr\unix_socket.h \
+		..\..\..\vendor\cpr\include\cpr\user_agent.h \
+		..\..\..\vendor\cpr\include\cpr\verbose.h \
+		..\..\..\vendor\cpr\include\cpr\cprver.h \
+		..\..\..\vendor\cpr\include\cpr\interceptor.h \
+		..\..\..\vendor\cpr\include\cpr\ssl_ctx.h \
+		..\..\..\vendor\cpr\include\cpr\status_codes.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonObject \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonobject.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsonvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborvalue.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qdatetime.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcalendar.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qcborcommon.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qregularexpression.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\quuid.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qendian.h \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\QJsonDocument \
+		C:\Qt\6.6.2\msvc2019_64\include\QtCore\qjsondocument.h
 
 release\qrc_assets.obj: release\qrc_assets.cpp 
 
@@ -4306,6 +5196,10 @@ release\moc_handler.obj: release\moc_handler.cpp
 release\moc_signin.obj: release\moc_signin.cpp 
 
 release\moc_studentgrades.obj: release\moc_studentgrades.cpp 
+
+release\moc_studentnotes.obj: release\moc_studentnotes.cpp 
+
+release\moc_teacheraccount.obj: release\moc_teacheraccount.cpp 
 
 release\moc_teachergrades.obj: release\moc_teachergrades.cpp 
 

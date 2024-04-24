@@ -64,7 +64,7 @@ returnType Register(CppHttp::Net::Request& req) {
 
 	*db << "SELECT * FROM users WHERE email = :email", into(user, ind), use(email);
 
-	std::cout << "User: " << user.email << std::endl;
+	//std::cout << "User: " << user.email << std::endl;
 
 	if (db->got_data()) {
 
@@ -73,7 +73,7 @@ returnType Register(CppHttp::Net::Request& req) {
 
 	*db << "SELECT last_value FROM users_id_seq", into(user.id);
 
-	std::cout << "\033[1;34m[*] User id: " << user.id << "\033[0m\n";
+	//std::cout << "\033[1;34m[*] User id: " << user.id << "\033[0m\n";
 
 	long long int id = (user.id + 1) * 52834;
 
@@ -81,9 +81,30 @@ returnType Register(CppHttp::Net::Request& req) {
 
 	std::string hashedSalted = Hash(password);
 
-	std::cout << "Hashed: " << hashedSalted << std::endl;
+	//std::cout << "Hashed: " << hashedSalted << std::endl;
 
 	*db << "INSERT INTO users (id, fname, lname, email, password, status, school) VALUES (DEFAULT, :fname, :lname, :email, :password, :status, :school)", use(fName), use(lName), use(email), use(hashedSalted), use(status), use(school);
+
+	// get the register email html template from ../templates/register.html
+	std::ifstream file("./templates/register.html");
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	std::string html;
+
+	// replace the placeholders in the html template with the user's data
+	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), fName);
+	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), lName);
+
+	// send the email
+	cpr::Response r = cpr::Post(cpr::Url{ "https://api.eu.mailgun.net/v3/audovscpi.live/messages" },
+		cpr::Authentication{ mailgunUsername, mailgunPassword, cpr::AuthMode::BASIC },
+		cpr::Multipart{
+			{"from", "noreply@audovscpi.live"},
+			{"to", email},
+			{"subject", "Welcome to Audo"},
+			{"html", html}
+		}
+	);
 
 	json userOutput;
 	userOutput["fname"] = fName;

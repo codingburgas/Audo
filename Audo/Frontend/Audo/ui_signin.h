@@ -78,6 +78,7 @@ public:
         font1.setWeight(QFont::DemiBold);
         font1.setItalic(false);
         Email->setFont(font1);
+        Email->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Email->setAutoFillBackground(false);
         Email->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -98,6 +99,7 @@ public:
         Password->setObjectName("Password");
         Password->setGeometry(QRect(370, 390, 551, 41));
         Password->setFont(font1);
+        Password->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Password->setAutoFillBackground(false);
         Password->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -141,13 +143,13 @@ public:
         Continue->setAutoFillBackground(false);
         Continue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #0047FF;\n"
+"background-color: #4282FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #003CD7;\n"
+"background-color: #0057FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"

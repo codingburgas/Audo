@@ -24,22 +24,22 @@ class Audo : public QMainWindow
 
 public:
     Audo(QAction* switcher, QWidget *parent = nullptr);
-    QGraphicsDropShadowEffect *shadowEffect;
-    QScrollArea *scrollArea = nullptr;
+    // QGraphicsDropShadowEffect *shadowEffect;
+    // QScrollArea *scrollArea = nullptr;
     ~Audo();
 
-    int xClass = 29;  //base x for classes
-    int yClass = 230; // 130
+    // int xClass = 29;  //base x for classes
+    // int yClass = 230; // 130
     bool notesPage = true;
     bool gradesPage = false;
 
     // void retrieveUserInfo();
-    void setUserName(QVector<std::string>& v);
+//     void setUserName(QVector<std::string>& v);
 
-public slots:
-    void notesHeadClick();
-    void gradesHeadClick();
-    void joinRoom() const;
+// public slots:
+//     void notesHeadClick();
+//     void gradesHeadClick();
+//     void joinRoom() const;
 
 
 public:

@@ -43,6 +43,8 @@ namespace audoUtil{
         ALREADY_EXISTS = 409
     };
 
+
+    [[maybe_unused]]
     static Response post(const std::string&& urlAdd, Body body, const bool&& needAuth = false){
 
         QJsonObject jsonObj;
@@ -61,6 +63,7 @@ namespace audoUtil{
 
     }
 
+    [[maybe_unused]] [[nodiscard]]
     static Response get(const std::string&& urlAdd){
 
         cpr::Response r = cpr::Get(cpr::Url{audoCfg::baseUrl + urlAdd},

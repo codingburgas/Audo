@@ -12,9 +12,18 @@
     <qresource prefix="/icons">
         <file>assets/icons/back-arrow.png</file>
         <file>assets/icons/user.png</file>
+        <file>assets/icons/logo.png</file>
         <file>assets/icons/account-icon.png</file>
         <file>assets/icons/classes-icon.png</file>
         <file>assets/icons/grades-icon.png</file>
         <file>assets/icons/participants-icon.png</file>
+        <file>assets/icons/logo-black.svg</file>
+	<file>assets/icons/bookmark.svg</file>
+	<file>assets/icons/user_logo.svg</file>
+	<file>assets/icons/pen.svg</file>
+	<file>assets/icons/users.svg</file>
+	<file>assets/icons/delete.svg</file>
+	<file>assets/icons/edit.svg</file>
+	<file>assets/icons/go away.svg</file>
     </qresource>
 </RCC>

@@ -17,9 +17,7 @@ public:
     ~SignIn();
 
     QVector<std::string> userInfo;
-public slots:
-    void on_Pedalite_azsumgei();
-    void on_Pedalite_azsumgeiFinished();
+
 private slots:
     void on_Continue_clicked();
     void on_SignUpButton_clicked();

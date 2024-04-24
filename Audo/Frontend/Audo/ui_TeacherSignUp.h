@@ -58,6 +58,7 @@ public:
         font.setWeight(QFont::DemiBold);
         font.setItalic(false);
         Password->setFont(font);
+        Password->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Password->setAutoFillBackground(false);
         Password->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -68,6 +69,7 @@ public:
         FName->setObjectName("FName");
         FName->setGeometry(QRect(350, 250, 271, 41));
         FName->setFont(font);
+        FName->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         FName->setAutoFillBackground(false);
         FName->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -78,6 +80,7 @@ public:
         LName->setObjectName("LName");
         LName->setGeometry(QRect(650, 250, 271, 41));
         LName->setFont(font);
+        LName->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         LName->setAutoFillBackground(false);
         LName->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -156,6 +159,7 @@ public:
         Email->setObjectName("Email");
         Email->setGeometry(QRect(350, 340, 571, 41));
         Email->setFont(font);
+        Email->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         Email->setAutoFillBackground(false);
         Email->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"
@@ -195,13 +199,13 @@ public:
         Continue->setAutoFillBackground(false);
         Continue->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #0047FF;\n"
+"background-color: #4282FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 "}\n"
 "QPushButton:hover {\n"
 "font: 600 16pt \"Roboto Serif SemiBold\";\n"
-"background-color: #003CD7;\n"
+"background-color: #0057FF;\n"
 "border-radius: 10px;\n"
 "color:#ffffff;\n"
 " }\n"
@@ -217,6 +221,7 @@ public:
         ClassCode->setObjectName("ClassCode");
         ClassCode->setGeometry(QRect(350, 520, 571, 41));
         ClassCode->setFont(font);
+        ClassCode->viewport()->setProperty("cursor", QVariant(QCursor(Qt::PointingHandCursor)));
         ClassCode->setAutoFillBackground(false);
         ClassCode->setStyleSheet(QString::fromUtf8("background: none;\n"
 "font: 600 16pt \"Roboto Serif Medium\";\n"

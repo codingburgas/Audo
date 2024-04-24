@@ -20,7 +20,7 @@ project "Backend"
 
     files { "./Audo/%{prj.name}/src/**.cpp", "./Audo/%{prj.name}/include/**.h", "./Audo/%{prj.name}/include/**.hpp" }
 
-    includedirs { "./vendor/cpphttp/include", "./vendor/jwt-cpp/include", "./vendor/libpq/include", "./vendor/openssl/include", "./vendor/soci/include", "./Audo/%{prj.name}/include"}
+    includedirs { "./vendor/cpphttp/include", "./vendor/jwt-cpp/include", "./vendor/libpq/include", "./vendor/openssl/include", "./vendor/soci/include", "./vendor/cpr/curl/include", "./vendor/cpr/include", "./Audo/%{prj.name}/include"}
 
     filter "configurations:*"
       libdirs { "./vendor/libpq/lib", "./vendor/openssl/lib" }
@@ -35,20 +35,24 @@ project "Backend"
     filter "configurations:Debug"
       defines "AD_DEBUG"
       symbols "On"
-      libdirs { "./vendor/soci/lib/debug_libs" }
+      libdirs { "./vendor/soci/lib/debug_libs", "./vendor/cpr/libs/Debug-libs" }
       links {	
         "libsoci_core_4_0",
         "libsoci_empty_4_0",
-        "libsoci_postgresql_4_0"
+        "libsoci_postgresql_4_0",
+        "libcurl-d_imp",
+        "cpr"
       }
     
     
     filter "configurations:Release"
       defines "AD_RELEASE"
       optimize "On"
-      libdirs { "./vendor/soci/lib" }
+      libdirs { "./vendor/soci/lib", "./vendor/cpr/libs/Release-libs" }
       links {	
         "libsoci_core_4_0",
         "libsoci_empty_4_0",
-        "libsoci_postgresql_4_0"
+        "libsoci_postgresql_4_0",
+        "libcurl_imp",
+        "cpr"
       }
