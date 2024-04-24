@@ -35,8 +35,8 @@
 <p align="left gap="10px">
     <a href="https://cplusplus.com/"><img width="48" height="48" src="https://img.icons8.com/fluency/48/c-plus-plus-logo.png" alt="c-plus-plus-logo"/></a>
     <a href="https://www.typescriptlang.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/2048px-Typescript_logo_2020.svg.png" alt="Typescript logo" width=50px /></a>
-    <a href="https://tailwindcss.com/"> <img width="48" height="48" src="https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png"  alt="Tailwind"/></a>
-    <a href="https://nextjs.org/"> <img width="48" height="48" src="https://gorzelinski.com/static/1db41e3ecd311724a15306b270d99dd9/6e87d/next-js-logo.png" alt="Next js"/></a>
+    <a href="https://tailwindcss.com/"> <img width="68" height="48" src="https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png"  alt="Tailwind"/></a>
+    <a href="https://nextjs.org/"> <img width="68" height="48" src="https://gorzelinski.com/static/1db41e3ecd311724a15306b270d99dd9/6e87d/next-js-logo.png" alt="Next js"/></a>
 </p>
 
 ### Used tools for our documentation, presentation & communication:
@@ -67,7 +67,7 @@
 <br>
 
 <p>1. First you have to clone our project  </p>
-<pre>git clone https://github.com/codingburgas/2324-space-sprint-project-planex.git</pre>
+<pre>git clone https://github.com/codingburgas/Audo.git</pre>
 <p>2. Run Setup.py</p>
 <br>
 <p>3. Open Audo.pro (In the Frontend folder) *Requires QT Creator* </p>
