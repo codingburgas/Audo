@@ -270,23 +270,42 @@ returnType AcceptRequest(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Unathorized", std::nullopt);
 	}
 
+	std::string ownerFname;
+	std::string ownerLname;
+	std::string classroomName;
+	std::string email;
+
+	*db << "SELECT users.fname, users.lname, classrooms.name FROM requests INNER JOIN classrooms ON classrooms.id=requests.room_id INNER JOIN users ON classrooms.owner_id=users.id WHERE requests.id=:request_id", use(requestId), into(ownerFname), into(ownerLname), into(classroomName);
+	*db << "SELECT email FROM users WHERE id=:user_id", use(request.user_id), into(email);
 	*db << "DELETE FROM requests WHERE id = :request_id", use(requestId);
 	*db << "INSERT INTO uc_bridge (id, classroom_id, user_id) VALUES (DEFAULT, :classroomId, :userId)", use(request.room_id), use(request.user_id);
 
 	// get the register email html template from ../templates/register.html
-	std::ifstream file("./templates/email.html");
+	std::ifstream file("./templates/accepted.html");
 	std::stringstream buffer;
 	buffer << file.rdbuf();
 	std::string html;
 
 	// replace the placeholders in the html template with the user's data
-	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), senderFname);
-	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), senderLname);
+	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), ownerFname);
+	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), ownerLname);
+	html = std::regex_replace(html, std::regex("\\{\\{classroom\\}\\}"), classroomName);
 
 	json response;
 	response["id"] = request.id;
 	response["room_id"] = request.room_id;
 	response["user_id"] = request.user_id;
+
+	// send the email
+	cpr::Response r = cpr::Post(cpr::Url{ "https://api.eu.mailgun.net/v3/audovscpi.live/messages" },
+		cpr::Authentication{ mailgunUsername, mailgunPassword, cpr::AuthMode::BASIC },
+		cpr::Multipart{
+			{"from", "noreply@audovscpi.live"},
+			{"to", email},
+			{"subject", "Accepted join request"},
+			{"html", html}
+		}
+	);
 
 	return std::make_tuple(CppHttp::Net::ResponseType::JSON, response.dump(4), std::nullopt);
 }
@@ -340,12 +359,42 @@ returnType DeclineRequest(CppHttp::Net::Request& req) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "Unathorized", std::nullopt);
 	}
 
-	*db << "DELETE FROM requests WHERE id = :request_id", use(requestId);
+	std::string ownerFname;
+	std::string ownerLname;
+	std::string classroomName;
+	std::string email;
+
+	*db << "SELECT users.fname, users.lname, classrooms.name FROM requests INNER JOIN classrooms ON classrooms.id=requests.room_id INNER JOIN users ON classrooms.owner_id=users.id WHERE requests.id=:request_id", use(requestId), into(ownerFname), into(ownerLname), into(classroomName);
+	*db << "SELECT email FROM users WHERE id=:user_id", use(request.user_id), into(email);
+
+	// get the register email html template from ../templates/register.html
+	std::ifstream file("./templates/declined.html");
+	std::stringstream buffer;
+	buffer << file.rdbuf();
+	std::string html;
+
+	// replace the placeholders in the html template with the user's data
+	html = std::regex_replace(buffer.str(), std::regex("\\{\\{first_name\\}\\}"), ownerFname);
+	html = std::regex_replace(html, std::regex("\\{\\{last_name\\}\\}"), ownerLname);
+	html = std::regex_replace(html, std::regex("\\{\\{classroom\\}\\}"), classroomName);
+
+	// send the email
+	cpr::Response r = cpr::Post(cpr::Url{ "https://api.eu.mailgun.net/v3/audovscpi.live/messages" },
+		cpr::Authentication{ mailgunUsername, mailgunPassword, cpr::AuthMode::BASIC },
+		cpr::Multipart{
+			{"from", "noreply@audovscpi.live"},
+			{"to", email},
+			{"subject", "Declined join request"},
+			{"html", html}
+		}
+	);
 
 	json response;
 	response["id"] = request.id;
 	response["room_id"] = request.room_id;
 	response["user_id"] = request.user_id;
+
+	*db << "DELETE FROM requests WHERE id = :request_id", use(requestId);
 
 	return std::make_tuple(CppHttp::Net::ResponseType::JSON, response.dump(4), std::nullopt);
 }

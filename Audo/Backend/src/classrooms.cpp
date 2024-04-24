@@ -121,6 +121,10 @@ returnType GetClassroom(CppHttp::Net::Request& req) {
 		isOwner = false;
 	}
 
+	std::string teacherFname, teacherLname;
+
+	*db << "SELECT fname, lname FROM users WHERE id = :id", use(classroom.ownerId), into(teacherFname), into(teacherLname);
+
 	*db << "SELECT * FROM uc_bridge WHERE classroom_id = :classroomId AND user_id = :user_id", use(classroomId), use(std::stoi(userId));
 
 	if (!db->got_data() && !isOwner) {
@@ -128,7 +132,7 @@ returnType GetClassroom(CppHttp::Net::Request& req) {
 	}
 
 	std::vector<UClassroom> rooms;
-	soci::rowset<UClassroom> rsClassrooms = (db->prepare << "SELECT uc_bridge.id, uc_bridge.classroom_id, uc_bridge.user_id, users.fname, users.lname FROM uc_bridge INNER JOIN users ON uc_bridge.user_id=users.id WHERE uc_bridge.classroom_id=:room_id AND uc_bridge.user_id=:user_id", use(classroomId), use(std::stoi(userId)));
+	soci::rowset<UClassroom> rsClassrooms = (db->prepare << "SELECT uc_bridge.id, uc_bridge.classroom_id, uc_bridge.user_id, users.fname, users.lname FROM uc_bridge INNER JOIN users ON uc_bridge.user_id=users.id WHERE uc_bridge.classroom_id=:room_id", use(classroomId));
 	for (rowset<UClassroom>::const_iterator it = rsClassrooms.begin(); it != rsClassrooms.end(); ++it) {
 		rooms.push_back(*it);
 	}
@@ -138,6 +142,14 @@ returnType GetClassroom(CppHttp::Net::Request& req) {
 	response["name"] = classroom.name;
 	response["owner_id"] = classroom.ownerId;
 	response["unique_code"] = classroom.code;
+
+	json owner;
+	owner["fname"] = teacherFname;
+	owner["lname"] = teacherLname;
+	owner["user_id"] = classroom.ownerId;
+	owner["room_id"] = classroom.id;
+
+	response["users"].push_back(owner);
 
 	for (auto& room : rooms) {
 		json ucBridge;
