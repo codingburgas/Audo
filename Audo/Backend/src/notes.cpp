@@ -39,7 +39,9 @@ returnType AddNote(CppHttp::Net::Request& req) {
 	std::string content = body["content"];
 
 	int ownerId;
-	*db << "SELECT classrooms.owner_id FROM uc_bridge INNER JOIN classrooms ON classrooms.id=uc_bridge.classroom_id WHERE classrooms.id = :room_id AND uc_bridge.user_id = :user_id", use(roomId), use(std::stoi(userId)), into(ownerId);
+
+	*db << "SELECT classrooms.owner_id FROM classrooms WHERE id = :room_id", use(roomId), into(ownerId);
+	*db << "SELECT classrooms.owner_id FROM uc_bridge INNER JOIN classrooms ON classrooms.id=uc_bridge.classroom_id WHERE classrooms.id = :room_id AND uc_bridge.user_id = :user_id", use(roomId), use(std::stoi(userId));
 
 	if (!db->got_data() && ownerId != std::stoi(userId)) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "User not in classroom members", std::nullopt);
@@ -93,10 +95,12 @@ returnType GetNotes(CppHttp::Net::Request& req) {
 	}
 
 	int roomId = body["room_id"];
+	int ownerId;
 
+	*db << "SELECT classrooms.owner_id FROM classrooms WHERE id = :room_id", use(roomId), into(ownerId);
 	*db << "SELECT * FROM uc_bridge WHERE user_id=:user_id", use(std::stoi(userId));
 
-	if (!db->got_data()) {
+	if (!db->got_data() && std::stoi(userId) != ownerId) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "User not in classroom members", std::nullopt);
 	}
 
@@ -154,10 +158,17 @@ returnType GetNote(CppHttp::Net::Request& req) {
 	}
 
 	int noteId = body["note_id"];
+	int ownerId;
+
+	*db << "SELECT classrooms.owner_id FROM notes INNER JOIN classrooms ON classrooms.id = notes.classroom_id WHERE notes.id=:note_id", use(noteId), into(ownerId);
+
+	if (!db->got_data()) {
+		return std::make_tuple(CppHttp::Net::ResponseType::NOT_FOUND, "Note not found", std::nullopt);
+	}
 
 	*db << "SELECT * FROM uc_bridge WHERE user_id=:user_id", use(std::stoi(userId));
 
-	if (!db->got_data()) {
+	if (!db->got_data() && std::stoi(userId) != ownerId) {
 		return std::make_tuple(CppHttp::Net::ResponseType::NOT_AUTHORIZED, "User not in classroom members", std::nullopt);
 	}
 
