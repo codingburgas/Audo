@@ -206,7 +206,7 @@ returnType GetRankings(CppHttp::Net::Request& req) {
 	}
 
 	std::vector<UserScore> userScores;
-	soci::rowset<UserScore> rsUserScores = (db->prepare << "SELECT user_id, SUM(score) AS total_score FROM tests GROUP BY user_id ORDER BY total_score DESC");
+	soci::rowset<UserScore> rsUserScores = (db->prepare << "SELECT tests.user_id, CONCAT(users.fname, ' ', users.lname) AS full_name, SUM(score) AS total_score FROM tests INNER JOIN users ON users.id=tests.user_id GROUP BY tests.user_id, users.fname, users.lname ORDER BY total_score DESC");
 	for (rowset<UserScore>::const_iterator it = rsUserScores.begin(); it != rsUserScores.end(); ++it) {
 		userScores.push_back(*it);
 	}
