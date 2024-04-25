@@ -351,3 +351,10 @@ void Audo::on_DeleteButton_clicked()
     FetchUI();
 }
 
+
+void Audo::on_ParticipantsButton_clicked()
+{
+    switchAction->setText("TeacherGrades");
+    switchAction->trigger();
+}
+

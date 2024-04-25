@@ -32,6 +32,8 @@ private slots:
 
     void on_DeleteButton_clicked();
 
+    void on_ParticipantsButton_clicked();
+
 private:
     void AddClass(QJsonObject&& classInfo);
     void AddNote(const Note& noteInfo);
