@@ -1,6 +1,6 @@
 <h1 align="center">✏Team Audo</h1>
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1213554555971702884/1232869707087089825/S5GECSRYX1GA87OO-ezgif.com-crop.gif?ex=662b06e3&is=6629b563&hm=214c5a4704bf249d4fdebcea716c7ba18e7e50231bab9a1d5d27ccfafc9c7b30&" width="400">
+  <img src="https://cdn.discordapp.com/attachments/1147668800003637330/1232908425508163685/logo-removebg-preview.png?ex=662b2af2&is=6629d972&hm=4ed00b7bf81c4481a1a64504704179f2d01309ba66d11607038df36c896ae574&" width="400">
 </p>
 <br>
 <p align="center">
