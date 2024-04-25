@@ -42,6 +42,8 @@ private:
 private slots:
     void on_JoinClass_clicked();
 
+    void on_GradesButton_clicked();
+
 private:
     Ui::StudentNotes *ui;
     QAction* switchAction;

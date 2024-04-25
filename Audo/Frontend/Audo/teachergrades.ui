@@ -614,44 +614,6 @@ font: 600 16pt &quot;Inter&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="AccountTitle">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>241</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: #777777;
-}
-QPushButton:hover {
-font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: #000000;
-background-color: #EEEEEE;
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Account</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="ParticipantsIcon">
    <property name="geometry">
     <rect>
@@ -672,31 +634,6 @@ background-color: #EEEEEE;
    </property>
    <property name="pixmap">
     <pixmap resource="assets.qrc">:/icons/assets/icons/participants-icon.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="AccountIcon">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>140</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/account-icon.png</pixmap>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -895,7 +832,7 @@ background-color: #EEEEEE;
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -945,7 +882,7 @@ background-color: #EEEEEE;
     </rect>
    </property>
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -1031,8 +968,6 @@ font: 500 14pt &quot;Roboto Serif Medium&quot;;</string>
   <zorder>AddGradesTitle</zorder>
   <zorder>GradesFrame</zorder>
   <zorder>Logo</zorder>
-  <zorder>AccountTitle</zorder>
-  <zorder>AccountIcon</zorder>
   <zorder>ParticipantsTitle</zorder>
   <zorder>ParticipantsIcon</zorder>
   <zorder>Status</zorder>

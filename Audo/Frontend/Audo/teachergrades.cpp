@@ -313,3 +313,10 @@ void TeacherGrades::on_AddGradeButton_clicked()
     FetchUI(false);
 }
 
+
+void TeacherGrades::on_ClassesTitle_clicked()
+{
+    switchAction->setText("TeacherNotes");
+    switchAction->trigger();
+}
+

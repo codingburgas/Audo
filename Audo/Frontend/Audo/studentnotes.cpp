@@ -295,3 +295,10 @@ void StudentNotes::on_JoinClass_clicked()
     }
 }
 
+
+void StudentNotes::on_GradesButton_clicked()
+{
+    switchAction->setText("StudentGrades");
+    switchAction->trigger();
+}
+

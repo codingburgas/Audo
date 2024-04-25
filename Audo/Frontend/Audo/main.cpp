@@ -64,6 +64,7 @@ int main(int argc, char *argv[])
             currentWindow = &studentNotes;
         }
         else if (windowToSwitch == "StudentGrades"){
+            studentGrades.FetchUI();
             currentWindow->hide();
             currentWindow = &studentGrades;
         }

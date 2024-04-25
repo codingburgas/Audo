@@ -32,6 +32,8 @@ private slots:
 
     void on_AddGradeButton_clicked();
 
+    void on_ClassesTitle_clicked();
+
 private:
     void FetchParticipants(bool shouldReset = true);
     void FetchGrades();

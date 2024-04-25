@@ -103,69 +103,6 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="AccountButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>241</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
-background:none;
-border-radius: 10px;
-color: #777777;
-}
-QPushButton:hover {
-font: 600 14pt &quot;Roboto Serif SemiBold&quot;;
-border-radius: 10px;
-color: #000000;
-background-color: #EEEEEE;
- }
-
-</string>
-   </property>
-   <property name="text">
-    <string>Account</string>
-   </property>
-   <property name="flat">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="AccountIcon">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>140</y>
-     <width>31</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:none;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="assets.qrc">:/icons/assets/icons/account-icon.png</pixmap>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
   <widget class="QPushButton" name="GradesButton">
    <property name="geometry">
     <rect>
@@ -758,7 +695,6 @@ color: rgb(170, 0, 0);</string>
   <zorder>NameFrame</zorder>
   <zorder>Sidebar</zorder>
   <zorder>Logo</zorder>
-  <zorder>AccountButton</zorder>
   <zorder>GradesButton</zorder>
   <zorder>ClassesButton</zorder>
   <zorder>Status</zorder>
@@ -771,7 +707,6 @@ color: rgb(170, 0, 0);</string>
   <zorder>TopicsTitle</zorder>
   <zorder>TopicsIcon</zorder>
   <zorder>verticalLayoutWidget_3</zorder>
-  <zorder>AccountIcon</zorder>
   <zorder>horizontalLayoutWidget</zorder>
   <zorder>GradesIcon</zorder>
   <zorder>ClassesIcon</zorder>
