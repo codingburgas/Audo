@@ -8,17 +8,20 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import React from 'react';
-const request = async ({email, password} : {email : string | null, password : string | null}) => {
+const request = async ({firstName, lastName, selectedOption, email, password, router} : {firstName : string, lastName : string, selectedOption : any, email : string | null, password: string | null, router : AppRouterInstance | null}) => {
   console.log(`Params client fetch: ${email} ${password}`)
   try {
-    const response = await fetch("http://localhost:3000/api/audo/login", {
+    const response = await fetch("http://localhost:45098/api/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email : email,
-        password: password,
+        fname : firstName,
+        lname: lastName,
+        school: "VSCPI",
+        status: selectedOption
       }),
     });
 
@@ -37,9 +40,9 @@ const request = async ({email, password} : {email : string | null, password : st
   }
 }
 
-const submitForm = async ({email, password, router} : {email : string | null, password: string | null, router : AppRouterInstance | null}) =>{
-  await request({email, password});
-  if (router) {
+const submitForm = async ({firstName, lastName, selectedOption, email, password, router} : {firstName : string, lastName : string, selectedOption : any, email : string | null, password: string | null, router : AppRouterInstance | null}) =>{
+  await request({firstName, lastName, selectedOption, email, password, router});
+  if (router){
     router.push('/');
   }
 }
@@ -53,16 +56,30 @@ export default function AuthPage() {
   }, []);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('John');
+  const [lastName, setLastName] = useState('Doe');
+  const [selectedOption, setSelectedOption] = useState('student');
+
   const router = useRouter();
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center">
       <Card className="mx-auto max-w-sm scale-[2]">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Log in Audo</CardTitle>
-          <CardDescription>Enter your email and password to login to your account</CardDescription>
+          <CardTitle className="text-2xl font-bold">Register</CardTitle>
+          <CardDescription>Create your online Audo account to use anywhere, even in the app.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
+            <div className='flex'>
+            <div>
+            <Label htmlFor="fname">First name</Label>
+             <Input id="fname" placeholder="John" required type="text" className="bg-[#fefefe] tracking-wider max-w-[90%]" onChange={e => setFirstName(e.target.value)}   />
+             </div>
+             <div>
+            <Label htmlFor="lname">Last name</Label>
+             <Input id="lname" placeholder="Doe" required type="text" className="bg-[#fefefe] tracking-wider max-w-[90%]" onChange={e => setLastName(e.target.value)}  />
+             </div>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input id="email" placeholder="johndoe@vscpi.live" required type="email" className="bg-[#fefefe] tracking-wider" value={email} onChange={e => setEmail(e.target.value)} />
@@ -71,8 +88,15 @@ export default function AuthPage() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" required type="password" className="bg-[#fefefe] tracking-wider" value={password} onChange={e => setPassword(e.target.value)} />
             </div>
-            <Button className="w-full" type="submit" onClick={ () => submitForm({email, password, router})}>
-              Login
+            <div className="space-y-2">
+              <h1>Status:</h1>
+             <select className=' bg-[#fefefe] text-sm' value={selectedOption} onChange={e => setSelectedOption(e.target.value)}>
+                <option style={{fontSize: '17px'}} value="option1" className='pt-4'>teacher</option>
+                <option style={{fontSize: '17px'}} value="option2" className='pt-4'>student</option>
+            </select>
+            </div>
+            <Button className="w-full" type="submit" onClick={ () => submitForm({firstName, lastName, selectedOption, email, password, router})}>
+              Register
             </Button>
           </div>
         </CardContent>

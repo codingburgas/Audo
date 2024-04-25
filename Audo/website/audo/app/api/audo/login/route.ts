@@ -17,7 +17,16 @@ let response = await fetch("http://localhost:45098/api/login", {
 
 if (response.ok) {
     const { token } = await response.json();
-    return NextResponse.json({token : token}, {status: 200});
+    let logIn = await fetch("http://localhost:45098/api/get/user", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    const userInfo = await logIn.json();
+
+    return NextResponse.json({token : token, userInfo: userInfo}, {status: 200});
 } 
 else 
     console.log('Response failed', response.status);

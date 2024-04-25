@@ -1,9 +1,7 @@
 "use client"
 import * as React from "react";
-import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import Image from 'next/image';
-import PieChart from "../components/pieChart";
 import { Inter } from "next/font/google";
 import {
   Accordion,
@@ -26,48 +24,125 @@ import {
   ContextMenuSubContent
 } from "@/components/ui/context-menu"
 import TypingAnimation from "./typewriter"
-
+import { useState } from "react";
+import Cookies from 'js-cookie';
+import Pie from "../components/chart";
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button";
 
 const inter = Inter({ subsets: ["latin"] });
 
+  const getSubmittedTests = async () =>{
+    const token = Cookies.get("token");
+    let response = await fetch("http://localhost:45098/api/get/tests",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    if (response.ok){
+      const { tests } = await response.json();
+      return tests;
+    }
+  }
+
+
+  const getLeaderboard = async () =>{
+    const token = Cookies.get("token");
+    let response = await fetch("http://localhost:45098/api/get/rankings",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
+    })
+    if (response.ok){
+      const { rankings } = await response.json();
+      return rankings;
+    }
+  }
 
 export default function Home() {
-  const [total, setTotal] = useState(0);
+  const [ finishedTests, setFinishedTests ] = useState(0);
+  const [ leaderBoard, setLeaderBoard ] = useState()
+React.useEffect(() => {
+  const fetchTests = async () => {
+    const tests = await getSubmittedTests();
+    console.log("Tests: ")
+    if (tests)
+      setFinishedTests(tests.length); 
+      console.log(finishedTests);
+  };
+  fetchTests();
+}, [finishedTests]);
+
+React.useEffect(() => {
+  const fetchLeaderboard = async () => {
+    const ranks = await getLeaderboard();
+    let formattedRanks;
+    if (ranks)
+      formattedRanks = ranks.map(rank => `ID of user: ${rank.user_id} - ${rank.total_score}`);
+    if (formattedRanks)
+      setLeaderBoard(formattedRanks);
+  };
+  fetchLeaderboard();
+}, [leaderBoard]);
+
+  const [date, setDate] = useState(new Date());
+  const [finished, setFinished] = useState(0);
+  React.useEffect (() => {
+    if (Number(Cookies.get("counter")) >= 10){
+      Cookies.set("counter", 10);
+      setFinished(Number(Cookies.get("counter")) * 10)
+    }
+    else{
+      setFinished(Number(Cookies.get("counter")) * 10);
+    }
+    }, []);
+
+    React.useEffect(() => {
+      const timer = setInterval(() => {
+        setDate(new Date());
+      }, 1000);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }, []);
+
+  const [name, setName] = useState<String | null>('');
+  const [status, setStatus] = useState<String | null>('');
   const router = useRouter();
-  const getTotalStorageTests = () => {
-    let totalStorageTests =  localStorage.getItem('totalTests');
-    return totalStorageTests;
-    
-  };
+  const tests = [
+    { title: "History", url: "/history" },
+    { title: "Physics", url: "/physics" },
+    { title: "Math", url: "/math" },
+    { title: "Math", url: "/math" },
+    { title: "Math", url: "/math" },
+    { title: "Math", url: "/math" },
+    { title: "Math", url: "/math" },
+    { title: "Math", url: "/math" },
+  ];
 
-  // calculate result
-  const calculateResult = () => {
-    // get finished tests:
-    let finishedTests: any = getTotalStorageTests();
-    if(localStorage.getItem('totalTests') && localStorage.getItem('totalTests') !== '0') {
-      // get all tests
-          
-      let intFinishedTests = parseInt(finishedTests);
-      // calcutate  result: 10 tests, finished: 2 = 20%
-      let result = (intFinishedTests / 8) * 100;
-      setTotal(result);
+  React.useEffect(() => {
+    if (Cookies.get("name")) {
+      const name = Cookies.get("name");
+      const status = Cookies.get("status").toUpperCase();
+      setName(name);
+      setStatus(status);
     }
-    else {
-      setTotal(0);
+    else{
+      router.push("/auth");
     }
-  };
-
-  useEffect(() => {
-    calculateResult();
-  }, [])
+  }, [router]);
 
   return (
     <ContextMenu>
       <ContextMenuTrigger>
-          <div className="mt-10 ml-6 flex flex-row">
-          <div>
-
-            
+        <div className="flex flex-row">
+          <div className="mt-10 ml-20">
         <svg width="153" height="77" viewBox="0 0 153 77" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_235_2)">
           <path d="M56.7936 28.2167C56.7936 28.2167 61.8568 26.6541 63.7196 26.2935C65.5825 25.933 66.6811 25.7406 68.4962 25.0435C70.3591 24.3223 72.6996 22.856 73.5116 22.5435C74.3236 22.255 74.3236 22.3511 75.8522 22.0867C77.7628 21.7502 80.3899 19.7309 81.393 20.3078C81.9662 20.6684 83.4947 22.88 84.1634 21.9665C84.45 21.5819 85.071 20.9569 85.6919 21.1973C86.3606 21.4617 86.2173 21.4136 86.8861 22.6396C87.5548 23.8656 87.8414 23.7935 88.7012 24.2262C89.6087 24.6348 88.94 24.4425 89.8953 25.4041C90.8984 26.3657 92.8568 27.4474 93.5733 28.0244C94.0509 28.4571 94.4331 28.7936 94.5764 28.9138C92.4747 28.5772 88.5101 28.0003 83.9246 27.6157C83.4947 27.207 83.4469 26.5339 83.3514 26.2935C82.9693 25.332 80.4854 25.6204 81.3452 24.8272C81.6318 24.5147 85.5964 22.6877 84.2589 22.7838C83.4469 22.856 82.014 23.0002 81.7274 23.0723C77.6673 23.9377 82.6827 21.053 78.5748 21.9425C78.1927 22.0386 77.0941 21.9425 76.4253 22.3031C75.8044 22.6636 74.9446 22.2309 74.1804 22.6636C73.4161 23.0964 73.8938 23.2887 72.6518 23.7935C71.4577 24.2983 71.5055 24.3223 70.4546 24.6829C69.4515 25.0435 69.3082 25.5483 68.4007 25.7166C67.5409 25.8849 65.8691 26.2935 65.2959 26.2935C64.6749 26.2935 62.2867 27.0147 62.0001 27.1589C61.7612 27.3272 56.7936 28.2167 56.7936 28.2167Z" fill="black"/>
@@ -79,110 +154,75 @@ export default function Home() {
           <rect width="153" height="77" fill="white"/>
           </clipPath>
           </defs>
-        </svg>
-      <div className="flex flex-row items-end">
-            <div className="max-w-fit flex items-start flex-col max-h-fit object-fit ml-24">
-              <h1 className={`${inter.className} font-semibold text-[2.8rem] mt-14`}>
-               <TypingAnimation text = "Aleksandur Kolev's Available Tests" speed = {100} />
-              </h1>
-              <div className="flex flex-row">
-              <p className={`mr-1 ${inter.className} opacity-75 text-[1.4rem] font-semibold`}>9 GRADE</p>
-              <p  className={`${inter.className} opacity-75 text-[#121212] text-[1.4rem] font-semibold`}>STUDENT</p>
-              </div>
+          </svg>
+            <div className="flex flex-row items-end">
+                  <div className="max-w-fit flex items-start flex-col max-h-fit object-fit ml-24">
+                    <div className="flex flex-row max-w-screen relative">
+                      <h1 className={`${inter.className} font-semibold text-[2.8rem] mt-14`}>
+                      <TypingAnimation text = {`${name}'s available tests`} speed = {100} />
+                      </h1>
+                    </div>
+                    <div className="flex flex-row">
+                    <p  className={`${inter.className} opacity-75 text-[#121212] text-[1.4rem] font-semibold`}>{status}</p>
+                    </div>
+                  </div>
             </div>
-      </div>
             <Accordion type="single" collapsible className="mt-12 ml-32 text-[1.8rem]">
             <AccordionItem value="item-1" className="max-w-fit">
-              <AccordionTrigger className="max-w-fit">Natural Sciences</AccordionTrigger>
-              <AccordionContent className="max-w-fit">
-                <Link href="/history" style={{cursor: "pointer"}} className="text-[1.6rem]">Math</Link>
+              <AccordionTrigger onClick={() => console.log(leaderBoard)} className="max-w-fit">Natural Sciences</AccordionTrigger>
+              <AccordionContent className="max-w-fit flex flex-col gap-8 ml-2">
+                <Link href="/physics" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Physics</Link>
+                <Link href="#" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Chemistry</Link>
+                <Link href="#" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Geology</Link>
+                <Link href="#" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Biology</Link>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger>Languages</AccordionTrigger>
-              <AccordionContent>
-                <h1 className="text-[1.6rem]">Math</h1>
+              <AccordionContent className="max-w-fit flex flex-col gap-8 ml-2">
+                <h1 style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Deutsch</h1>
+                <h1 style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">English</h1>
+                <h1 style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Bulgarian</h1>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger>Social Sciences</AccordionTrigger>
-              <AccordionContent>
-                <h1 className="text-[1.6rem]">Math</h1>
+              <AccordionContent className="max-w-fit flex flex-col gap-8 ml-2">
+                <Link href="/history" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">History</Link>
+                <h1 style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Anthropology</h1>
+                <h1 style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Geography</h1>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger>Developer</AccordionTrigger>
-              <AccordionContent>
-                <h1 className="text-[1.6rem]">Math</h1>
+              <AccordionTrigger>Other</AccordionTrigger>
+              <AccordionContent className="max-w-fit flex flex-col gap-8 ml-2">
+                <Link href="/math" style={{cursor: "pointer"}} className="text-[1.6rem] hover:underline">Math</Link>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-           
-
+          <Button variant="secondary" className="scale-[1.7] rounded-lg ml-36 mt-20" onClick={() => router.push("/auth")}>Sign Out</Button>
             </div>
-            <div className="ml-[30vw] mt-[10vh]">
-
-            
-    <PieChart total={total} />
-    {total !== 0 ? (
-                <div className="font-semibold text-2xl mt-10 mb-5 -ml-[2rem]">Total Finished Tests: {total}%</div>
-            ) : (
-                <div>0%</div>
-            )}
-    </div>
+            <div>
+              <div className="absolute right-[10%] top-[29%] flex items-start">
+                <ScrollArea className="h-[30rem] w-[45rem] rounded-lg border absolute bottom-0 -translate-x-32 mt-24 -ml-24">
+                  <div className="p-4">
+                    <h4 className="text-4xl font-medium leading-none mb-12 mt-4 ml-6">Leaderboard Total Score</h4>
+                    {leaderBoard && leaderBoard.map((rank) => (
+                      <>
+                        <div key={rank} className="text-3xl mb-4 pb-2 ml-8">
+                          {rank}
+                        </div>
+                        <Separator className="my-3 mb-4" />
+                      </>
+                    ))}
+                  </div>
+                </ScrollArea>
+                <Pie total={finishedTests * 10} />
+                <h1 className={`${inter.className} font-semibold text-[2.6rem] -top-0 absolute -mt-[13.5rem] -ml-[17rem]`}>Statistics as of {date.toLocaleString()}</h1>
+              </div>
             </div>
-          <ContextMenuContent
-              className="min-w-[18rem] bg-[#fdfdff] rounded-lg overflow-hidden p-[0.5rem] shadow-lg border-solid border-[0.1rem] border-[#CCCCCC] border-opacity-60"
-              sideOffset={5}
-              align="end"
-            >
-              <ContextMenuLabel className={`pl-[2.3rem] text-[1.25rem] leading-[25px] tracking-wide ${inter.className} font-medium text-[#333] opacity-80`}>
-                General
-              </ContextMenuLabel>
-              <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className}`}>
-                Back{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  Ctrl+B
-                </div>
-              </ContextMenuItem>
-              <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className}`}>
-                    Save{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  Ctrl+S
-                </div>
-              </ContextMenuItem>
-              <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className} mb-2`} onClick={()=>location.reload()}>
-                Reload{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  Ctrl+R
-                </div>
-              </ContextMenuItem>
-                <ContextMenuSeparator className="h-[1px] bg-[#333333] bg-opacity-40 m-[5px]" />
-                <ContextMenuLabel className={`pl-[25px] text-[1.25rem] leading-[25px] tracking-wide ${inter.className} font-medium text-[#333] opacity-80`}>
-                Low-level
-              </ContextMenuLabel>
-                <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className}`}>
-                Change Mode{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  Ctrl+G
-                </div>
-              </ContextMenuItem>
-                <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className}`} >
-                Show Editor{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  Ctrl+E
-                </div>
-              </ContextMenuItem>
-                <ContextMenuItem className={`group text-[1.4rem] leading-none text-[#333333] rounded-[0.3rem] flex items-center h-[2.5rem] px-[0.5rem] relative pl-[2.5rem] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-[#007BFF] tracking-wider ${inter.className} mb-3`}>
-                Toggle Pen{' '}
-                <div className="ml-auto pl-5 text-mauve11 group-data-[highlighted]:text-[#007BFF] group-data-[disabled]:text-mauve8 tracking-wider">
-                  P
-                </div>
-              </ContextMenuItem>
-            </ContextMenuContent>
+          </div>
       </ContextMenuTrigger>
-  </ContextMenu>
-  
+    </ContextMenu>
     );
-    
 }

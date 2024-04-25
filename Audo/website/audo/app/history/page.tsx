@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { updateTotalStorageTests } from "@/utils/service";
 
 export default function Home() {
   const [progress, setProgress] = useState(0);
@@ -88,7 +87,6 @@ export default function Home() {
     ];
   
 
-
   const handleDecrementButtonClick = () => {
     if (progress > 0) {
       setProgress(progress - 10);
@@ -112,10 +110,6 @@ export default function Home() {
   const handleSubmit = () => {
     router.push(`/app/grade.tsx`);
   };
-  
-  const onNextClick = () => {
-
-  }
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
@@ -161,7 +155,7 @@ export default function Home() {
 
         <div className="flex justify-center space-x-96 mt-[7vw]">
           <Button className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={handleDecrementButtonClick}>Prev</Button>
-          <Button onClickCapture={isLastQuestion ? updateTotalStorageTests : onNextClick } className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={isLastQuestion ?() =>  router.push('/grade') : handleIncrementButtonClick}>
+          <Button className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={isLastQuestion ?() =>  router.push('/grade') : handleIncrementButtonClick}>
             {isLastQuestion ? 'Submit' : 'Next'}
           </Button>
         </div>

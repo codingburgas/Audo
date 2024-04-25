@@ -4,12 +4,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Cookies from "js-cookie";
 
 export default function Home() {
   const [progress, setProgress] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
-    const router = useRouter()
+  const [answers, setAnswers] = useState([]);
+  let router = useRouter();
 
   const questions = [
     "What is the unit of measurement for force?",
@@ -69,59 +71,95 @@ export default function Home() {
     setSelectedAnswerIndex(null);
   };
 
-  const handleAnswerChange = (index) => {
-    setSelectedAnswerIndex(index);
-  };
+const handleAnswerChange = (index) => {
+  if (selectedAnswerIndex === index) {
+    setAnswers(answers.filter((_, i) => i !== currentQuestionIndex));
+  } else {
+    let answer = index === null ? rightAnswers[currentQuestionIndex] : wrongAnswers[currentQuestionIndex][index];
+    handleAnswerSubmit(questions[currentQuestionIndex], answer);
+  }
+  setSelectedAnswerIndex(index);
+};
+const handleAnswerSubmit = (question, answer) => {
+  setAnswers([...answers, { question, answer }]);
+};
 
-  const handleSubmit = () => {
-    router.push(`/app/grade.tsx`);
-  };
+const handleSubmit = async (answers : any[]) => {
+  let token = Cookies.get("token");
+  let submit = Number(Cookies.get("counter"));
+  submit+= 1;
+  Cookies.set("counter", submit);
+  if (!token) 
+    router.push("/login");
+else {
+  const formattedAnswers = answers.map((answer, index) => ({
+    question: questions[index],
+    answer: answer,
+  }));
 
+  let res = await fetch("http://localhost:45098/api/submit/test", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      subject: "physics",
+      answers: formattedAnswers,
+    }),
+  });
+
+  console.log(JSON.stringify({
+      subject: "physics",
+      answers: formattedAnswers,
+    }))
+
+  if (res.ok){
+    router.push("/");
+  }
+}
+};
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
-
   return (
-    <Card className="w-[80vw] h-[80vh] ml-[10vw] mt-[10vh]">
-      <div className="h-2 bg-gray-200 rounded-md mb-4">
-        <div className="h-full bg-blue-800 rounded-md" style={{ width: `${progress}%` }}></div>
-      </div>
+        <Card className="w-[80vw] h-[80vh] ml-[10vw] mt-[10vh]">
+                <div className="h-2 bg-gray-200 rounded-md mb-4">
+                  <div className="h-full bg-blue-800 rounded-md" style={{ width: `${progress}%` }}></div>
+                </div>
 
-      <CardHeader>
-        <CardTitle className="text-4xl font-black text-blue-800 dark:text-white text-center mt-[5vw] pl-[20vw] pr-[20vw]">{questions[currentQuestionIndex]}</CardTitle>
-      </CardHeader>
+                <CardHeader>
+                  <CardTitle className="text-4xl font-black text-blue-800 dark:text-white text-center mt-[5vw] pl-[20vw] pr-[20vw]">{questions[currentQuestionIndex]}</CardTitle>
+                </CardHeader>
 
-      <CardContent className="flex justify-center flex-col items-center">
-        <div className="flex flex-col items-start space-y-2">
-        <>
-  <label key="right" className="flex items-center space-x-2 mt-[6vh]">
-    <input
-      type="radio"
-      name="answer"
-      checked={selectedAnswerIndex === null}
-      onChange={() => handleAnswerChange(null)}
-      className="appearance-none h-5 w-5 border border-gray-300 rounded-full checked:bg-blue-800 checked:border-transparent focus:outline-none"
-    />
-    <span className="text-3xl font-semibold text-slate-500 dark:text-white text-center pl-5 ">{rightAnswers[currentQuestionIndex]}</span>
-  </label>
-  {wrongAnswers[currentQuestionIndex].map((answer, index) => (
-    <label key={index} className="flex items-center space-x-2 ">
-      <input
-        type="radio"
-        name="answer"
-        checked={selectedAnswerIndex === index}
-        onChange={() => handleAnswerChange(index)}
-        className="appearance-none h-5 w-5 border border-gray-300 rounded-full checked:bg-blue-800 checked:border-transparent focus:outline-none"
-      />
-      <span className="text-3xl font-semibold text-slate-500 dark:text-white text-center pl-5">{answer}</span>
-    </label>
-  ))}
-</>
-
-        
+                <CardContent className="flex justify-center flex-col items-center">
+                  <div className="flex flex-col items-start space-y-2">
+                  <>
+            <label key="right" className="flex items-center space-x-2 mt-[6vh]">
+              <input
+                type="radio"
+                name="answer"
+                checked={selectedAnswerIndex === null}
+                onChange={() => handleAnswerChange(null)}
+                className="appearance-none h-5 w-5 border border-gray-300 rounded-full checked:bg-blue-800 checked:border-transparent focus:outline-none"
+              />
+              <span className="text-3xl font-semibold text-slate-500 dark:text-white text-center pl-5 ">{rightAnswers[currentQuestionIndex]}</span>
+            </label>
+            {wrongAnswers[currentQuestionIndex].map((answer, index) => (
+              <label key={index} className="flex items-center space-x-2 ">
+                <input
+                  type="radio"
+                  name="answer"
+                  checked={selectedAnswerIndex === index}
+                  onChange={() => handleAnswerChange(index)}
+                  className="appearance-none h-5 w-5 border border-gray-300 rounded-full checked:bg-blue-800 checked:border-transparent focus:outline-none"
+                />
+                <span className="text-3xl font-semibold text-slate-500 dark:text-white text-center pl-5">{answer}</span>
+              </label>
+            ))}
+          </>
         </div>
-
         <div className="flex justify-center space-x-96 mt-[7vw]">
           <Button className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={handleDecrementButtonClick}>Prev</Button>
-          <Button className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={isLastQuestion ?() =>  router.push('/grade') : handleIncrementButtonClick}>
+          <Button className="bg-gradient-to-r from-indigo-300 via-slate-800 to-indigo-300 text-white py-3 px-6 rounded-md text-center transition duration-300 hover:bg-blue-600 text-xl" onClick={isLastQuestion ?() =>  handleSubmit(answers) : handleIncrementButtonClick}>
             {isLastQuestion ? 'Submit' : 'Next'}
           </Button>
         </div>
