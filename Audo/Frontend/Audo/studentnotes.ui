@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Student Notes</string>
+   <string>Audo</string>
   </property>
   <widget class="QLabel" name="Frame">
    <property name="geometry">

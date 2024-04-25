@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Audo</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(75, 76, 173);</string>
@@ -55,7 +55,7 @@
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::TabFocus</enum>
+    <enum>Qt::StrongFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -92,7 +92,7 @@ color: #777777;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::TabFocus</enum>
+    <enum>Qt::StrongFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -306,7 +306,7 @@ font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::TabFocus</enum>
+    <enum>Qt::StrongFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -471,7 +471,7 @@ border-radius: 16px;</string>
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::TabFocus</enum>
+    <enum>Qt::StrongFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -524,7 +524,7 @@ color: rgb(170, 0, 0);</string>
     </rect>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::TabFocus</enum>
+    <enum>Qt::StrongFocus</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">background: none;

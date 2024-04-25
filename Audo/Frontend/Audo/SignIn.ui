@@ -32,7 +32,7 @@
    <cursorShape>ArrowCursor</cursorShape>
   </property>
   <property name="windowTitle">
-   <string>Sign In</string>
+   <string>Audo</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
