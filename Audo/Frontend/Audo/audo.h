@@ -1,49 +1,53 @@
 #ifndef AUDO_H
 #define AUDO_H
 
-#include <QFont>
-#include <QGraphicsDropShadowEffect>
 #include <QMainWindow>
-#include <QScrollArea>
-#include <QtNetwork/QNetworkRequest>
-#include "utils.h"
-#include <QVector>
+#include <QAction>
 
-constexpr int widthClass = 331;
-constexpr int heightClass = 41;
+#include "studentnotes.h"
 
-QT_BEGIN_NAMESPACE
+#include <QPushButton>
+
 namespace Ui {
 class Audo;
 }
-QT_END_NAMESPACE
 
 class Audo : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Audo(QAction* switcher, QWidget *parent = nullptr);
-    // QGraphicsDropShadowEffect *shadowEffect;
-    // QScrollArea *scrollArea = nullptr;
+    explicit Audo(QAction* switchAction, QWidget *parent = nullptr);
     ~Audo();
 
-    // int xClass = 29;  //base x for classes
-    // int yClass = 230; // 130
-    bool notesPage = true;
-    bool gradesPage = false;
-
-    // void retrieveUserInfo();
-//     void setUserName(QVector<std::string>& v);
-
-// public slots:
-//     void notesHeadClick();
-//     void gradesHeadClick();
-//     void joinRoom() const;
-
-
 public:
+    void FetchUI();
+
+private slots:
+    void on_JoinClass_clicked();
+
+    void on_AddNote_clicked();
+
+    void on_EditButton_clicked();
+
+    void on_DeleteButton_clicked();
+
+private:
+    void AddClass(QJsonObject&& classInfo);
+    void AddNote(const Note& noteInfo);
+
+    void SetClass(QPushButton* classButton);
+    void SetNote(QPushButton* noteButton);
+
+    void DeleteClass(QPushButton* deleteButton);
+
+    void LoadNotes();
+
+private:
     Ui::Audo *ui;
     QAction* switchAction;
+
+    std::vector<Note> loadedNotes;
 };
+
 #endif // AUDO_H

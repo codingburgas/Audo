@@ -34,40 +34,6 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(75, 76, 173);</string>
   </property>
-  <widget class="QTextEdit" name="Password">
-   <property name="geometry">
-    <rect>
-     <x>350</x>
-     <y>430</y>
-     <width>571</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Roboto Serif Medium</family>
-     <pointsize>16</pointsize>
-     <italic>false</italic>
-     <fontweight>DemiBold</fontweight>
-    </font>
-   </property>
-   <property name="cursor" stdset="0">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background: none;
-font: 600 16pt &quot;Roboto Serif Medium&quot;;
-background-color: rgba(255, 255, 255, 0);
-border: none;
-color: #777777;</string>
-   </property>
-   <property name="placeholderText">
-    <string>Password</string>
-   </property>
-  </widget>
   <widget class="QTextEdit" name="FName">
    <property name="geometry">
     <rect>
@@ -87,6 +53,9 @@ color: #777777;</string>
    </property>
    <property name="cursor" stdset="0">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -121,6 +90,9 @@ color: #777777;</string>
    </property>
    <property name="cursor" stdset="0">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
@@ -171,6 +143,9 @@ border-radius: 16px;</string>
    </property>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton {
@@ -330,6 +305,9 @@ font: 600 15pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="cursor" stdset="0">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -426,6 +404,9 @@ font: 600 20pt &quot;Roboto Serif Medium&quot;;</string>
    <property name="cursor">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -489,6 +470,9 @@ border-radius: 16px;</string>
    <property name="cursor" stdset="0">
     <cursorShape>PointingHandCursor</cursorShape>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
@@ -530,6 +514,32 @@ color: rgb(170, 0, 0);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLineEdit" name="Password">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>425</y>
+     <width>551</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::TabFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+font: 600 16pt &quot;Roboto Serif Medium&quot;;
+background-color: rgba(255, 255, 255, 0);
+border: none;
+color: #777777;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>Password</string>
+   </property>
+  </widget>
   <zorder>Background</zorder>
   <zorder>Frame</zorder>
   <zorder>PasswordFrame</zorder>
@@ -541,13 +551,13 @@ color: rgb(170, 0, 0);</string>
   <zorder>LName</zorder>
   <zorder>SignInLabel</zorder>
   <zorder>Email</zorder>
-  <zorder>Password</zorder>
   <zorder>SignInTitle</zorder>
   <zorder>SignInType</zorder>
   <zorder>SchoolFrame</zorder>
   <zorder>School</zorder>
   <zorder>SignInButton</zorder>
   <zorder>Warning</zorder>
+  <zorder>Password</zorder>
  </widget>
  <resources>
   <include location="assets.qrc"/>

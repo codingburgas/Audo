@@ -100,6 +100,68 @@ namespace audoUtil{
 
     }
 
+    [[maybe_unused]]
+    static void put(const std::string&& urlAdd, Body body, const bool&& needAuth = false){
+
+        QJsonObject jsonObj;
+        for(auto& param : body)
+        {
+            try
+            {
+                std::ignore = std::get<int>(std::get<1>(param));
+                jsonObj.insert(QString::fromStdString(std::get<0>(param)), std::get<int>(std::get<1>(param)));
+            }
+            catch (...)
+            {
+                jsonObj.insert(QString::fromStdString(std::get<0>(param)), std::get<QString>(std::get<1>(param)));
+            }
+
+        }
+
+        QJsonDocument jsonDoc;
+        jsonDoc.setObject(jsonObj);
+
+        cpr::Response r;
+        if(needAuth)
+            r = cpr::Put(cpr::Url{audoCfg::baseUrl + urlAdd},
+                          cpr::Header{{"Authorization", "Bearer " + audoCfg::authToken}},
+                          cpr::Body{jsonDoc.toJson()});
+        else
+            r = cpr::Put(cpr::Url{audoCfg::baseUrl + urlAdd},
+                          cpr::Body{jsonDoc.toJson()});
+    }
+
+    [[maybe_unused]]
+    static void del(const std::string&& urlAdd, Body body, const bool&& needAuth = false){
+
+        QJsonObject jsonObj;
+        for(auto& param : body)
+        {
+            try
+            {
+                std::ignore = std::get<int>(std::get<1>(param));
+                jsonObj.insert(QString::fromStdString(std::get<0>(param)), std::get<int>(std::get<1>(param)));
+            }
+            catch (...)
+            {
+                jsonObj.insert(QString::fromStdString(std::get<0>(param)), std::get<QString>(std::get<1>(param)));
+            }
+
+        }
+
+        QJsonDocument jsonDoc;
+        jsonDoc.setObject(jsonObj);
+
+        cpr::Response r;
+        if(needAuth)
+            r = cpr::Delete(cpr::Url{audoCfg::baseUrl + urlAdd},
+                          cpr::Header{{"Authorization", "Bearer " + audoCfg::authToken}},
+                          cpr::Body{jsonDoc.toJson()});
+        else
+            r = cpr::Delete(cpr::Url{audoCfg::baseUrl + urlAdd},
+                          cpr::Body{jsonDoc.toJson()});
+    }
+
     [[maybe_unused]] [[nodiscard]]
     static Response get(const std::string&& urlAdd, const ResponseType&& type = ResponseType::OBJECT){
 

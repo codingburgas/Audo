@@ -25,7 +25,7 @@ void SignIn::on_Continue_clicked(){
     audoUtil::Body body =
     {
         { "email", ui->Email->toPlainText() },
-        { "password", ui->Password->toPlainText() }
+        { "password", ui->Password->text() }
     };
 
     audoUtil::Response response = audoUtil::post("/api/login", body);
@@ -47,7 +47,7 @@ void SignIn::on_Continue_clicked(){
 
         audoCfg::school = user.data["school"].toString();
 
-        if(audoCfg::status == "teacher")
+        if(audoCfg::status == "Teacher")
             switchAction->setText("TeacherNotes");
 
         else

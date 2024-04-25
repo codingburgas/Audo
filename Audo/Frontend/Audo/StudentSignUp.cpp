@@ -29,7 +29,7 @@ void StudentSignUp::on_Continue_clicked()
         { "first_name", ui->FName->toPlainText() },
         { "last_name", ui->LName->toPlainText() },
         { "email", ui->Email->toPlainText() },
-        { "password", ui->Password->toPlainText() },
+        { "password", ui->Password->text() },
         { "status", "student" },
         { "school", ui->School->toPlainText() }
     };

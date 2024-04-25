@@ -11,16 +11,13 @@ TeacherGrades::TeacherGrades(QAction* switcher, QWidget *parent)
 
 void TeacherGrades::FetchUI()
 {
+    //FetchParticipants();
     FetchGrades();
 }
 
 
 void TeacherGrades::FetchGrades()
 {
-    AddGrade(3, "student is slow");
-    AddGrade(2, "student became even slower");
-    AddGrade(2, "Student became Ivan Stoychev");
-    AddGrade(1, "Student became Stoyan Ivanov");
 
 }
 

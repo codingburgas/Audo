@@ -142,7 +142,7 @@ void StudentNotes::AddClass(QJsonObject&& classInfo)
     // leaveButton->setMinimumSize(QSize(26, 26));
 
     // leaveButton->setObjectName(std::to_string(classInfo["id"].toInt()) + "LeaveButton");
-    // leaveButton->setStyleSheet("QPushButton{ background-color: rgba(255, 0, 0, 123); border-radius: 10px; font: 500 14pt \"Inter\"; color: rgba(255, 255, 255, 255);} QPushButton:hover{ background-color: rgba(255, 0, 0, 255); }");
+    // leaveButton->setStyleSheet("QPushButton{ background-color: rgba(255, 0, 0, 123); border-radius: 6px; font: 500 14pt \"Inter\"; color: rgba(255, 255, 255, 255);} QPushButton:hover{ background-color: rgba(255, 0, 0, 255); }");
     // leaveButton->setCursor(Qt::CursorShape::PointingHandCursor);
 
     // leaveButton->setFlat(true);
