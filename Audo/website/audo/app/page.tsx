@@ -83,7 +83,7 @@ React.useEffect(() => {
     const ranks = await getLeaderboard();
     let formattedRanks;
     if (ranks)
-      formattedRanks = ranks.map(rank => `ID of user: ${rank.user_id} - ${rank.total_score}`);
+      formattedRanks = ranks.map(rank => `${rank.full_name} - ${rank.total_score} points`);
     if (formattedRanks)
       setLeaderBoard(formattedRanks);
   };
